@@ -1,3 +1,13 @@
 body {
     color: #f76c6c;
 }
+
+
+:root {
+    --lightPrimary : #FFF8F3; 
+    --darkerRed : ##750B15 ;
+    --darkRed: #750B15 ;
+    --yellowWine: #D4AF06 ;
+    --pinkWine: #FCB8BE ;
+    --redWine:#BB1A2B;
+}                    
