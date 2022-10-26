@@ -1,7 +1,52 @@
 :root {
-    --lightPrimary : #FFF8F3; 
+    --lightPrimary : #FFF8F3;
+    --darkdarkRed :#4F0008;
     --darkRed: #750B15 ;
     --yellowWine: #D4AF06 ;
     --pinkWine: #FCB8BE ;
     --redWine:#BB1A2B;
-}                    
+}     
+body{
+    background-color: var(--darkRed);
+}
+nav {
+    background-color: var(--darkRed);
+}
+
+p{
+    color: var( --lightPrimary);
+
+}
+
+footer {
+    background-color: var(--darkRed);
+}
+
+@media (max-width: 576px) {
+     .navbar-collapse {
+        height: 89vh;
+    }
+    .navbar-nav{
+        padding-top:50px;  
+    }
+    p{
+        font-size : 23px;
+    }
+    .mnu {
+        padding-top : 50px;
+    }
+    .logout{
+        background-color:var(--darkdarkRed) ;
+    }
+   
+}
+@media (min-width: 576px) {
+    .mnu {
+        display : none;
+        padding-top : 50px;
+    }
+    .logout{
+        display : none;
+    } 
+  
+}
