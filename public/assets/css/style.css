@@ -1,7 +1,16 @@
 :root {
-    --lightPrimary : #FFF8F3; 
-    --darkRed: #750B15 ;
-    --yellowWine: #D4AF06 ;
-    --pinkWine: #FCB8BE ;
-    --redWine:#BB1A2B;
-}                    
+    --lightPrimary: #fff8f3;
+    --darkRed: #750b15;
+    --yellowWine: #d4af06;
+    --pinkWine: #fcb8be;
+    --redWine: #bb1a2b;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body {
+    background-color: var(--darkRed);
+}

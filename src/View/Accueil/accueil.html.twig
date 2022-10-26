@@ -1,0 +1,18 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Ma cave
+{% endblock %}
+
+{% block content %}
+
+	<div style="display:flex; align-items:center; height:200px; background-size: cover;background-position:center; background-repeat:no-repeat; background-image: url(assets/images/cellar.jpg);width:100">
+		<div class="w-100 d-flex justify-content-around">
+			<input type="button" class="btn btn-lg btn-light " value="Ma cave">
+			<input type="button" class="btn btn-lg btn-light" value="Ajouter un vin"/>
+		</div>
+	</div>
+
+
+	<section class="vin-a-deguster"></section>
+	<section class="stats"></section>
+{% endblock %}
