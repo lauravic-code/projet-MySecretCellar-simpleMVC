@@ -24,4 +24,7 @@ footer {
     .logout{
         background-color:var(--darkdarkRed) ;
     }
+    .navbar-collapse {
+        height: 98vh;
+    }
    }
