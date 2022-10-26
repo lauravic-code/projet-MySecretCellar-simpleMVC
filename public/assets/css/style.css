@@ -1,9 +1,11 @@
-:root {
-    --lightPrimary: #fff8f3;
-    --darkRed: #750b15;
-    --yellowWine: #d4af06;
-    --pinkWine: #fcb8be;
-    --redWine: #bb1a2b;
+:root { 
+    --lightPrimary : #FFF8F3;
+    --darkdarkRed :#4F0008;
+    --darkRed: #750B15 ;
+    --yellowWine: #D4AF06 ;
+    --pinkWine: #FCB8BE ;
+    --redWine:#BB1A2B;
+
 }
 * {
     margin: 0;
@@ -11,3 +13,31 @@
     box-sizing: border-box;
     text-decoration: none;
 }
+  
+body{
+    background-color: #750B15;
+}
+     
+
+nav {
+    background-color: var(--darkRed);
+}
+
+p{
+    color: var( --lightPrimary);
+
+}
+
+footer {
+    background-color: var(--darkRed);
+}
+
+@media (max-width: 576px) {
+    .logout{
+        background-color:var(--darkdarkRed) ;
+    }
+    .navbar-collapse {
+        height: 98vh;
+    }
+   }
+
