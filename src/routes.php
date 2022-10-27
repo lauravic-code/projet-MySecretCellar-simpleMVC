@@ -13,7 +13,10 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
-
+    //register
+    'register' => ['RegisterController', 'viewRegister',],
+    // miniatures
+    'maCave' => ['MiniaturesController', 'index',],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
 ];

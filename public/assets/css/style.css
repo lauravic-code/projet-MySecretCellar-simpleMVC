@@ -1,30 +1,33 @@
-:root { 
-    --lightPrimary : #FFF8F3;
-    --darkdarkRed :#4F0008;
-    --darkRed: #750B15 ;
-    --yellowWine: #D4AF06 ;
-    --pinkWine: #FCB8BE ;
-    --redWine:#BB1A2B;
+:root {
+    --lightPrimary: #FFF8F3;
+    --darkdarkRed: #4F0008;
+    --darkRed: #750B15;
+    --yellowWine: #D4AF06;
+    --pinkWine: #FCB8BE;
+    --redWine: #BB1A2B;
 
 }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
 }
-  
-body{
+
+body {
     background-color: #750B15;
+    color: var(--lightPrimary);
+
 }
-     
+
 
 nav {
     background-color: var(--darkRed);
 }
 
-p{
-    color: var( --lightPrimary);
+p {
+    color: var(--lightPrimary);
 
 }
 
@@ -33,11 +36,68 @@ footer {
 }
 
 @media (max-width: 576px) {
-    .logout{
-        background-color:var(--darkdarkRed) ;
+    .logout {
+        background-color: var(--darkdarkRed);
     }
+
     .navbar-collapse {
         height: 98vh;
     }
+    .responsive-font-example {
+        font-size: 15px;
+      }
    }
 
+  
+
+ @media (min-width:576px) {
+    .responsive-font-example {
+        font-size: 20px;
+      }
+   }
+
+
+/*//////////////////////index.html.twig////////////////////////////////////////*/
+
+.signin {
+    text-align: center;
+    margin-top: 10%;
+}
+
+
+.containerlogin {
+    width: 40%;
+    height: 50%;
+    margin-top: 20%;
+}
+
+.formindex {
+    margin-top: 10%;
+}
+
+a:hover {
+    color: white;
+}
+
+.btn {
+    background-color: #750B15;
+}
+
+/*////////////////////////////////register.html.twig//////////////////////////////*/
+
+
+
+.bandeau {
+    background-color: var(--lightPrimary);
+}
+
+#btnregister {
+    background-color: var(--darkdarkRed);
+    width: 40%;
+}
+
+.form-control::placeholder {
+    color: black;
+    opacity: 1;
+    font-size: larger;
+}
