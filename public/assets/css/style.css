@@ -43,8 +43,18 @@ footer {
     .navbar-collapse {
         height: 98vh;
     }
-}
+    .responsive-font-example {
+        font-size: 15px;
+      }
+   }
 
+  
+
+ @media (min-width:576px) {
+    .responsive-font-example {
+        font-size: 20px;
+      }
+   }
 
 
 /*//////////////////////index.html.twig////////////////////////////////////////*/
