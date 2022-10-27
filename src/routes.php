@@ -13,5 +13,8 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
+    // miniatures
     'miniatures' => ['MiniaturesController', 'index',],
+    //accueil
+    "accueil" => ['HomeController', 'accueil'],
 ];

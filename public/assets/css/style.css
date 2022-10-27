@@ -1,11 +1,19 @@
-:root {
+:root { 
     --lightPrimary : #FFF8F3;
     --darkdarkRed :#4F0008;
     --darkRed: #750B15 ;
     --yellowWine: #D4AF06 ;
     --pinkWine: #FCB8BE ;
     --redWine:#BB1A2B;
-}    
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+  
 body{
     background-color: #750B15;
 }
@@ -32,3 +40,4 @@ footer {
         height: 98vh;
     }
    }
+
