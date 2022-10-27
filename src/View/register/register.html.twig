@@ -1,0 +1,71 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+	<div>
+		<div class="pt-4" style="height: 150px; background-color:var(--lightPrimary);">
+			<div style="border-bottom:solid; border-bottom-color:var(--darkRed)">
+				<h1 class="pt-2 pb-3" style="color:var(--darkRed) ">
+					Inscription
+				</h1>
+			</div>
+		</div>
+
+
+		<div
+			class="container w-50 d-flex flex-column ">
+			<!-- 
+																																																																																																																																																																																																						<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+																																																																																																																																																																																																							<div class="carousel-inner">
+																																																																																																																																																																																																								<div class="carousel-item active d-flex justify-content-center ">
+																																																																																																																																																																																																									<img class="" src="/assets/images/avatar/avatar1.png" alt="avatar1" width="40%" height="40%">
+																																																																																																																																																																																																								</div>
+																																																																																																																																																																																																								<div class="carousel-item">
+																																																																																																																																																																																																									<img class="d-block w-100" src="/assets/images/avatar/avatar2.png" alt="avatar2">
+																																																																																																																																																																																																								</div>
+																																																																																																																																																																																																								<div class="carousel-item">
+																																																																																																																																																																																																									<img class="d-block w-100" src="..." alt="Third slide">
+																																																																																																																																																																																																								</div>
+																																																																																																																																																																																																							</div>
+																																																																																																																																																																																																							<a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+																																																																																																																																																																																																								<span class="carousel-control-prev-icon " aria-hidden="true"></span>
+																																																																																																																																																																																																								<span class="sr-only ms-8"></span>
+																																																																																																																																																																																																							</a>
+																																																																																																																																																																																																							<a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+																																																																																																																																																																																																								<span class="carousel-control-next-icon" aria-hidden="true"></span>
+																																																																																																																																																																																																								<span class="sr-only ms-8"></span>
+																																																																																																																																																																																																							</a>
+																																																																																																																																																																																																						</div>
+																																																																																																																																																																																																				 -->
+			<div class="text-center pt-3">
+				<img src="/assets/images/SecretCellarLogo.png" class="rounded" alt="logo secretCellar">
+			</div>
+
+
+			<div class="register pt-4">
+				<form class="formregister" method="post">
+					<div class="mb-3">
+						<input type="lastname" class="form-control" id="lastname1" aria-describedby="lastname" placeholder="Nom" style="background-color: var(--darkRed); border: 0px solid;  border-bottom: 4px solid white; color: white; border-radius: 0px">
+					</div>
+					<div class="mb-3">
+						<input type="firstname" class="form-control" id="firstname1" aria-describedby="firstname" placeholder="Prénom" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
+					</div>
+					<div class="mb-3">
+						<input type="birthday" class="form-control" id="birthday" aria-describedby="birthday" placeholder="Date de naissance" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
+					</div>
+					<div class="mb-3">
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
+					</div>
+					<div class="mb-3">
+						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Mot de passe" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
+					</div>
+					<div class="d-flex justify-content-center">
+						<button type="button" id="btnregister" class="btn text-white mb-3 mt-3">Je m'inscris</button>
+					</div>
+				</form>
+			</div>
+		</div>
+
+
+	</div>
+
+{% endblock %}
