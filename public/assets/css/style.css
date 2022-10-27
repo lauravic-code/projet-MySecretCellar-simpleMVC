@@ -1,7 +1,51 @@
 :root {
-    --lightPrimary : #FFF8F3; 
-    --darkRed: #750B15 ;
-    --yellowWine: #D4AF06 ;
-    --pinkWine: #FCB8BE ;
-    --redWine:#BB1A2B;
-}                    
+    --lightPrimary: #FFF8F3;
+    --darkRed: #750B15;
+    --yellowWine: #D4AF06;
+    --pinkWine: #FCB8BE;
+    --redWine: #BB1A2B;
+}
+
+/*//////////////////////index.html.twig////////////////////////////////////////*/
+body {
+    background-color: var(--darkRed);
+    color: white;
+}
+
+p {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.container {
+    width: 40%;
+    height: 50%;
+    margin-top: 20%;
+}
+
+.formindex {
+    margin-top: 10%;
+}
+
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+.btn {
+    background-color: #750B15;
+    color: white;
+}
+
+
+
+
+/*////////////////////////////////register.html.twig//////////////////////////////*/
+
+.inscrit {
+    color: black;
+    margin-left: 3%;
+}
