@@ -2,13 +2,13 @@
 
 namespace App\Controller;
 
-class MiniaturesController extends AbstractController
+class CaveController extends AbstractController
 {
     /**
      * Display miniatures page
      */
     public function index(): string
     {
-        return $this->twig->render('Miniatures/miniatures.html.twig');
+        return $this->twig->render('MaCave/cave.html.twig');
     }
 }

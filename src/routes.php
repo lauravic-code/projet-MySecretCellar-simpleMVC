@@ -16,7 +16,7 @@ return [
     //register
     'register' => ['RegisterController', 'viewRegister',],
     // miniatures
-    'maCave' => ['MiniaturesController', 'index',],
+    'maCave' => ['CaveController', 'index',],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
 ];
