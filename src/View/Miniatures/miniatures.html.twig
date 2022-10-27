@@ -2,41 +2,41 @@
 
 {% block content %}
 
-<div style="background-color:var(--lightPrimary);" >
-    {# header #}
-    <div class= "pt-4" style="height: 150px;background-image: url('assets/images/BouteillesCave.png');">    
-        <div style="border-bottom:solid; border-bottom-color:#750B15">
-            <h1 class= "pt-2 pb-3" style="color:#750B15 ">
-            Ma Cave
-            </h1>
-        </div>
-    </div>
-
-    {# barre de recherche #}
-    <div class="py-5">
-        <div class="d-flex justify-content-around">
-            <div class="d-flex w-75">      
-                    <input type="text" class="form-control" placeholder="Rechercher son vin" />
-                {# bouton search #}
-                    <button class="btn d-none d-md-block " style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
-                        RECHERCHE
-                    </button>
-                    <button class="d-block d-md-none rounded" style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
-                        <img src ="assets/images/Loupe.svg"/></button>
-                    </button>
-                {# bouton filtre #}
-                    <button class="btn d-none d-md-block ms-2" style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
-                        FILTRES
-                    </button>
-                    <button class="d-block d-md-none rounded ms-2" style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
-                        <img src ="assets/images/Filtres.svg" /></button>
-                    </button>
+    <div style="background-color:var(--lightPrimary);" >
+        {# header #}
+        <div class= "pt-4" style="height: 150px;background-image: url('assets/images/BouteillesCave.png');">    
+            <div style="border-bottom:solid; border-bottom-color:#750B15">
+                <h1 class= "pt-2 pb-3" style="color:#750B15 ">
+                Ma Cave
+                </h1>
             </div>
         </div>
-    </div>
-     
-     {% block card %}{% endblock %}
 
-</div>
+        {# barre de recherche #}
+        <div class="py-5">
+            <div class="d-flex justify-content-around">
+                <div class="d-flex w-75">      
+                        <input type="text" class="form-control" placeholder="Rechercher son vin" />
+                    {# bouton search #}
+                        <button class="btn d-none d-md-block " style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
+                            RECHERCHE
+                        </button>
+                        <button class="d-block d-md-none rounded" style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
+                            <img src ="assets/images/icones/Loupe.svg"/></button>
+                        </button>
+                    {# bouton filtre #}
+                        <button class="btn d-none d-md-block ms-2" style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
+                            FILTRES
+                        </button>
+                        <button class="d-block d-md-none rounded ms-2" style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
+                            <img src ="assets/images/icones/Filtres.svg" /></button>
+                        </button>
+                </div>
+            </div>
+        </div>
+        
+        {% block card %}{% include 'Component/_cardWine.html.twig' %}{% endblock %}
+
+    </div>
 
 {% endblock %}
