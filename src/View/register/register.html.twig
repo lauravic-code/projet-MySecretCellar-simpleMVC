@@ -1,19 +1,19 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+<div>
+		<div class="bandeau">
+			<h1 class="inscrit">
+				Inscription
+			</h1>
+		</div>
 
-	<div class="bandeau">
-		<h1 class="inscrit">
-			Inscription
-		</h1>
-	</div>
+		
+		<div class="container w-50 d-flex flex-column ">
 
-	<div class="d-flex-column justify-content-center px-5">
-		<div class="containerregister w-50 px-5">
-
-			<div id="carouselExampleControls" class="carousel slide d-flex justify-content-between" data-ride="carousel">
-				<div class="carousel-inner  ">
-					<div class="carousel-item active">
+			<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active d-flex justify-content-center ">
 						<img class="" src="/assets/images/avatar/avatar1.png" alt="avatar1" width="50%" height="50%">
 					</div>
 					<div class="carousel-item">
@@ -32,35 +32,32 @@
 					<span class="sr-only ms-8"></span>
 				</a>
 			</div>
-
-		</div>
-
-
-		<br>
-		<div class="register" text-center>
-			<form class="formregister" method="post">
-				<div class="mb-3">
-					<input type="lastname" class="form-control" id="lastname1" aria-describedby="lastname" placeholder="nom" style="background-color: var(--darkRed); border: 0px solid;  border-bottom: 4px solid white; color: white; border-radius: 0px">
-				</div>
-				<div class="mb-3">
-					<input type="firstname" class="form-control" id="firstname1" aria-describedby="firstname" placeholder="prénom" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
-				</div>
-				<div class="mb-3">
-					<input type="birthday" class="form-control" id="birthday" aria-describedby="birthday" placeholder="date de naissance" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
-				</div>
-				<div class="mb-3">
-					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
-				</div>
-				<div class="mb-3">
-					<input type="password" class="form-control" id="exampleInputPassword1" placeholder="mot de passe" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
-				</div>
-				<input type="text" id="fname" placeholder="nom" style="background-color: var(--darkRed); border: 0px solid;  border-bottom: 4px solid white; color: white; border-radius: 0px" name="fname"><br>
-
-
+			<div class="register" >
+				<form class="formregister" method="post">
+					<div class="mb-3">
+						<input type="lastname" class="form-control" id="lastname1" aria-describedby="lastname" placeholder="nom" style="background-color: var(--darkRed); border: 0px solid;  border-bottom: 4px solid white; color: white; border-radius: 0px">
+					</div>
+					<div class="mb-3">
+						<input type="firstname" class="form-control" id="firstname1" aria-describedby="firstname" placeholder="prénom" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
+					</div>
+					<div class="mb-3">
+						<input type="birthday" class="form-control" id="birthday" aria-describedby="birthday" placeholder="date de naissance" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
+					</div>
+					<div class="mb-3">
+						<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="email" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
+					</div>
+					<div class="mb-3">
+						<input type="password" class="form-control" id="exampleInputPassword1" placeholder="mot de passe" style="background-color: var(--darkRed); border: 0px solid; border-bottom: 4px solid white; border-radius: 0px">
+					</div>
+						<input type="text" id="fname" placeholder="nom" style="background-color: var(--darkRed); border: 0px solid;  border-bottom: 4px solid white; color: white; border-radius: 0px" name="fname"><br>
+					<div class="d-flex justify-content-center">
+						<button type="button" class="btn" width="20%" height="20%" id="btnregister">Je m'inscris</button>
+					</div>
+				</form>
 			</div>
 		</div>
-		<div class="d-flex justify-content-center">
-			<button type="button" class="btn" width="20%" height="20%" id="btnregister">Je m'inscris</button>
-		</form>
-	</div>
-</div>{% endblock %}
+
+		
+</div>
+
+{% endblock %}
