@@ -1,0 +1,19 @@
+// // import the functions & variables
+@import "../../../vendor/twbs/bootstrap/scss/_functions.scss";
+@import "../../../vendor/twbs/bootstrap/scss/_variables.scss";
+
+//custom variables
+
+$custom-colors: (
+    "lightPrimary": #fff8f3,
+    "darkdarkRed": #4f0008,
+    "darkRed": #750b15,
+    "yellowWine": #d4af06,
+    "pinkWine": #fcb8be,
+    "redWine": #bb1a2b,
+);
+
+$theme-colors: map-merge($custom-colors, $theme-colors);
+
+//import bootstrap
+@import "../../../vendor/twbs/bootstrap/scss/bootstrap.scss";
