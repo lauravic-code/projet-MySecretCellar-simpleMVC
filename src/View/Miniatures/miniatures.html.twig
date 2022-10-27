@@ -2,12 +2,37 @@
 
 {% block content %}
 
-<div >
-    <div class= "bg-light pt-4" style="height: 150px;background-image: url('assets/images/BouteillesCave.png');">    
+<div style="background-color:var(--lightPrimary);" >
+
+    <div class= "pt-4" style="height: 150px;background-image: url('assets/images/BouteillesCave.png');">    
         <div style="border-bottom:solid; border-bottom-color:#750B15">
             <h1 class= "pt-2 pb-3" style="color:#750B15 ">
             Ma Cave
             </h1>
+        </div>
+    </div>
+
+    <div class="container py-5" style="width:75%">
+        <div id="custom-search-input">
+            <div class="input-group d-flex justify-content-around">
+                <div class="d-flex w-75">               
+                    <input type="text" class="search-query form-control" placeholder="Search" />
+                    <span class="input-group-btn">
+                        <button class="btn d-none d-md-block " style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
+                            SEARCH
+                        </button>
+                        <button class="d-block d-md-none rounded" style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
+                            <img src ="assets/images/Loupe.svg"/></button>
+                        </button>
+                    </span>     
+                    <span class="input-group-btn ps-2">
+                        <button class="rounded" style="background-color:var(--darkRed); color:var(--lightPrimary);"type="button">
+                        <img src ="assets/images/Filtres.svg" /></button>
+                        </button>
+                    </span>
+                </div>
+               
+            </div>
         </div>
     </div>
 </div>

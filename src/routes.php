@@ -14,7 +14,7 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     // miniatures
-    'miniatures' => ['MiniaturesController', 'index',],
+    'maCave' => ['MiniaturesController', 'index',],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
 ];
