@@ -75,9 +75,7 @@ a:hover {
 
 /*////////////////////////////////register.html.twig//////////////////////////////*/
 
-.inscrit {
-    color: var(--darkRed);
-}
+
 
 .bandeau {
     background-color: var(--lightPrimary);
