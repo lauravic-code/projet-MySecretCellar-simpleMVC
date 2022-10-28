@@ -40,6 +40,7 @@ footer {
      .navbar-collapse {
         height: 86vh;
     }
+
     .responsive-font-example {
         font-size: 15px;
       }
@@ -49,16 +50,19 @@ footer {
     
    }
 
-  
 
- @media (min-width:576px) {
+
+
+@media (min-width:576px) {
     .responsive-font-example {
         font-size: 20px;
+
       }
       body{
         padding-top: 10vh
       }
    }
+
 
 
 /*//////////////////////index.html.twig////////////////////////////////////////*/
@@ -72,7 +76,6 @@ footer {
 .containerlogin {
     width: 40%;
     height: 50%;
-    margin-top: 20%;
 }
 
 .formindex {
