@@ -22,4 +22,3 @@ return [
     //profil
     "profil" => ['ProfilController', 'viewProfil'],
 ];
-

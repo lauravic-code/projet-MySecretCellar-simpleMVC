@@ -9,4 +9,3 @@ class ProfilController extends AbstractController
         return $this->twig->render('Profil/profil.html.twig');
     }
 }
-
