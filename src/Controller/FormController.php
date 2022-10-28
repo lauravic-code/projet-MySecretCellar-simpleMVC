@@ -6,7 +6,6 @@ namespace App\Controller;
 
 class FormController extends AbstractController
 {
-   
     public function viewForm(): string
     {
         // $formManager = new FormManager();

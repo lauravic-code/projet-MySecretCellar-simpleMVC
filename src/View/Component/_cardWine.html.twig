@@ -1,0 +1,27 @@
+
+ {% block card %}
+ <div class="d-flex justify-content-around pb-5 ">
+    <div class="bg-light border rounded w-75 d-flex flex-row justify-content-around border  border-secondary">
+        <div class="d-flex gap-5">           
+            <div class ="rounded-circle border border-4 border-primary my-3">
+                    <img class="rounded-circle" style=" object-fit:cover" src="assets/images/BouteilleSeule.jpg" height="100" width="100"/>
+            </div>
+    
+
+            <div class="d-flex flex-column align-self-center">
+                <h3  class=" responsive-font-example mb-0"style="color:var(--darkRed);">Chateau Latour</h3>
+                <p class="mt-2" style="color:var(--darkRed);">2018</p>
+            </div>
+        </div>
+ 
+
+        <div class="d-flex flex-column align-self-center">
+            <div>        
+                {% block stars %}{% include "Component/_stars.html.twig" %}{% endblock %}
+            </div>
+            <p class="mt-2" style="color:var(--darkRed);"> Stock | 9</p>
+        </div
+    </div>
+ </div>
+ 
+ {% endblock %}

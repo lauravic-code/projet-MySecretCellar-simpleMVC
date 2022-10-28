@@ -13,5 +13,12 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
-    'form' => ['FormController', 'viewForm']
+    'form' => ['FormController', 'viewForm'],
+    //register
+    'register' => ['RegisterController', 'viewRegister',],
+    // MaCave
+    'maCave' => ['CaveController', 'index',],
+    'show' => ['CaveController', 'show'],
+    //accueil
+    "accueil" => ['HomeController', 'accueil'],
 ];
