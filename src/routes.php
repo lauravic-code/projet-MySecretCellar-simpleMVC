@@ -15,8 +15,9 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     //register
     'register' => ['RegisterController', 'viewRegister',],
-    // miniatures
-    'maCave' => ['MiniaturesController', 'index',],
+    // MaCave
+    'maCave' => ['CaveController', 'index',],
+    'show' => ['CaveController', 'show'],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
     //profil
