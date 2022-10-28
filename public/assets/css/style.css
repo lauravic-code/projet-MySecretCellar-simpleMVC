@@ -28,6 +28,7 @@ nav {
 
 p {
     color: var(--lightPrimary);
+    margin-bottom: 0;
 
 }
 
@@ -36,16 +37,16 @@ footer {
 }
 
 @media (max-width: 576px) {
-    .logout {
-        background-color: var(--darkdarkRed);
-    }
-
-    .navbar-collapse {
+     .navbar-collapse {
         height: 86vh;
     }
     .responsive-font-example {
         font-size: 15px;
       }
+      body{
+        padding-top: 8vh;
+      }
+    
    }
 
   
@@ -53,6 +54,9 @@ footer {
  @media (min-width:576px) {
     .responsive-font-example {
         font-size: 20px;
+      }
+      body{
+        padding-top: 10vh
       }
    }
 

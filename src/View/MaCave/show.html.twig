@@ -1,0 +1,121 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+
+<div  style =" background-color: var(--lightPrimary); padding-top:3vh " >
+
+    {# first section #}
+    <div class="d-flex justify-content-between px-5">
+
+        <div class="d-flex flex-column ">
+            <div class="">
+
+                <div class="d-flex">
+                    <div>
+                        <h1 style ="color: var(--darkdarkRed);">CHATEAU LATOUR<h1>
+                        <div>        
+                        {% block stars %}{% include "Component/_stars.html.twig" %}{% endblock %}
+                        </div>
+                    </div>
+                    <div>
+                        <button        
+                        type="button"
+                        class="btn my-3 p-2 border-0 rounded h-2"style="background-color: var(--darkdarkRed);">
+                        <p class="mb-0 text-center">Modifier la fiche</p>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="d-flex">   
+                    <div class="d-flex">
+                        <p style ="color: var(--darkdarkRed);">VIN ROUGE</p>
+                        <p style ="color: var(--darkdarkRed);">TYPE</p>
+                    </div>
+                    <div>
+                        <p style ="color: var(--darkdarkRed);">2016</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="d-flex">           
+                 <div class=" d-flex flex-column ">
+                    <div class="d-flex flex-column">
+                        <p style ="color: var(--darkdarkRed);">Pays :</p>
+                        <p style ="color: var(--darkdarkRed);">Région :</p>
+                        <p style ="color: var(--darkdarkRed);">Appelation :</p>
+                        <p style ="color: var(--darkdarkRed);">Cépage :</p>
+                    </div>
+                    <div>
+                        <p style ="color: var(--darkdarkRed);">Ce vin accompagne :</p>
+                    </div>
+                    <div>
+                        <p style ="color: var(--darkdarkRed);">Limite de conservation :</p>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+
+
+        <div class ="d-flex flex-column align-items-center px-2 gap-1">
+            <div class="border" >
+                <img src="assets/images/BouteilleSeule.jpg"/>
+            </div>
+            
+            <div class="d-flex flex-column align-items-center"style ="width:3rem;">
+                <p style ="border-bottom: solid; border-color:var(--darkRed); color: var(--darkdarkRed);">Stock</p>
+                <p style ="color: var(--darkdarkRed);">9</p>
+            </div>
+            <div>          
+                <button        
+                type="button"
+                class="my-3 p-2 border-0 rounded h-2"style="background-color: var(--darkdarkRed);">
+                <p class="mb-0 text-center">Modifier le stock</p>
+                </button>
+            </div>
+
+        </div>
+    
+    </div>
+    {# second section #}
+    <div class=" border-top border-bottom border-dark" style="background-color:#FFFC9C9">
+        <div class="px-5 py-4 ">       
+            <h3 class="w-50"style ="border-bottom: solid; border-color:var(--darkRed); color: var(--darkdarkRed);">Description</h3> 
+            <p style="color: var(--darkdarkRed);">Le vignoble de Chatillon-en-Diois s’étend sur les coteaux du Parc Régional Naturel du Vercors, entre les Préalpes drômoises et la Provence. 
+            Il fait partie des plus petites appellations de France (40 ha au total).
+            </p>
+        </div>
+    </div>
+    {# third section #}
+    <div class="px-5 py-4 d-flex justify-content-around">
+        <div>
+            <p style ="color: var(--darkdarkRed);">Prix d'achat</p>
+            <p style ="color: var(--darkdarkRed);">Date d'achat</p>
+        </div>
+        <div>
+            <p style ="color: var(--darkdarkRed);">Valeur</p>
+        </div>
+    </div>
+    {# fourth section #}
+    <div class=" border-top border-bottom border-dark" style="background-color:#FFFC9C9">
+        <div class="px-5 py-4">       
+            <h3 class="w-50"style ="border-bottom: solid; border-color:var(--darkRed); color: var(--darkdarkRed);">Commentaire</h3> 
+            <p style="color: var(--darkdarkRed);">Il fait partie des plus petites appellations de 
+            florales délicates. Sur ces petites parcelles, les vignerons portent un soin tout
+            particulier au travail.</p>
+        </div>
+    </div>
+    {# fifth section #}
+    <div class="d-flex justify-content-center ">
+        <button        
+        type="button"
+        class="my-3 p-2 border-0 rounded h-2"style="background-color: var(--darkdarkRed);">
+        <p class="mb-0 text-center">Retour à mes vins</p>
+        </button>
+    </div>
+
+</div>
+
+{% endblock %}
