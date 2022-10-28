@@ -19,4 +19,7 @@ return [
     'maCave' => ['MiniaturesController', 'index',],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
+    //profil
+    "profil" => ['ProfilController', 'viewProfil'],
 ];
+
