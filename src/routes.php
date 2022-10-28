@@ -21,4 +21,6 @@ return [
     'show' => ['CaveController', 'show'],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
+    //profil
+    "profil" => ['ProfilController', 'viewProfil'],
 ];
