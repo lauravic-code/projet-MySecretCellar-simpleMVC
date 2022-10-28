@@ -38,18 +38,19 @@ footer {
 }
 
 @media (max-width: 576px) {
-     .navbar-collapse {
+    .navbar-collapse {
         height: 86vh;
     }
 
     .responsive-font-example {
         font-size: 15px;
-      }
-      body{
+    }
+
+    /* body{
         padding-top: 8vh;
-      }
-    
-   }
+      } */
+
+}
 
 
 
@@ -58,11 +59,12 @@ footer {
     .responsive-font-example {
         font-size: 20px;
 
-      }
-      body{
+    }
+
+    /* body{
         padding-top: 10vh
-      }
-   }
+      } */
+}
 
 
 
