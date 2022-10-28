@@ -1,0 +1,18 @@
+
+.img_bouteille{
+    /* background-color: var(--lightPrimary); */
+    max-width: 4rem;
+    height: auto;
+}.pic_bottle{
+    background-color: #fff;
+}
+form{
+    background-color: var(--darkRed) ;
+    color: var( --lightPrimary);
+}
+
+@media screen and (min-width: 700px) {
+    form{
+       width: 30%; 
+  }
+}
