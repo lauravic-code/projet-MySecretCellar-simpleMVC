@@ -11,3 +11,8 @@ form{
     color: var( --lightPrimary);
 }
 
+@media screen and (min-width: 700px) {
+    form{
+       width: 30%; 
+  }
+}
