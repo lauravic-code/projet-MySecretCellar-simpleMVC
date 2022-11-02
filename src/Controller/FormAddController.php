@@ -4,7 +4,7 @@ namespace App\Controller;
 
 // use App\Model\ItemManager;
 
-class FormController extends AbstractController
+class FormAddController extends AbstractController
 {
     public function viewAddForm(): string
     {
