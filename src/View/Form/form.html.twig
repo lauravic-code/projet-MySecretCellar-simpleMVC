@@ -8,36 +8,36 @@
    <div id="wrapper" class="">
        <div class= "pt-4 w-100" style="height: 180px; background-color:#FFF8F3">    
             <div style="border-bottom:solid; border-bottom-color:#750B15">
-                <h1 class= "pt-2 pb-3" style="color:#750B15 ">
+                <h1 class= "pt-2 ps-2 mt-5" style="color:#750B15; letter-spacing:5px">
                 Nouvelle bouteille
                 </h1>
             </div>
         </div>
 
-        <form action="" method="POST"  class=" block2 m-auto mt-5 px-4" enctype="multipart/form-data">
+        <form action="" method="POST"  class=" block2" enctype="multipart/form-data">
 <!-- ********************************** sous-block1 ********************************* -->
 
             <div class="container text-center ss-block1 "><!--ms-3 container-fluid row -->
-            <div class="img_+_input">
+            <div class="img_input">
                 {# <!-- ----------------------illustration -----------------------------> #}
-                <div class="div_illustration" id="div_illustration">
-                <div class="img_bouteille">
-                    <img src="assets/images/bouteille.svg">
-                </div>
-                    <label for="illustration" class="form-label text-start p-1 mb-0 form-label text-start p-1 mb-0"></label>
-                    <input type="file" name="illustration" class="form-control" id="illustration">
+                <div class="div_illustration input-group-sm" id="div_illustration">
+                    <div class="img_bouteille m-auto">
+                        <img src="assets/images/bouteille.svg" class="mt-5 mb-2 w-1 h-auto">
+                    </div>
+                    <input type="file" name="illustration" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="illustration">
+                    {# <label for="illustration" class="form-label text-start p-1 mb-0 form-label text-start p-1 mb-0"></label> #}
                 </div>
                 {# <!-- ----------------------block input à côté image -----------------------------> #}
                 <div class=" gpe_right_img">
                                 {# <!-- ----------gpe checkbox ----------------> #}
-                    <div class=" d-flex group_check_box mt-3">
-                    <div class="form-check">
+                    <div class=" mt-4 mb-3 d-flex">
+                        <div class="form-check d-flex">
                             <input class="form-check-input" type="radio" name="couleur" id="rouge">
                             <label class="form-check-label" for="rouge">
                                 Rouge
                             </label>
                         </div>
-                        <div class="form-check ms-3">
+                        <div class="form-check ms-3 ">
                             <input class="form-check-input" type="radio" name="couleur" id="rose" checked>
                             <label class="form-check-label" for="rose">
                                 Rosé
@@ -55,8 +55,8 @@
                         <input type="text" name="domaine" class="form-control w-100" id="domaine" placeholder="Domaine :">
                     </div>
                     <div class="type d-flex flex-column "><!--row -->
-                        <label for="type" name="type"class="form-label text-start p-1 mb-0">Type :</label>
-                        <select class="form-select form-select-sm" aria-label="Default select example">
+                        {# <label for="type" name="type"class="form-label text-start p-1 mb-0">Type :</label> #}
+                        <select class="form-select form-select-sm mt-4" aria-label="Default select example">
                             <option selected desabled>Choisir le type</option>
                             <option ></option>
                         </select>
@@ -67,8 +67,8 @@
                         </select> #}
                     </div>
                     <div class="d-flex flex-column">
-                        <label for="annee" class="form-label text-start p-1 mb-0">Année :</label>
-                        <select class="form-select form-select-sm" name="annee[]" >
+                        {# <label for="annee" class="form-label text-start p-1 mb-0">Année :</label> #}
+                        <select class="form-select form-select-sm mt-4" name="annee[]" >
                             <option selected>Choisir l'année</option>
                             <option value="2000">2000</option>
                             <option value="2001">2001</option>
@@ -76,23 +76,23 @@
                     </div>
             
                     <div class="select_app_block d-flex flex-column" id="div_appelation">
-                        <label for="appelation" name="appelation"class="form-label text-start p-1 mb-0">Appelation :</label>
-                        <select class="form-select form-select-sm" aria-label="Default select example">
+                        {# <label for="appelation" name="appelation"class="form-label text-start p-1 mb-0">Appelation :</label> #}
+                        <select class="form-select form-select-sm mt-4" aria-label="Default select example">
                             <option selected>Choisir l'appelation</option>
                         </select>
                             </select>
                     </div>
                     <div class="select_region_block d-flex flex-column" id="div_region">
-                        <label for="region" name="region"class="form-label text-start p-1 mb-0">Région :</label>
-                        <select class="form-select form-select-sm" aria-lasbel="Default select example">
+                        {# <label for="region" name="region"class="form-label text-start p-1 mb-0">Région :</label> #}
+                        <select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
                             <option selected>Choisir la région</option>
                             <option selected>Choisir la région</option>
                             <option selected>Choisir la région</option>
                         </select>
                     </div>
                     <div class="d-flex flex-column" id="div_pays">
-                        <label for="pays" name="pays"class="form-label text-start p-1 mb-0">Pays :</label>
-                        <select class="form-select form-select-sm" aria-lasbel="Default select example">
+                        {# <label for="pays" name="pays"class="form-label text-start p-1 mb-0 mt-4 ">Pays :</label> #}
+                        <select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
                             <option selected>Choisir le pays</option>
                             <option selected>Choisir le pays</option>
                             <option selected>Choisir le pays</option>
@@ -102,8 +102,8 @@
             </div> <!-- FIN div img_+_input  -->
                 {# <!-- ----------------------input vintage en long -----------------------------> #}
             <div class="sous_image d-flex flex-column" id="div_vintage">
-                <label for="cepage" name="cepage"class="form-label text-start p-1 mb-0">Année :</label>
-                        <select class="form-select form-select-sm" aria-lasbel="Default select example">
+                {# <label for="cepage" name="cepage"class="form-label text-start p-1 mb-0">Cépage :</label> #}
+                        <select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
                             <option selected>Choisir le cépage</option>
                             <option selected>Choisir le cépage</option>
                             <option selected>Choisir le cépage</option>
@@ -115,12 +115,12 @@
                     
                 <div class="mb-3 ss-block2">
                     <div class="ss-ss-block2-1">
-                        <div class="mb-3 w-100">
-                            <label for="description" class="form-label text-start p-1 mb-0 ms-2" > Description commerciale</label>
-                            <textarea type="text" name="description" class="form-control" id="description" rows="5" placeholder="Description commerciale..."></textarea>
+                        <div class="mb-3 mx-auto">
+                            <textarea type="text" name="description" class=" textearea form-control mt-4 mx-auto" id="description" rows="4" placeholder="Description commerciale..."></textarea>
                         </div>
-                        <div class="d-flex row justify-content-around block_checkBox">
-                            <p>Se boit avec</p>
+                        <div class="d-flex row justify-content-around block_checkBox m-auto">
+                            <p class="ms-3 mb-1 ">SE BOIT AVEC</p>
+                            <hr>    
                             <div class=" ms-2 col checkBoxLeft">
                                 <div class="form-check"> 
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -139,7 +139,7 @@
                                     <label class="form-check-label" for="flexCheckDefault1">Gibier</label>
                                 </div>
                             </div>
-                            <div class="col checkBoxRight">
+                            <div class="col ms-5 checkBoxRight">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
                                     <label class="form-check-label" for="flexCheckDefault1">Poisson</label>
@@ -168,57 +168,76 @@
                             </div>
                             <div class="mb-3">
                                 <label for="price" class="form-label text-start p-1 mb-0">Prix d'achat :</label>
-                                <input type="number" name="price" class="form-control" id="price">
+                                <input type="number" name="price" class="form-control" id="price" Placeholder="€">
                             </div>
                         </div>
                         <div class="col-5 ">
                             <div class="my-3">
                                 <label for="aging" name="aging"class="form-label text-start p-1 mb-0">Boire avant :</label>
-                                <select class="form-select form-select-sm">
-                                    <option selected>Choisir une année</option>
-                                    <option selected>2025</option>                           
-                                </select>
+                                <input type="number" name="aging" class="form-control" id="aging" placeholder="Année">
                             </div>
                             <div class="mb-3">
                                 <label for="value" class="form-label text-start p-1 mb-0">Valeur :</label>
-                                <input type="number" name="value" class="form-control" id="value">
+                                <input type="number" name="value" class="form-control" id="value" Placeholder="€">
                             </div>
                         </div>   
                         </div>
                     </div>
                 
                     
-                <div class="row ss-block3">
-                    <div class="row ss-ss-block2">
-                        <div class="mb-3 col-10">
-                                <label for="rank" class="form-label text-start p-1 mb-0">Ranking :</label>
-                                <input type="number" name="rank" class="form-control" id="rank">
+                <div class="row ss-block3 mx-auto w-100 px-2">
+                    <div class="row ss-ss-block2 p-0">
+                        <div class="mb-3">
+                            <label for="rank" class="form-label text-start p-1 mb-0">Ranking :</label>
+                            <div class="etoile">
+                                <div class="input_etoile mb-1 ps-3" id="input_etoile1">
+                                    <input type="radio" name="note">
+                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
+                                </div>
+                                <div class=" input_etoile mb-1 ps-3" id="input_etoile2" >
+                                    <input type="radio" name="note">
+                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
+                                </div>
+                                <div class=" input_etoile mb-1 ps-3" id="input_etoile3">
+                                    <input type="radio" name="note">
+                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
+                                </div>
+                                <div class=" input_etoile mb-1 ps-3" id="input_etoile4">
+                                    <input type="radio" name="note">
+                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
+                                </div>
+                                <div class=" input_etoile mb-1 ps-3" id="input_etoile5">
+                                    <input type="radio" name="note">
+                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
+                                </div>
+                             
+                            </div>
                         </div>
                         
                         <div class="mb-3">
-                            <label for="comment" class="form-label text-start p-1 mb-0">Commentaires :</label>
-                            <textarea type="text" name="comment" class="form-control" id="comment" rows="10"></textarea>
+                            <textarea type="text" name="commentaire" class=" textearea form-control mt-4 mx-1" id="commentaire" rows="4" placeholder="Commentaires..."></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="row ss-block4">
-                    <div class="mb-3 d-inline-flex">
-                        <label for="stock" class="form-label text-start p-1 mb-0 w-25">stock :</label>
-                        <input type="number" name="stock" class="form-control w-auto" id="stock">
+                    <div class="stock_block mt-4 d-inline-flex">
+                        <label for="stock" class="stock_label form-label text-start ps-3 pt-2 mb-0  w-25">STOCK :</label>
+                        <input type="number" name="stock" class="form-control w-25" id="stock">
                     </div>
-                    <div class="mb-3">
-                        <label for="location" class="form-label text-start p-1 mb-0">Emplacement cave :</label>
-                        <textarea type="text" name="location" class="form-control" id="location" rows="10" placeholder="Etagère, armoire casier..."></textarea>
+                    <div class="my-4">
+                        <label for="location" class="textearea form-label text-start ps-3 pb-1 mb-0">Emplacement :</label>
+                        <textarea type="text" name="location" class="textearea form-control mt-0 mx-auto" id="location" rows="2" placeholder="Etagère, armoire casier..."></textarea>
                     </div>
                 </div>
                             
-                <div class="d-flex">
-                    <div class="mb-3  mr-3">
-                        <input type="submit" name="btn_add_bottle" class=" btn btn-primary" value="Ajouter"></input>
-                    </div>
-                    <div class="mb-3">
-                        <a href="" class="btn btn-warning">Annuler</a>
-                    </div>
+                <div class="d-flex justify-content-center gap-3 mt-3 mb-5">
+                   <div class="bg_darkdarkRed d-flex justify-content-center">
+						<button type="button" id="btnadd" class=" btn_dark btn mb-3 mt-3">Ajouter</button>
+					</div>
+                   <div class="bg_darkdarkRed d-flex justify-content-center">
+						<button type="button" id="btnadd" class=" btn_light btn mb-3 mt-3">Annuler</button>
+					</div>
+                   
                 </div>
         
     </form>
