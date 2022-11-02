@@ -14,7 +14,9 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     //form add new bottle
-    'form' => ['FormController', 'viewForm'],
+    'add' => ['FormAddController', 'viewAddForm'],
+    //form update bottle
+    'update' => ['FormUpdateController', 'viewUpdateForm'],
     //register
     'register' => ['RegisterController', 'viewRegister',],
     // MaCave
