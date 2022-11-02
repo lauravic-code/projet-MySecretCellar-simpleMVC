@@ -32,6 +32,7 @@ footer {
     background-color: var(--darkRed);
 }
 
+
 @media (max-width: 576px) {
     .navbar-collapse {
         height: 86vh;
