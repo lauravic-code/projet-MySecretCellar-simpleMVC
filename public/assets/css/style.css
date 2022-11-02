@@ -19,10 +19,6 @@ body {
     color: var(--lightPrimary);
 }
 
-nav {
-    background-color: var(--darkRed);
-}
-
 p {
     color: var(--lightPrimary);
     margin-bottom: 0;
@@ -42,9 +38,6 @@ footer {
         font-size: 15px;
     }
 
-    /* body{
-        padding-top: 8vh;
-      } */
 }
 
 @media (min-width: 576px) {
@@ -52,45 +45,17 @@ footer {
         font-size: 20px;
     }
 
-    /* body{
-        padding-top: 10vh
-      } */
+
 }
 
 /*//////////////////////index.html.twig////////////////////////////////////////*/
-
-.signin {
-    text-align: center;
-    margin-top: 10%;
-}
-
-.containerlogin {
-    width: 40%;
-    height: 50%;
-}
-
-.formindex {
-    margin-top: 10%;
-}
 
 a:hover {
     color: white;
 }
 
-.btn {
-    background-color: #750b15;
-}
-
 /*////////////////////////////////register.html.twig//////////////////////////////*/
 
-.bandeau {
-    background-color: var(--lightPrimary);
-}
-
-#btnregister {
-    background-color: var(--darkdarkRed);
-    width: 40%;
-}
 
 .form-control::placeholder {
     color: black;

@@ -2,15 +2,15 @@
 
 {% block content %}
 
-    <div style="background-color:var(--lightPrimary);" >
-        {# header #}
-        <div class= "pt-4 w-100" style="height: 180px; background-image: url('assets/images/BouteillesCave.png')">    
-            <div style="border-bottom:solid; border-bottom-color:#750B15">
-                <h1 class= "pt-2 ps-2 mt-5" style="color:#750B15; letter-spacing:5px">
-                Ma cave
-                </h1>
-            </div>
-        </div>
+	<div class="bg-lightPrimary">
+		{# header #}
+		<div class="pt-4" style="height: 150px;background-image: url('assets/images/BouteillesCave.png');">
+			<div style="border-bottom:solid; border-bottom-color:#750B15">
+				<h1 class="pt-2 pb-3 text-darkRed">
+					Ma Cave
+				</h1>
+			</div>
+		</div>
 
 		{# barre de recherche #}
 		<div class="py-5">
@@ -19,17 +19,17 @@
 					<input
 					type="text" class="form-control" placeholder="Rechercher son vin"/>
 					{# bouton search #}
-					<button class="btn d-none d-md-block " style="background-color:var(--darkRed); color:var(--lightPrimary);" type="button">
+					<button class="btn d-none d-md-block bg-darkRed text-lightPrimary" type="button">
 						RECHERCHE
 					</button>
-					<button class="d-block d-md-none rounded" style="background-color:var(--darkRed); color:var(--lightPrimary);" type="button">
+					<button class="d-block d-md-none rounded bg-darkRed text-lightPrimary" type="button">
 						<img src="assets/images/icones/Loupe.svg"/></button>
 				</button>
 				{# bouton filtre #}
-				<button class="btn d-none d-md-block ms-2" style="background-color:var(--darkRed); color:var(--lightPrimary);" type="button" data-bs-toggle="modal" data-bs-target="#modal">
+				<button class="btn d-none d-md-block ms-2 bg-darkRed text-lightPrimary" type="button" data-bs-toggle="modal" data-bs-target="#modal">
 					FILTRES
 				</button>
-				<button class="d-block d-md-none rounded ms-2" style="background-color:var(--darkRed); color:var(--lightPrimary);" type="button" data-bs-toggle="modal" data-bs-target="#modal">
+				<button class="d-block d-md-none rounded ms-2 bg-darkRed text-lightPrimary" type="button" data-bs-toggle="modal" data-bs-target="#modal">
 					<img src="assets/images/icones/Filtres.svg"/></button>
 			</button>
 		</div>
@@ -94,7 +94,7 @@
 						<option value="liquoreux">Liquoreux</option>
 						<option value="petillant">Pétillant</option>
 					</select>
-					<div class=" btn bg-pinkWine  w-100  btn-sm">Filtrer</div>
+					<div class=" btn bg-pinkWine w-100  btn-sm">Filtrer</div>
 				</div>
 			</div>
 		</div>
