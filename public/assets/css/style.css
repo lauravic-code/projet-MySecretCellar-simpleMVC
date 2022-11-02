@@ -38,9 +38,6 @@ footer {
         font-size: 15px;
     }
 
-    body{
-        padding-top: 8vh;
-      }
 }
 
 @media (min-width: 576px) {
@@ -48,9 +45,7 @@ footer {
         font-size: 20px;
     }
 
-     body{
-        padding-top: 10vh
-      } 
+
 }
 
 /*//////////////////////index.html.twig////////////////////////////////////////*/
