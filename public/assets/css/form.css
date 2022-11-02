@@ -1,82 +1,62 @@
 
-.img_bouteille{
-    /* background-color: var(--lightPrimary); */
-    max-width: 4rem;
-    height: auto;
-}.pic_bottle{
-    background-color: #fff;
-}
 form{
     background-color: var(--darkRed) ;
     color: var(--lightPrimary);
+}.img_bouteille{
+    /* background-color: var(--lightPrimary); */
+    max-width: 4rem;
+    height: auto;
 }
-
+.textearea{
+    width: 95%;
+}
+/* bouton */
 .btn_dark{
     background-color: var(--darkdarkRed);
     border-style: solid;
     color : var(--lightPrimary)
 }
-
 .btn_light{
     color : var(--lightPrimary)
 }
 
 
-.textearea{
-    width: 95%;
-}
-
 @media screen and (min-width: 700px) {
-    form{
-       width: 50%;
+  form{
+       width: 45%;
        margin: auto; 
        margin-top: 5px;
   }
 
-  .illustration{
+  .div_illustration{
     display:flex;
     flex-direction: column;
     justify-content:center;
-    align-items:center;
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-  .img_input{
+    height: 25%;
+}
+.img_input{
     display: flex;
+    align-items:center;
     }
   .img_bouteille{
-    margin-bottom: 5px;
-    width:25%
-}
-    .gpe_right_img{
-       margin-left: 3px;
-    }
-    .input_etoile{
-    background-color: fuchsia;
-    border-color: black;
-    border-style: solid;
     
+    margin-bottom: 5px;
+    width:15%
+}
+.gpe_right_img{
+    margin-left: 10px;
+    width:53%
     }
-    #input_etoile1{
-        width: 10%;
-        flex-direction: column;
+    .checkBoxLeft{
+        padding-left:5%;
     }
-    #input_etoile2{
-        width: 13%;
-         flex-direction: column;
+    .etoile{
+        display: flex;
+        flex-direction: row;
+        gap: 2%;
     }
-    #input_etoile3{
-        width: 18%;
-         flex-direction: column;
-    }
-    #input_etoile4{
-        width: 20%;
-         flex-direction: column;
-    }
-    #input_etoile5{
-        width: 25%;
-         flex-direction: column;
-    }
-  
-
+   
+    #input_etoile1, #input_etoile2,#input_etoile3, #input_etoile4, #input_etoile5{
+        display:flex;
+    } 
 }
