@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Model;
+
+use PDO;
+
+class WineManager extends AbstractManager
+{
+    public function show(int $id): string
+    {
+        $wineManager = new WineManager();
+        $wine = $wineManager->selectOneById($id);
+
+        return $this->twig->render('Form/UpdateForm.html.twig', ['wine' => $wine]);
+    }
+}
