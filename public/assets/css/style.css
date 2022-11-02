@@ -1,11 +1,10 @@
 :root {
-    --lightPrimary: #FFF8F3;
-    --darkdarkRed: #4F0008;
-    --darkRed: #750B15;
-    --yellowWine: #D4AF06;
-    --pinkWine: #FCB8BE;
-    --redWine: #BB1A2B;
-
+    --lightPrimary: #fff8f3;
+    --darkdarkRed: #4f0008;
+    --darkRed: #750b15;
+    --yellowWine: #d4af06;
+    --pinkWine: #fcb8be;
+    --redWine: #bb1a2b;
 }
 
 * {
@@ -16,11 +15,9 @@
 }
 
 body {
-    background-color: #750B15;
+    background-color: #750b15;
     color: var(--lightPrimary);
-
 }
-
 
 nav {
     background-color: var(--darkRed);
@@ -29,7 +26,6 @@ nav {
 p {
     color: var(--lightPrimary);
     margin-bottom: 0;
-
 }
 
 footer {
@@ -38,33 +34,28 @@ footer {
 
 
 @media (max-width: 576px) {
-     .navbar-collapse {
+    .navbar-collapse {
         height: 86vh;
     }
 
     .responsive-font-example {
         font-size: 15px;
-      }
-      body{
+    }
+
+    /* body{
         padding-top: 8vh;
-      }
-    
-   }
+      } */
+}
 
-
-
-
-@media (min-width:576px) {
+@media (min-width: 576px) {
     .responsive-font-example {
         font-size: 20px;
+    }
 
-      }
-      body{
+    /* body{
         padding-top: 10vh
-      }
-   }
-
-
+      } */
+}
 
 /*//////////////////////index.html.twig////////////////////////////////////////*/
 
@@ -72,7 +63,6 @@ footer {
     text-align: center;
     margin-top: 10%;
 }
-
 
 .containerlogin {
     width: 40%;
@@ -88,12 +78,10 @@ a:hover {
 }
 
 .btn {
-    background-color: #750B15;
+    background-color: #750b15;
 }
 
 /*////////////////////////////////register.html.twig//////////////////////////////*/
-
-
 
 .bandeau {
     background-color: var(--lightPrimary);
@@ -108,4 +96,9 @@ a:hover {
     color: black;
     opacity: 1;
     font-size: larger;
+}
+
+/*/////////////// Ajout de blur sur les modals //////////////////////////////*/
+.modal.blur {
+    backdrop-filter: blur(3px);
 }
