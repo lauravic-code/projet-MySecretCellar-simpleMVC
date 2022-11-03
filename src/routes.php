@@ -16,12 +16,12 @@ return [
     //form add new bottle
     'add' => ['WineController', 'viewAddForm'],
     //form update bottle
-    'update' => ['WineController', 'show', ['id']],
+    'update' => ['WineController', 'showUpdateForm', ['id']],
     //register
     'register' => ['RegisterController', 'viewRegister',],
     // MaCave
     'maCave' => ['CaveController', 'index',],
-    'show' => ['CaveController', 'show'],
+    'showWine' => ['WineController', 'showWineById', ['id']],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
     //profil
