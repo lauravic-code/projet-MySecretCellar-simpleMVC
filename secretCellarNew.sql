@@ -353,24 +353,6 @@ INSERT INTO `region` (`id`,`label`) VALUES (13,'vallée de la loire');
 INSERT INTO `region` (`id`,`label`) VALUES (14,'jura');
 
 
--- -----------------------------------------------------
--- Table `secretCellarNew`.`domaine`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `secretCellarNew`.`domaine` ;
-
-CREATE TABLE IF NOT EXISTS `secretCellarNew`.`domaine` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `label` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-INSERT INTO `domaine` (`id`,`label`) VALUES (1,'domaine bergeron');
-INSERT INTO `domaine` (`id`,`label`) VALUES (3,'clos saint apolline');
-INSERT INTO `domaine` (`id`,`label`) VALUES (4,'château giscours');
-INSERT INTO `domaine` (`id`,`label`) VALUES (5,'château cantenac brown');
-INSERT INTO `domaine` (`id`,`label`) VALUES (6,'château la lagune');
-INSERT INTO `domaine` (`id`,`label`) VALUES (7,'château duhars milon');
-
 
 -- -----------------------------------------------------
 -- Table `secretCellarNew`.`appellation`
@@ -514,6 +496,7 @@ INSERT INTO `grapeVariety` (`id`,`label`) VALUES (20,'pinot blanc');
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `secretCellarNew`.`wine` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `domaine` VARCHAR(255) NOT NULL,
   `description` LONGTEXT NULL,
   `comment` LONGTEXT NULL,
   `rank` FLOAT NULL,
@@ -529,14 +512,12 @@ CREATE TABLE IF NOT EXISTS `secretCellarNew`.`wine` (
   `country_id` INT NOT NULL,
   `region_id` INT NOT NULL,
   `appellation_id` INT NOT NULL,
-  `domaine_id` INT NOT NULL,
   `type_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `color_id`, `country_id`, `region_id`, `appellation_id`, `domaine_id`, `type_id`),
+  PRIMARY KEY (`id`, `color_id`, `country_id`, `region_id`, `appellation_id`, `type_id`),
   INDEX `fk_wine_color1_idx` (`color_id` ASC) VISIBLE,
   INDEX `fk_wine_country1_idx` (`country_id` ASC) VISIBLE,
   INDEX `fk_wine_region1_idx` (`region_id` ASC) VISIBLE,
   INDEX `fk_wine_appellation1_idx` (`appellation_id` ASC) VISIBLE,
-  INDEX `fk_wine_domaine1_idx` (`domaine_id` ASC) VISIBLE,
   INDEX `fk_wine_type1_idx` (`type_id` ASC) VISIBLE,
   CONSTRAINT `fk_wine_color1`
     FOREIGN KEY (`color_id`)
@@ -558,24 +539,19 @@ CREATE TABLE IF NOT EXISTS `secretCellarNew`.`wine` (
     REFERENCES `secretCellarNew`.`appellation` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_wine_domaine1`
-    FOREIGN KEY (`domaine_id`)
-    REFERENCES `secretCellarNew`.`domaine` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_wine_type1`
+    CONSTRAINT `fk_wine_type1`
     FOREIGN KEY (`type_id`)
     REFERENCES `secretCellarNew`.`type` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-INSERT INTO `wine` (`id`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`domaine_id`,`type_id`) VALUES (2,'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',3,7.5,6,10,'A-24',NULL,2024,2014,'2018-01-28',1,75,5,24,1,1);
-INSERT INTO `wine` (`id`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`domaine_id`,`type_id`) VALUES (3,'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',5,15,3,20,'B-10',NULL,2030,2015,'2018-01-28',2,75,4,18,3,1);
-INSERT INTO `wine` (`id`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`domaine_id`,`type_id`) VALUES (5,'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',5,13,12,30,'C-10',NULL,2026,2006,'2018-01-28',1,75,12,3,4,1);
-INSERT INTO `wine` (`id`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`domaine_id`,`type_id`) VALUES (12,'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',3,4.3,1,10,'D-01',NULL,2030,2010,'2018-01-28',1,75,12,3,5,1);
-INSERT INTO `wine` (`id`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`domaine_id`,`type_id`) VALUES (13,'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',4,7.1,2,12,'D-02',NULL,2025,2012,'2018-01-28',1,75,12,4,6,1);
-INSERT INTO `wine` (`id`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`domaine_id`,`type_id`) VALUES (14,'There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',5,9,20,15,'D-03',NULL,2035,2019,'2018-01-28',1,75,12,8,7,1);
+INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (2,'domaine bergeron','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',3,7.5,6,10,'A-24',NULL,2024,2014,'2018-01-28',1,75,5,24,1);
+INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (3,'clos saint apolline','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',5,15,3,20,'B-10',NULL,2030,2015,'2018-01-28',2,75,4,18,1);
+INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (5,'château giscours','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',5,13,12,30,'C-10',NULL,2026,2006,'2018-01-28',1,75,12,3,1);
+INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (12,'château cantenac brown','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',3,4.3,1,10,'D-01',NULL,2030,2010,'2018-01-28',1,75,12,3,1);
+INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (13,'château la lagune','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',4,7.1,2,12,'D-02',NULL,2025,2012,'2018-01-28',1,75,12,4,1);
+INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (14,'château duhars milon','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',5,9,20,15,'D-03',NULL,2035,2019,'2018-01-28',1,75,12,8,1);
 
 
 
