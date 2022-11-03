@@ -36,17 +36,8 @@
 	</div>
 </div>
 <a class="w-100 d-flex justify-content-center" href="show?id={{wine.id}}">
-	
-		
-			{% block card %}
-		
-				{% include 'Component/_cardWine.html.twig' %}	
-				{# {% include 'Component/_cardWine.html.twig' with {'wines': wines} %} #}
 
-			{% endblock %}
-		
-			
-		
+{% include 'Component/_cardWine.html.twig' %}	
 	
 </a></div>{# ****************** MODAL FILTRES ******************** #}<div class="container text-dark">
 <div class="modal blur" id="modal">

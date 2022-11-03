@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Model\CaveManager;
+use App\Model\WineManager;
 
 class CaveController extends AbstractController
 {
@@ -11,19 +11,8 @@ class CaveController extends AbstractController
      */
     public function index(): string
     {
-        $wineManager = new CaveManager();
+        $wineManager = new WineManager();
         $wines = $wineManager->selectAll();
-
         return $this->twig->render('MaCave/cave.html.twig', ['wines' => $wines]);
-    }
-
-        /**
-     * Show informations for a specific item
-     */
-    public function show(): string
-    {
-
-
-        return $this->twig->render('MaCave/show.html.twig');
     }
 }
