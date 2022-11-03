@@ -353,24 +353,6 @@ INSERT INTO `region` (`id`,`label`) VALUES (13,'vallée de la loire');
 INSERT INTO `region` (`id`,`label`) VALUES (14,'jura');
 
 
--- -----------------------------------------------------
--- Table `secretCellarNew`.`domaine`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `secretCellarNew`.`domaine` ;
-
-CREATE TABLE IF NOT EXISTS `secretCellarNew`.`domaine` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `label` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-INSERT INTO `domaine` (`id`,`label`) VALUES (1,'domaine bergeron');
-INSERT INTO `domaine` (`id`,`label`) VALUES (3,'clos saint apolline');
-INSERT INTO `domaine` (`id`,`label`) VALUES (4,'château giscours');
-INSERT INTO `domaine` (`id`,`label`) VALUES (5,'château cantenac brown');
-INSERT INTO `domaine` (`id`,`label`) VALUES (6,'château la lagune');
-INSERT INTO `domaine` (`id`,`label`) VALUES (7,'château duhars milon');
-
 
 -- -----------------------------------------------------
 -- Table `secretCellarNew`.`appellation`
