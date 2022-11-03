@@ -9,7 +9,10 @@ class CaveController extends AbstractController
      */
     public function index(): string
     {
-        return $this->twig->render('MaCave/cave.html.twig');
+        $caveManager = new CaveManager();
+        $caves = $caveManager->selectAll('title');
+
+        return $this->twig->render('MaCave/cave.html.twig', ['wines' => $wines]);
     }
 
         /**
