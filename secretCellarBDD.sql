@@ -48,15 +48,6 @@ CREATE TABLE IF NOT EXISTS `secretCellar`.`country` (
 ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `secretCellar`.`domaine`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `secretCellar`.`domaine` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `label` VARCHAR(255) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
 
 -- -----------------------------------------------------
 -- Table `secretCellar`.`grapevariety`
@@ -147,6 +138,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `secretCellar`.`wine` (
   `id` INT NOT NULL AUTO_INCREMENT,
+  `domaine` VARCHAR(255) NOT NULL,
   `description` LONGTEXT NULL,
   `comment` LONGTEXT NULL,
   `rank` FLOAT NULL,
@@ -169,7 +161,6 @@ CREATE TABLE IF NOT EXISTS `secretCellar`.`wine` (
   INDEX `fk_wine_country1_idx` (`country_id` ASC) VISIBLE,
   INDEX `fk_wine_vintage1_idx` (`vintage_id` ASC) VISIBLE,
   INDEX `fk_wine_region1_idx` (`region_id` ASC) VISIBLE,
-  INDEX `fk_wine_domaine1_idx` (`domaine_id` ASC) VISIBLE,
   INDEX `fk_wine_grapevariety1_idx` (`grapevariety_id` ASC) VISIBLE,
   INDEX `fk_wine_appellation1_idx` (`appellation_id` ASC) VISIBLE,
   CONSTRAINT `fk_wine_color1`
@@ -190,11 +181,6 @@ CREATE TABLE IF NOT EXISTS `secretCellar`.`wine` (
   CONSTRAINT `fk_wine_region1`
     FOREIGN KEY (`region_id`)
     REFERENCES `secretCellar`.`region` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_wine_domaine1`
-    FOREIGN KEY (`domaine_id`)
-    REFERENCES `secretCellar`.`domaine` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_wine_grapevariety1`
