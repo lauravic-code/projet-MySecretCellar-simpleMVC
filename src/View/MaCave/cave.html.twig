@@ -1,8 +1,9 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %}
 
-	<div class="bg-lightPrimary">
+{% block content %}
+	<div
+		class="bg-lightPrimary">
 		{# header #}
 		<div class="pt-4" style="height: 150px;background-image: url('assets/images/BouteillesCave.png');">
 			<div style="border-bottom:solid; border-bottom-color:#750B15">
@@ -37,9 +38,8 @@
 </div>
 
 
-{% include 'Component/_cardWine.html.twig' %}	
-	
-</div>{# ****************** MODAL FILTRES ******************** #}<div class="container text-dark">
+{% include 'Component/_cardWine.html.twig' %}</div>{# ****************** MODAL FILTRES ******************** #}<div class="container text-dark">
+
 <div class="modal blur" id="modal">
 	<div class=" modal-dialog modal-dialog-centered">
 		<div class="modal-content">
@@ -48,15 +48,16 @@
 				<div class="btn-close" data-bs-dismiss="modal"></div>
 			</div>
 			<div class="modal-body">
-				<div class="form">
+				<div class="form" method="POST">
 					<select class="form-select my-3" aria-label="Default select example">
-						<option selected value="">Country</option>
-						<option value="1">France</option>
-						<option value="2">Australie</option>
-						<option value="3">Pologne</option>
+						<option selected value="">Pays</option>
+						{% for country in countries %}
+							<option value="{{country.label}}">{{country.label}}</option>
+						{% endfor %}
 					</select>
 					<select class="form-select my-3" aria-label="Default select example">
 						<option selected value="">Stock</option>
+
 						<option value="1">Plus de stock</option>
 						<option value="1">Entre 1 et 6 bouteilles</option>
 						<option value="2">Entre 6 et 12 bouteilles</option>
@@ -64,15 +65,16 @@
 					</select>
 					<select class="form-select my-3" aria-label="Default select example">
 						<option selected value="">Région</option>
-						<option value="margaux">Bourgogne</option>
-						<option value="pessac">Aquitaine</option>
-						<option value="bordeaux">Rhône-Alpes</option>
+						{% for region in regions %}
+							<option value="{{region.label}}">{{region.label}}</option>
+						{% endfor %}
 					</select>
 					<select class="form-select my-3" aria-label="Default select example">
 						<option selected value="">Appellation</option>
-						<option value="margaux">Margaux</option>
-						<option value="pessac">Pessac</option>
-						<option value="bordeaux">Bordeaux</option>
+						{% for appellation in appellations %}
+							<option value="{{appellation.label}}">{{appellation.label}}</option>
+						{% endfor %}
+
 					</select>
 					<select class="form-select my-3 " aria-label="Default select example">
 						<option selected value="">Millésime</option>
@@ -82,23 +84,22 @@
 					</select>
 					<select class="form-select my-3" aria-label="Default select example">
 						<option selected value="">Couleur</option>
-						<option value="rouge">Rouge</option>
-						<option value="blanc">Blanc</option>
-						<option value="rose">Rosé</option>
+						{% for color in colors %}
+							<option value="{{color.label}}">{{color.label}}</option>
+						{% endfor %}
 					</select>
 
 					<select class="form-select my-3" aria-label="Default select example">
 						<option selected value="">Type</option>
-						<option value="sec">Sec</option>
-						<option value="moelleux">Moelleux</option>
-						<option value="liquoreux">Liquoreux</option>
-						<option value="petillant">Pétillant</option>
+						{% for type in types %}
+							<option value="{{type.label}}">{{type.label}}</option>
+						{% endfor %}
 					</select>
-					<div class=" btn bg-pinkWine w-100  btn-sm">Filtrer</div>
+					<a href="/showFilteredCellar" class="btn bg-pinkWine w-100  btn-sm">Filtrer</a>
 				</div>
 			</div>
 		</div>
 
 	</div>
 
-</div></div>{# ****************** END modal filtres ******************** #}{% endblock %}
+</div></div>{#****************** END modal filtres ********************#}{% endblock %}
