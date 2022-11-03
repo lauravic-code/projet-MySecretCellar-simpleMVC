@@ -1,27 +1,33 @@
 {% block card %}
-<div class="d-flex flex-column gap-4 justify-content-around pb-5 ">
-{% for wine in wines %}
-    <div class="bg-light border rounded w-75 d-flex flex-row justify-content-around border  border-secondary">
-        <div class="d-flex gap-5">           
-            <div class ="rounded-circle border border-4 border-primary my-3">
-                    <img class="rounded-circle" style=" object-fit:cover" src="assets/images/BouteilleSeule.jpg" height="100" width="100"/>
-            </div>
-    
+	<div class="d-flex flex-column gap-4 justify-content-around pb-5 ">
+		{% for wine in wines %}
+			<a class="w-100 d-flex justify-content-center" href="show?id={{wine.id}}">
+				<div class="bg-light border rounded w-75 d-flex flex-row justify-content-around border  border-secondary">
+					<div class="d-flex gap-5">
+						<div class="rounded-circle border border-4 border-primary my-3">
+							<img class="rounded-circle" style=" object-fit:cover" src="assets/images/BouteilleSeule.jpg" height="100" width="100"/>
+						</div>
 
-            <div class="d-flex flex-column align-self-center">
-                <h3  class=" responsive-font-example mb-0"style="color:var(--darkRed);">{{wine.domaine|title}}</h3>
-                <p class="mt-2" style="color:var(--darkRed);">{{wine.vintage}}</p>
-            </div>
-        </div>
- 
 
-        <div class="d-flex flex-column align-self-center">
-            <div>        
-                {% block stars %}{% include "Component/_stars.html.twig" %}{% endblock %}
-            </div>
-            <p class="mt-2" style="color:var(--darkRed);"> Stock | {{wine.stock}}</p>
-        </div>
-    </div>
- {% endfor %}
- </div>
- {% endblock %}
+						<div class="d-flex flex-column align-self-center">
+							<h3 class=" responsive-font-example mb-0" style="color:var(--darkRed);">{{wine.domaine|title}}</h3>
+							<p class="mt-2" style="color:var(--darkRed);">{{wine.vintage}}</p>
+						</div>
+					</div>
+
+
+					<div class="d-flex flex-column align-self-center">
+						<div>
+							{% block stars %}
+								{% include "Component/_stars.html.twig" %}
+							{% endblock %}
+						</div>
+						<p class="mt-2" style="color:var(--darkRed);">
+							Stock |
+							{{wine.stock}}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</a>
+{% endblock %}
