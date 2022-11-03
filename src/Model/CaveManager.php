@@ -4,7 +4,7 @@ namespace App\Model;
 
 use PDO;
 
-class WineManager extends AbstractManager
+class CaveManager extends AbstractManager
 {
     public const TABLE = 'wine';
 }
