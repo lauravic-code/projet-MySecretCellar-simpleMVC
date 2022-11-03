@@ -16,7 +16,7 @@ return [
     //form add new bottle
     'add' => ['WineController', 'viewAddForm'],
     //form update bottle
-    'update' => ['WineController', 'showUpdateForm', ['id']],
+    'update' => ['WineController', 'viewUpdateForm', ['id']],
     //register
     'register' => ['RegisterController', 'viewRegister',],
     // MaCave
