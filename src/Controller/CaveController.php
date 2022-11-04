@@ -59,10 +59,10 @@ class CaveController extends AbstractController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // $searchValue = array_map('trim', $_POST);
-            $domaineManager = new WineManager();
-            $domaine = $domaineManager->searchDomaine();
-            var_dump($domaine);
+            // $searchValue = $_POST;
+            // var_dump($searchValue);
+            // $domaineManager = new WineManager();
+            // $domaine = $domaineManager->searchDomaine();
         }
 
         return $this->twig->render('MaCave/cellarByDomain.html.twig');

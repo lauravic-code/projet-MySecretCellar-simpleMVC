@@ -11,7 +11,7 @@ class WineManager extends AbstractManager
     public function searchDomaine()
     {
 
-        $query = "SELECT * FROM " . static::TABLE . " WHERE domaine LIKE '%:searchValue%' ";
+        $query = "SELECT * FROM " . static::TABLE . " WHERE domaine LIKE '%:search%'";
 
 
         return $this->pdo->query($query)->fetchAll();
