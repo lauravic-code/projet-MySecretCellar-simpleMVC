@@ -38,19 +38,16 @@ class CaveController extends AbstractController
 
         if (empty($wines)) {
             return $this->twig->render('MaCave/emptyCave.html.twig');
-      
         } else {
-            return $this->twig->render('MaCave/cave.html.twig',[
+            return $this->twig->render('MaCave/cave.html.twig', [
             'wines' => $wines,
             'appellations' => $appellations,
             'countries' => $countries,
             'regions' => $regions,
             'colors' => $colors,
             'types' => $types
-        ]
-    );
+            ]);
         }
-
     }
 
     public function showFilteredCellar()
