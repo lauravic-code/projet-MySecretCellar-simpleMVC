@@ -13,6 +13,11 @@ class CaveController extends AbstractController
     {
         $wineManager = new WineManager();
         $wines = $wineManager->selectAll();
-        return $this->twig->render('MaCave/cave.html.twig', ['wines' => $wines]);
+
+        if (empty($wines)) {
+            return $this->twig->render('MaCave/cave.html.twig', ['wines' => $wines]);
+        } else {
+            return $this->twig->render('MaCave/emptyCave.html.twig');
+        }
     }
 }
