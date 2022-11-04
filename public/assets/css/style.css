@@ -1,10 +1,10 @@
 :root {
-    --lightPrimary: #fff8f3;
-    --darkdarkRed: #4f0008;
-    --darkRed: #750b15;
-    --yellowWine: #d4af06;
-    --pinkWine: #fcb8be;
-    --redWine: #bb1a2b;
+    --lightPrimary: #f7f7f3;
+    --prune: #4a2c3b;
+    --lightSecondary: #e5e2d3;
+    --yellowWine: #ffe675;
+    --pinkWine: #eabca9;
+    --redWine: #893a2c;
 }
 
 * {
@@ -14,20 +14,9 @@
     text-decoration: none;
 }
 
-body {
-    background-color: #750b15;
-    color: var(--lightPrimary);
+a {
+    text-decoration: none;
 }
-
-p {
-    color: var(--lightPrimary);
-    margin-bottom: 0;
-}
-
-footer {
-    background-color: var(--darkRed);
-}
-
 
 @media (max-width: 576px) {
     .navbar-collapse {
@@ -37,15 +26,12 @@ footer {
     .responsive-font-example {
         font-size: 15px;
     }
-
 }
 
 @media (min-width: 576px) {
     .responsive-font-example {
         font-size: 20px;
     }
-
-
 }
 
 /*//////////////////////index.html.twig////////////////////////////////////////*/
@@ -56,9 +42,8 @@ a:hover {
 
 /*////////////////////////////////register.html.twig//////////////////////////////*/
 
-
 .form-control::placeholder {
-    color: black;
+    color: var(--prune);
     opacity: 1;
     font-size: larger;
 }
