@@ -27,5 +27,4 @@ return [
     "accueil" => ['HomeController', 'accueil'],
     //profil
     "profil" => ['ProfilController', 'viewProfil'],
-
 ];
