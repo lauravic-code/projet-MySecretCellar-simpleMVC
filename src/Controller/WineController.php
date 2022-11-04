@@ -61,9 +61,20 @@ class WineController extends AbstractController
             foreach ($winePairings[$keys[$i]] as $value) {
                 $tabwinePairing[] = $value;
             }
-        }
 
-        return $this->twig->render(
+                    // get all appellations
+                    $appellationsManager = new AppellationManager();
+                    $appellations = $appellationsManager->selectAll('label');
+                    // get all countrys
+                    $countryManager = new CountryManager();
+                    $countries = $countryManager->selectAll('label');
+                    // get all regions
+                    $regionManager = new RegionManager();
+                    $regions = $regionManager->selectAll('label');
+                    // get all types
+                    $typeManager = new TypeManager();
+                    $types = $typeManager->selectAll('label');
+        }  return $this->twig->render(
             'Form/UpdateForm.html.twig',
             ['wine' => $wine,
             'appellation' => $appellationLabel,
@@ -71,7 +82,11 @@ class WineController extends AbstractController
             'country' => $countryLabel,
             'region' => $regionLabel,
             'type' => $typeLabel,
-            'winePairing' => $tabwinePairing]
+            'winePairing' => $tabwinePairing,
+            'appellations' => $appellations,
+            'countries' => $countries,
+            'regions' => $regions,
+            'types' => $types]
         );
     }
 

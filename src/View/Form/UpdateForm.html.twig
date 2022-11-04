@@ -57,8 +57,10 @@
                     <div class="type d-flex flex-column "><!--row -->
                         <label for="type" name="type"class="form-label text-start p-1 mt-3 mb-0">Type :</label>
                         <select class="form-select form-select-sm mb-0" aria-label="Default select example">
-                            <option selected desabled>{{type.label}}</option>
-                            <option ></option>
+                            <option value={{type.id}}selected desabled>{{type.label}}</option>
+                            {% for type in types%}
+                            <option  value={{type.id}}>{{type.label}}</option>
+                            {% endfor %}
                         </select>
                         {# <select class="select-type" name="type[]" multiple id="type">
                             <?php foreach ($types as $type) : ?>
@@ -66,18 +68,19 @@
                                 <?php endforeach ?>
                         </select> #}
                     </div>
-                    <div class="d-flex flex-column">
-                        <label for="annee" class="form-label text-start p-1 mt-3 mb-0">Année :</label>
-                        <select class="form-select form-select-sm mb-0" name="annee[]" >
-                            <option selected>{{wine.vintage}}</option>
-                            <option value="2001">2001</option>
-                        </select>
+                    <div class="d-flex flex-column" id="div_annee">
+                        <label for="annee" class="form-label text-start p-1 mt-3 mb-0 mb-0 text-start">Année:</label>
+                        <input type="number" name="annee" class="form-control w-100" id="annee" value='{{wine.vintage}}'>
                     </div>
             
                     <div class="select_app_block d-flex flex-column" id="div_appelation">
                         <label for="appelation" name="appelation"class="form-label text-start p-1 mt-3 mb-0">Appellation :</label>
                         <select class="form-select form-select-sm mb-0" aria-label="Default select example">
                             <option selected>{{appellation.label}}</option>
+                             {% for appellation in appellations %}
+                            <option  value={{appellation.id}}>{{appellation.label}}</option>
+                            {% endfor %}
+                            
                         </select>
                             </select>
                     </div>
@@ -85,12 +88,18 @@
                         <label for="region" name="region"class="form-label text-start p-1 mt-3 mb-0">Région :</label>
                         <select class="form-select form-select-sm mb-0" aria-lasbel="Default select example">
                             <option selected>{{region.label}}</option>
+                             {% for region in regions %}
+                            <option  value={{region.id}}>{{region.label}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                     <div class="d-flex flex-column" id="div_pays">
                         <label for="pays" name="pays"class="form-label text-start p-1 mt-3 mb-0">Pays :</label>
                         <select class="form-select form-select-sm mb-0" aria-lasbel="Default select example">
                             <option selected>{{country.label}}</option>
+                             {% for countrie in countries %}
+                            <option  value={{countrie.id}}>{{countrie.label}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div> <!-- FIN div gpe_right_img  -->
