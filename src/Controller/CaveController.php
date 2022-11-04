@@ -51,4 +51,9 @@ class CaveController extends AbstractController
     {
         return $this->twig->render('MaCave/filteredCellar.html.twig');
     }
+
+    public function showCellarByDomain()
+    {
+        return $this->twig->render('MaCave/cellarByDomain.html.twig');
+    }
 }

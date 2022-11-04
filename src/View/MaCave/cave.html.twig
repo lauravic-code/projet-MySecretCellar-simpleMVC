@@ -13,94 +13,87 @@
 				</h1>
 			</div>
 		</div>
+	</div>
 
-		{# barre de recherche #}
-		<div class="py-5">
-			<div class="d-flex justify-content-around">
-				<div class="d-flex w-75">
-					<input
-					type="text" class="form-control" placeholder="Rechercher son vin"/>
-					{# bouton search #}
-					<button class="btn btn-prune d-none d-md-block" type="button">
-						RECHERCHE
-					</button>
-					<button class=" btn btn-prune d-block d-md-none rounded " type="button">
-						<img src="assets/images/icones/Loupe.svg"/></button>
+	{# barre de recherche #}
+	<div class="py-5">
+		<div class="d-flex justify-content-around">
+			<form method="POST" action="cellarByDomain" class="d-flex w-75">
+				<input
+				type="text" class="form-control" placeholder="Rechercher son vin"/>
+				{# bouton search #}
+				<button class="btn btn-prune d-none d-md-block" type="submit">
+					RECHERCHE
 				</button>
-				{# bouton filtre #}
-				<button class="btn btn-prune d-none d-md-block ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modal">
-					FILTRES
-				</button>
-				<button class=" btn btn-prune d-block d-md-none rounded ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modal">
-					<img src="assets/images/icones/Filtres.svg"/></button>
+				<button class=" btn btn-prune d-block d-md-none rounded " type="submit">
+					<img src="assets/images/icones/Loupe.svg"/></button>
 			</button>
+			{# bouton filtre #}
+			<button class="btn btn-prune d-none d-md-block ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modal">
+				FILTRES
+			</button>
+			<button class=" btn btn-prune d-block d-md-none rounded ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modal">
+				<img src="assets/images/icones/Filtres.svg"/></button>
+		</form>
+	</div>
+</div></div>{% include 'Component/_cardWine.html.twig' %}</div>{# ****************** MODAL FILTRES ******************** #}<div class="container text-dark"><div class="modal blur" id="modal">
+<div class=" modal-dialog modal-dialog-centered">
+	<div class="modal-content">
+		<div class="modal-header  text-center">
+			<h2>Filtres</h2>
+			<div class="btn-close" data-bs-dismiss="modal"></div>
+		</div>
+		<div class="modal-body">
+			<form class="form" method="POST" action="/filteredCellar">
+				<select class="form-select my-3" aria-label="Default select example">
+					<option selected value="">Pays</option>
+					{% for country in countries %}
+						<option value="{{country.label}}">{{country.label}}</option>
+					{% endfor %}
+				</select>
+				<select class="form-select my-3" aria-label="Default select example">
+					<option selected value="">Stock</option>
+
+					<option value="1">Plus de stock</option>
+					<option value="1">Entre 1 et 6 bouteilles</option>
+					<option value="2">Entre 6 et 12 bouteilles</option>
+					<option value="3">Plus de 12 bouteilles</option>
+				</select>
+				<select class="form-select my-3" aria-label="Default select example">
+					<option selected value="">Région</option>
+					{% for region in regions %}
+						<option value="{{region.label}}">{{region.label}}</option>
+					{% endfor %}
+				</select>
+				<select class="form-select my-3" aria-label="Default select example">
+					<option selected value="">Appellation</option>
+					{% for appellation in appellations %}
+						<option value="{{appellation.label}}">{{appellation.label}}</option>
+					{% endfor %}
+
+				</select>
+				<select class="form-select my-3 " aria-label="Default select example">
+					<option selected value="">Millésime</option>
+					<option value="2018">2018</option>
+					<option value="2017">2017</option>
+					<option value="2016">2016</option>
+				</select>
+				<select class="form-select my-3" aria-label="Default select example">
+					<option selected value="">Couleur</option>
+					{% for color in colors %}
+						<option value="{{color.label}}">{{color.label}}</option>
+					{% endfor %}
+				</select>
+
+				<select class="form-select my-3" aria-label="Default select example">
+					<option selected value="">Type</option>
+					{% for type in types %}
+						<option value="{{type.label}}">{{type.label}}</option>
+					{% endfor %}
+				</select>
+				<button type="submit" class="btn btn-prune w-100  btn-sm">Filtrer</button>
+			</form>
 		</div>
 	</div>
-</div>
 
-
-{% include 'Component/_cardWine.html.twig' %}</div>{# ****************** MODAL FILTRES ******************** #}<div class="container text-dark">
-
-<div class="modal blur" id="modal">
-	<div class=" modal-dialog modal-dialog-centered">
-		<div class="modal-content">
-			<div class="modal-header  text-center">
-				<h2>Filtres</h2>
-				<div class="btn-close" data-bs-dismiss="modal"></div>
-			</div>
-			<div class="modal-body">
-				<div class="form" method="POST">
-					<select class="form-select my-3" aria-label="Default select example">
-						<option selected value="">Pays</option>
-						{% for country in countries %}
-							<option value="{{country.label}}">{{country.label}}</option>
-						{% endfor %}
-					</select>
-					<select class="form-select my-3" aria-label="Default select example">
-						<option selected value="">Stock</option>
-
-						<option value="1">Plus de stock</option>
-						<option value="1">Entre 1 et 6 bouteilles</option>
-						<option value="2">Entre 6 et 12 bouteilles</option>
-						<option value="3">Plus de 12 bouteilles</option>
-					</select>
-					<select class="form-select my-3" aria-label="Default select example">
-						<option selected value="">Région</option>
-						{% for region in regions %}
-							<option value="{{region.label}}">{{region.label}}</option>
-						{% endfor %}
-					</select>
-					<select class="form-select my-3" aria-label="Default select example">
-						<option selected value="">Appellation</option>
-						{% for appellation in appellations %}
-							<option value="{{appellation.label}}">{{appellation.label}}</option>
-						{% endfor %}
-
-					</select>
-					<select class="form-select my-3 " aria-label="Default select example">
-						<option selected value="">Millésime</option>
-						<option value="2018">2018</option>
-						<option value="2017">2017</option>
-						<option value="2016">2016</option>
-					</select>
-					<select class="form-select my-3" aria-label="Default select example">
-						<option selected value="">Couleur</option>
-						{% for color in colors %}
-							<option value="{{color.label}}">{{color.label}}</option>
-						{% endfor %}
-					</select>
-
-					<select class="form-select my-3" aria-label="Default select example">
-						<option selected value="">Type</option>
-						{% for type in types %}
-							<option value="{{type.label}}">{{type.label}}</option>
-						{% endfor %}
-					</select>
-					<a href="/showFilteredCellar" class="btn btn-prune w-100  btn-sm">Filtrer</a>
-				</div>
-			</div>
-		</div>
-
-	</div>
-
-</div></div>{#****************** END modal filtres ********************#}{% endblock %}
+</div></div></div>{#****************** END modal filtres ********************#}{% endblock %}

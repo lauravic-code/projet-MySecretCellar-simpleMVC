@@ -22,7 +22,8 @@ return [
     // MaCave
     'maCave' => ['CaveController', 'index',],
     'showWine' => ['WineController', 'showWineById', ['id']],
-    'showFilteredCellar' => ['CaveController', 'showFilteredCellar'],
+    'filteredCellar' => ['CaveController', 'showFilteredCellar'],
+    'cellarByDomain' => ['CaveController', 'showCellarByDomain'],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
     //profil
