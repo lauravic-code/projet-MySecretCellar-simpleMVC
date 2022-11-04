@@ -2,13 +2,14 @@
 
 
 {% block content %}
+
 	<div
 		class="bg-lightPrimary">
 		{# header #}
-		<div class="pt-4" style="height: 150px;background-image: url('assets/images/BouteillesCave.png');">
-			<div style="border-bottom:solid; border-bottom-color:#750B15">
-				<h1 class="pt-2 pb-3 text-darkRed">
-					Ma Cave
+		<div class="bg-lightSecondary pt-4 w-100" style="height: 180px">
+			<div style="border-bottom:solid; border-bottom-color:var(--prune)">
+				<h1 class="pt-2 ps-2 mt-5 mx-5 text-prune" style="letter-spacing:5px">
+					Ma cave
 				</h1>
 			</div>
 		</div>
@@ -20,17 +21,17 @@
 					<input
 					type="text" class="form-control" placeholder="Rechercher son vin"/>
 					{# bouton search #}
-					<button class="btn d-none d-md-block bg-darkRed text-lightPrimary" type="button">
+					<button class="btn btn-prune d-none d-md-block" type="button">
 						RECHERCHE
 					</button>
-					<button class="d-block d-md-none rounded bg-darkRed text-lightPrimary" type="button">
+					<button class=" btn btn-prune d-block d-md-none rounded " type="button">
 						<img src="assets/images/icones/Loupe.svg"/></button>
 				</button>
 				{# bouton filtre #}
-				<button class="btn d-none d-md-block ms-2 bg-darkRed text-lightPrimary" type="button" data-bs-toggle="modal" data-bs-target="#modal">
+				<button class="btn btn-prune d-none d-md-block ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modal">
 					FILTRES
 				</button>
-				<button class="d-block d-md-none rounded ms-2 bg-darkRed text-lightPrimary" type="button" data-bs-toggle="modal" data-bs-target="#modal">
+				<button class=" btn btn-prune d-block d-md-none rounded ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modal">
 					<img src="assets/images/icones/Filtres.svg"/></button>
 			</button>
 		</div>
@@ -95,7 +96,7 @@
 							<option value="{{type.label}}">{{type.label}}</option>
 						{% endfor %}
 					</select>
-					<a href="/showFilteredCellar" class="btn bg-pinkWine w-100  btn-sm">Filtrer</a>
+					<a href="/showFilteredCellar" class="btn btn-prune w-100  btn-sm">Filtrer</a>
 				</div>
 			</div>
 		</div>
