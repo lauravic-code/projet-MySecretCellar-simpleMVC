@@ -3,13 +3,14 @@
     {{parent()}}
     <link rel="stylesheet" href="/assets/css/forms.css">
 {% endblock %}
-
+{# 
+['wine' => $wine, 'appellation'=>$appellationLabel, 'color'=>$colorLabel, 'country' =>$countryLabel, 'region'=> $regionLabel, 'type'=> $typeLabel]); #}
 {% block content %}
    <div id="wrapper" class="">
        <div class= "pt-4 w-100" style="height: 180px; background-color:#FFF8F3">    
             <div style="border-bottom:solid; border-bottom-color:#750B15">
                 <h1 class= "pt-2 ps-2 mt-5" style="color:#750B15; letter-spacing:5px">
-                Modification bouteille
+                Modification {{wine.domaine|upper}}
                 </h1>
             </div>
         </div>
@@ -22,7 +23,7 @@
                 {# <!-- ----------------------illustration -----------------------------> #}
                 <div class="div_illustration input-group-sm" id="div_illustration">
                     <div class="img_bouteille m-auto">
-                        <img src="assets/images/bouteille.svg" class="mt-5 mb-2 w-1 h-auto">
+                        <img src="/assets/images/bouteille.svg" class="mt-5 mb-2 w-1 h-auto">
                     </div>
                     <input type="file" name="illustration" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="illustration">
                     {# <label for="illustration" class="form-label text-start p-1 mb-0 form-label text-start p-1 mb-0"></label> #}
@@ -32,19 +33,19 @@
                                 {# <!-- ----------gpe checkbox ----------------> #}
                     <div class=" mt-4 mb-3 d-flex">
                         <div class="form-check d-flex">
-                            <input class="form-check-input" type="radio" name="couleur" id="rouge">
-                            <label class="form-check-label" for="rouge">
+                            <input class="form-check-input" type="radio" name="couleur" id="rouge" {% if color.label == "rouge" %}checked{% endif %}>
+                            <label class="form-check-label" for="rouge" >
                                 Rouge
                             </label>
                         </div>
                         <div class="form-check ms-3 ">
-                            <input class="form-check-input" type="radio" name="couleur" id="rose" checked>
+                            <input class="form-check-input" type="radio" name="couleur" id="rose"{% if color.label == "rose" %}checked{% endif %}>
                             <label class="form-check-label" for="rose">
                                 Rosé
                             </label>
                         </div>
                         <div class="form-check ms-3">
-                            <input class="form-check-input" type="radio" name="couleur" id="blanc" checked>
+                            <input class="form-check-input" type="radio" name="couleur" id="blanc" {% if color.label == "blanc" %}checked{% endif %}>
                             <label class="form-check-label" for="blanc">
                                 Blanc
                             </label>
@@ -52,12 +53,12 @@
                     </div> {# <!-- ----------FIN gpe checkbox ----------------> #}
                     <div class="d-flex flex-column" id="div_domaine">
                         <label for="domaine" class="form-label text-start p-1 mb-0 text-start"></label>
-                        <input type="text" name="domaine" class="form-control w-100" id="domaine" placeholder="Domaine :">
+                        <input type="text" name="domaine" class="form-control w-100" id="domaine" value='{{wine.domaine|title}}'>
                     </div>
                     <div class="type d-flex flex-column "><!--row -->
                         {# <label for="type" name="type"class="form-label text-start p-1 mb-0">Type :</label> #}
                         <select class="form-select form-select-sm mt-4" aria-label="Default select example">
-                            <option selected desabled>Choisir le type</option>
+                            <option selected desabled>{{type.label}}</option>
                             <option ></option>
                         </select>
                         {# <select class="select-type" name="type[]" multiple id="type">
@@ -69,8 +70,7 @@
                     <div class="d-flex flex-column">
                         {# <label for="annee" class="form-label text-start p-1 mb-0">Année :</label> #}
                         <select class="form-select form-select-sm mt-4" name="annee[]" >
-                            <option selected>Choisir l'année</option>
-                            <option value="2000">2000</option>
+                            <option selected>{{wine.vintage}}</option>
                             <option value="2001">2001</option>
                         </select>
                     </div>
@@ -78,24 +78,20 @@
                     <div class="select_app_block d-flex flex-column" id="div_appelation">
                         {# <label for="appelation" name="appelation"class="form-label text-start p-1 mb-0">Appelation :</label> #}
                         <select class="form-select form-select-sm mt-4" aria-label="Default select example">
-                            <option selected>Choisir l'appelation</option>
+                            <option selected>{{appellation.label}}</option>
                         </select>
                             </select>
                     </div>
                     <div class="select_region_block d-flex flex-column" id="div_region">
                         {# <label for="region" name="region"class="form-label text-start p-1 mb-0">Région :</label> #}
                         <select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
-                            <option selected>Choisir la région</option>
-                            <option selected>Choisir la région</option>
-                            <option selected>Choisir la région</option>
+                            <option selected>{{region.label}}</option>
                         </select>
                     </div>
                     <div class="d-flex flex-column" id="div_pays">
                         {# <label for="pays" name="pays"class="form-label text-start p-1 mb-0 mt-4 ">Pays :</label> #}
                         <select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
-                            <option selected>Choisir le pays</option>
-                            <option selected>Choisir le pays</option>
-                            <option selected>Choisir le pays</option>
+                            <option selected>{{country.label}}</option>
                         </select>
                     </div>
                 </div> <!-- FIN div gpe_right_img  -->
@@ -116,45 +112,45 @@
                 <div class="mb-3 ss-block2">
                     <div class="ss-ss-block2-1">
                         <div class="mb-3 mx-auto">
-                            <textarea type="text" name="description" class=" textearea form-control mt-4 mx-auto" id="description" rows="4" placeholder="Description commerciale..."></textarea>
+                            <textarea type="text" name="description" class=" textearea form-control mt-4 mx-auto" id="description" rows="4" placeholder="Description commerciale...">{{wine.description}}</textarea>
                         </div>
                         <div class="d-flex row justify-content-around block_checkBox m-auto">
                             <p class="ms-3 mb-1 ">SE BOIT AVEC</p>
                             <hr>    
                             <div class=" ms-2 col checkBoxLeft">
                                 <div class="form-check"> 
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">Charcuterie</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="charcuterie"{% if 'charcuterie' in winePairing %}checked{% endif %}>
+                                    <label class="form-check-label" for="charcuterie">Charcuterie</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Viande blanche</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="viande_blanche" {% if 'viande blanche' in winePairing %}checked{% endif %}>
+                                    <label class="form-check-label" for="viande_blanche">Viande blanche</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Viande rouge</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="viand_rouge" {% if 'viande rouge' in winePairing %}checked{% endif %}>
+                                    <label class="form-check-label" for="viand_rouge">Viande rouge</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Gibier</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="gibier" {% if 'gibier' in winePairing %}checked{% endif %}>
+                                    <label class="form-check-label" for="gibier">Gibier</label>
                                 </div>
                             </div>
                             <div class="col ms-5 checkBoxRight">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Poisson</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="poisson" {% if 'poisson' in winePairing %}'checked'{% endif %}>
+                                    <label class="form-check-label" for="poisson">Poisson</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Fromage</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="fromage" {% if 'fromage' in winePairing %}checked{% endif %}>
+                                    <label class="form-check-label" for="fromage">Fromage</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Chocolat</label>
+                                    <input class="form-check-input" type="checkbox" value="chocolat" id="chocolat" {{ ('chocolat' in winePairing) ? 'checked' : '' }}>
+                                    <label class="form-check-label" for="chocolat">Chocolat</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Dessert fruités</label>
+                                    <input class="form-check-input" type="checkbox" value="" id="dessert" {% if 'dessert fruites' in winePairing %}checked{% endif %}>
+                                    <label class="form-check-label" for="dessert">Desserts fruités</label>
                                 </div>
                             </div>
                         </div>
@@ -164,21 +160,21 @@
                         <div class="col-5">
                             <div class="my-3">
                                 <label for="date_achat" class="form-label text-start p-1 mb-0">Date d'achat :</label>
-                                <input type="date" name="date_achat" class="form-control" id="date_achat"></textarea>
+                                <input type="date" name="date_achat" class="form-control" id="date_achat" value={{wine.purchaseDate}}></input>
                             </div>
                             <div class="mb-3">
                                 <label for="price" class="form-label text-start p-1 mb-0">Prix d'achat :</label>
-                                <input type="number" name="price" class="form-control" id="price" Placeholder="€">
+                                <input type="number" name="price" class="form-control" id="price" value={{wine.price }}>
                             </div>
                         </div>
                         <div class="col-5 ">
                             <div class="my-3">
                                 <label for="aging" name="aging"class="form-label text-start p-1 mb-0">Boire avant :</label>
-                                <input type="number" name="aging" class="form-control" id="aging" placeholder="Année">
+                                <input type="number" name="aging" class="form-control" id="aging" value={{wine.drinkBefore}}>
                             </div>
                             <div class="mb-3">
                                 <label for="value" class="form-label text-start p-1 mb-0">Valeur :</label>
-                                <input type="number" name="value" class="form-control" id="value" Placeholder="€">
+                                <input type="number" name="value" class="form-control" id="value" value={{wine.value}}>
                             </div>
                         </div>   
                         </div>
@@ -215,18 +211,18 @@
                         </div>
                         
                         <div class="mb-3">
-                            <textarea type="text" name="commentaire" class=" textearea form-control mt-4 mx-1" id="commentaire" rows="4" placeholder="Commentaires..."></textarea>
+                            <textarea type="text" name="commentaire" class=" textearea form-control mt-4 mx-1" id="commentaire" rows="4" placeholder="Commentaires...">{{wine.comment}}</textarea>
                         </div>
                     </div>
                 </div>
                 <div class="row ss-block4">
                     <div class="stock_block mt-4 d-inline-flex">
                         <label for="stock" class="stock_label form-label text-start ps-3 pt-2 mb-0  w-25">STOCK :</label>
-                        <input type="number" name="stock" class="form-control w-25" id="stock">
+                        <input type="number" name="stock" class="form-control w-25" id="stock" value={{wine.stock}}>
                     </div>
                     <div class="my-4">
                         <label for="location" class="textearea form-label text-start ps-3 pb-1 mb-0">Emplacement :</label>
-                        <textarea type="text" name="location" class="textearea form-control mt-0 mx-auto" id="location" rows="2" placeholder="Etagère, armoire casier..."></textarea>
+                        <textarea type="text" name="location" class="textearea form-control mt-0 mx-auto" id="location" rows="2" placeholder="Etagère, armoire casier...">{{wine.cellarLocation}}</textarea>
                     </div>
                 </div>
                             

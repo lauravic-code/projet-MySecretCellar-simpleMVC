@@ -33,6 +33,18 @@ abstract class AbstractManager
         return $this->pdo->query($query)->fetchAll();
     }
 
+     /**
+     * Get all row from database.
+     */
+    public function selectLabel(int $id): array
+    {
+        $statement = $this->pdo->prepare('SELECT label FROM ' . static::TABLE . " WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        return $statement->fetch();
+    }
+
     /**
      * Get one row from database by ID.
      */
