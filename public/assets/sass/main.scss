@@ -3,14 +3,13 @@
 @import "../../../vendor/twbs/bootstrap/scss/_variables.scss";
 
 //custom variables
-
 $custom-colors: (
-    "lightPrimary": #fff8f3,
-    "darkdarkRed": #4f0008,
-    "darkRed": #750b15,
-    "yellowWine": #d4af06,
-    "pinkWine": #fcb8be,
-    "redWine": #bb1a2b,
+    "prune": #4a2c3b,
+    "lightPrimary": #f7f7f3,
+    "lightSecondary": #e5e2d3,
+    "yellowWine": #ffe675,
+    "pinkWine": #eabca9,
+    "redWine": #893a2c,
 );
 
 $theme-colors: map-merge($custom-colors, $theme-colors);
