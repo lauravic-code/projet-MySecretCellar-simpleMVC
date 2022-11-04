@@ -21,6 +21,7 @@ return [
     'register' => ['RegisterController', 'viewRegister',],
     // MaCave
     'maCave' => ['CaveController', 'index',],
+    // fiche Vin
     'showWine' => ['WineController', 'showWineById', ['id']],
     'showFilteredCellar' => ['CaveController', 'showFilteredCellar'],
     //accueil
