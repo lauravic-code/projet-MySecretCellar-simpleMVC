@@ -19,20 +19,6 @@ CREATE SCHEMA IF NOT EXISTS `secretCellarNew` DEFAULT CHARACTER SET utf8 ;
 USE `secretCellarNew` ;
 
 -- -----------------------------------------------------
--- Table `secretCellarNew`.`role`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `secretCellarNew`.`role` ;
-
-CREATE TABLE IF NOT EXISTS `secretCellarNew`.`role` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `label` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-INSERT INTO `role` (`id`,`label`) VALUES (1,'admin');
-INSERT INTO `role` (`id`,`label`) VALUES (2,'user');
-
--- -----------------------------------------------------
 -- Table `secretCellarNew`.`color`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `secretCellarNew`.`color` ;
@@ -457,8 +443,6 @@ INSERT INTO `type` (`id`,`label`) VALUES (4,'pétillant');
 
 
 
-
-
 -- -----------------------------------------------------
 -- Table `secretCellarNew`.`grapeVariety`
 -- -----------------------------------------------------
@@ -636,19 +620,15 @@ CREATE TABLE IF NOT EXISTS `secretCellarNew`.`user` (
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
   `password` VARCHAR(45) NOT NULL,
-  `avatar` BLOB NULL,
+  `avatar` BLOB,
   `dateOfBirth` DATE NOT NULL,
-  `role_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `role_id`),
-  INDEX `fk_user_role1_idx` (`role_id` ASC) VISIBLE,
-  CONSTRAINT `fk_user_role1`
-    FOREIGN KEY (`role_id`)
-    REFERENCES `secretCellarNew`.`role` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `role` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `user` (`id`,`firstname`,`lastname`,`email`,`password`,`avatar`,`dateOfBirth`,`role_id`) VALUES (1,'admin','admin','admin@admin.fr','admin',NULL,'1989-10-09',1);
+INSERT INTO `user` (`id`,`firstname`,`lastname`,`email`,`password`,`avatar`,`dateOfBirth`,`role`) 
+VALUES (1,'admin','admin','admin@admin.fr','admin',NULL,'1989-10-09','admin'),
+(2,'user','user','user@user.fr','user',NULL,'1989-10-09','user');
 
 -- -----------------------------------------------------
 -- Table `secretCellarNew`.`user_has_wine`
