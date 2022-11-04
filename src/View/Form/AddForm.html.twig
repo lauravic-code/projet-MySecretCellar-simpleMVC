@@ -1,249 +1,296 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
-    {{parent()}}
-    <link rel="stylesheet" href="/assets/css/forms.css">
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/css/forms.css">
 {% endblock %}
 
 {% block content %}
-   <div id="wrapper" class="">
-       <div class= "pt-4 w-100" style="height: 180px; background-color:#FFF8F3">    
-            <div style="border-bottom:solid; border-bottom-color:#750B15">
-                <h1 class= "pt-2 ps-2 mt-5" style="color:#750B15; letter-spacing:5px">
-                Nouvelle bouteille
-                </h1>
-            </div>
-        </div>
+	<div id="wrapper" class="bg-lightPrimary">
+		<div class="bg-lightSecondary pt-4 w-100" style="height: 180px">
+			<div style="border-bottom:solid; border-bottom-color:var(--prune)">
+				<h1 class="pt-2 ps-2 mt-5 mx-5 text-prune" style="letter-spacing:5px">
+					Nouvelle bouteille
+				</h1>
+			</div>
+		</div>
 
-        <form action="" method="POST"  class=" block2" enctype="multipart/form-data">
-<!-- ********************************** sous-block1 ********************************* -->
+		<form
+			action="" method="POST" class="my-5 p-3 border-start border-end shadow-lg text-prune block2" enctype="multipart/form-data">
+			<!-- ********************************** sous-block1 ********************************* -->
 
-            <div class="container text-center ss-block1 "><!--ms-3 container-fluid row -->
-            <div class="img_input">
-                {# <!-- ----------------------illustration -----------------------------> #}
-                <div class="div_illustration input-group-sm" id="div_illustration">
-                    <div class="img_bouteille m-auto">
-                        <img src="/assets/images/bouteille.svg" class="mt-5 mb-2 w-1 h-auto">
-                    </div>
-                    <input type="file" name="illustration" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="illustration">
-                    {# <label for="illustration" class="form-label text-start p-1 mb-0 form-label text-start p-1 mb-0"></label> #}
-                </div>
-                {# <!-- ----------------------block input à côté image -----------------------------> #}
-                <div class=" gpe_right_img">
-                                {# <!-- ----------gpe checkbox ----------------> #}
-                    <div class=" mt-4 mb-3 d-flex">
-                        <div class="form-check d-flex">
-                            <input class="form-check-input" type="radio" name="couleur" id="rouge">
-                            <label class="form-check-label" for="rouge">
-                                Rouge
-                            </label>
-                        </div>
-                        <div class="form-check ms-3 ">
-                            <input class="form-check-input" type="radio" name="couleur" id="rose" checked>
-                            <label class="form-check-label" for="rose">
-                                Rosé
-                            </label>
-                        </div>
-                        <div class="form-check ms-3">
-                            <input class="form-check-input" type="radio" name="couleur" id="blanc" checked>
-                            <label class="form-check-label" for="blanc">
-                                Blanc
-                            </label>
-                        </div>
-                    </div> {# <!-- ----------FIN gpe checkbox ----------------> #}
-                    <div class="d-flex flex-column" id="div_domaine">
-                        <label for="domaine" class="form-label text-start p-1 mb-0 text-start"></label>
-                        <input type="text" name="domaine" class="form-control w-100" id="domaine" placeholder="Domaine :">
-                    </div>
-                    <div class="type d-flex flex-column "><!--row -->
-                        {# <label for="type" name="type"class="form-label text-start p-1 mb-0">Type :</label> #}
-                        <select class="form-select form-select-sm mt-4" aria-label="Default select example">
-                            <option selected desabled>Choisir le type</option>
-                            <option ></option>
-                        </select>
-                        {# <select class="select-type" name="type[]" multiple id="type">
-                            <?php foreach ($types as $type) : ?>
-                                    <option value="<?= $type['id'] ?>"><?= $type['libelle'] ?> </option>
-                                <?php endforeach ?>
-                        </select> #}
-                    </div>
-                    <div class="d-flex flex-column">
-                        {# <label for="annee" class="form-label text-start p-1 mb-0">Année :</label> #}
-                        <select class="form-select form-select-sm mt-4" name="annee[]" >
-                            <option selected>Choisir l'année</option>
-                            <option value="2000">2000</option>
-                            <option value="2001">2001</option>
-                        </select>
-                    </div>
-            
-                    <div class="select_app_block d-flex flex-column" id="div_appelation">
-                        {# <label for="appelation" name="appelation"class="form-label text-start p-1 mb-0">Appelation :</label> #}
-                        <select class="form-select form-select-sm mt-4" aria-label="Default select example">
-                            <option selected>Choisir l'appelation</option>
-                        </select>
-                            </select>
-                    </div>
-                    <div class="select_region_block d-flex flex-column" id="div_region">
-                        {# <label for="region" name="region"class="form-label text-start p-1 mb-0">Région :</label> #}
-                        <select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
-                            <option selected>Choisir la région</option>
-                            <option selected>Choisir la région</option>
-                            <option selected>Choisir la région</option>
-                        </select>
-                    </div>
-                    <div class="d-flex flex-column" id="div_pays">
-                        {# <label for="pays" name="pays"class="form-label text-start p-1 mb-0 mt-4 ">Pays :</label> #}
-                        <select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
-                            <option selected>Choisir le pays</option>
-                            <option selected>Choisir le pays</option>
-                            <option selected>Choisir le pays</option>
-                        </select>
-                    </div>
-                </div> <!-- FIN div gpe_right_img  -->
-            </div> <!-- FIN div img_+_input  -->
-                {# <!-- ----------------------input vintage en long -----------------------------> #}
-            <div class="sous_image d-flex flex-column" id="div_vintage">
-                {# <label for="cepage" name="cepage"class="form-label text-start p-1 mb-0">Cépage :</label> #}
-                        <select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
-                            <option selected>Choisir le cépage</option>
-                            <option selected>Choisir le cépage</option>
-                            <option selected>Choisir le cépage</option>
-                        </select>
-            </div>   
-        </div> 
-            
-            
-                    
-                <div class="mb-3 ss-block2">
-                    <div class="ss-ss-block2-1">
-                        <div class="mb-3 mx-auto">
-                            <textarea type="text" name="description" class=" textearea form-control mt-4 mx-auto" id="description" rows="4" placeholder="Description commerciale..."></textarea>
-                        </div>
-                        <div class="d-flex row justify-content-around block_checkBox m-auto">
-                            <p class="ms-3 mb-1 ">SE BOIT AVEC</p>
-                            <hr>    
-                            <div class=" ms-2 col checkBoxLeft">
-                                <div class="form-check"> 
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                                    <label class="form-check-label" for="flexCheckDefault">Charcuterie</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Viande blanche</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Viande rouge</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Gibier</label>
-                                </div>
-                            </div>
-                            <div class="col ms-5 checkBoxRight">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Poisson</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Fromage</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Chocolat</label>
-                                </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1" >
-                                    <label class="form-check-label" for="flexCheckDefault1">Dessert fruités</label>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row justify-content-around ss-ss-block2-2">
-                        <div class="col-5">
-                            <div class="my-3">
-                                <label for="date_achat" class="form-label text-start p-1 mb-0">Date d'achat :</label>
-                                <input type="date" name="date_achat" class="form-control" id="date_achat"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="price" class="form-label text-start p-1 mb-0">Prix d'achat :</label>
-                                <input type="number" name="price" class="form-control" id="price" Placeholder="€">
-                            </div>
-                        </div>
-                        <div class="col-5 ">
-                            <div class="my-3">
-                                <label for="aging" name="aging"class="form-label text-start p-1 mb-0">Boire avant :</label>
-                                <input type="number" name="aging" class="form-control" id="aging" placeholder="Année">
-                            </div>
-                            <div class="mb-3">
-                                <label for="value" class="form-label text-start p-1 mb-0">Valeur :</label>
-                                <input type="number" name="value" class="form-control" id="value" Placeholder="€">
-                            </div>
-                        </div>   
-                        </div>
-                    </div>
-                
-                    
-                <div class="row ss-block3 mx-auto w-100 px-2">
-                    <div class="row ss-ss-block2 p-0">
-                        <div class="mb-3">
-                            <label for="rank" class="form-label text-start p-1 mb-0">Ranking :</label>
-                            <div class="etoile">
-                                <div class="input_etoile mb-1 ps-3" id="input_etoile1">
-                                    <input type="radio" name="note">
-                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
-                                </div>
-                                <div class=" input_etoile mb-1 ps-3" id="input_etoile2" >
-                                    <input type="radio" name="note">
-                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
-                                </div>
-                                <div class=" input_etoile mb-1 ps-3" id="input_etoile3">
-                                    <input type="radio" name="note">
-                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
-                                </div>
-                                <div class=" input_etoile mb-1 ps-3" id="input_etoile4">
-                                    <input type="radio" name="note">
-                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
-                                </div>
-                                <div class=" input_etoile mb-1 ps-3" id="input_etoile5">
-                                    <input type="radio" name="note">
-                                    <span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span><span class="etoile ms-1"><i class="bi bi-star text-warning"></i></span>
-                                </div>
-                             
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <textarea type="text" name="commentaire" class=" textearea form-control mt-4 mx-1" id="commentaire" rows="4" placeholder="Commentaires..."></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row ss-block4">
-                    <div class="stock_block mt-4 d-inline-flex">
-                        <label for="stock" class="stock_label form-label text-start ps-3 pt-2 mb-0  w-25">STOCK :</label>
-                        <input type="number" name="stock" class="form-control w-25" id="stock">
-                    </div>
-                    <div class="my-4">
-                        <label for="location" class="textearea form-label text-start ps-3 pb-1 mb-0">Emplacement :</label>
-                        <textarea type="text" name="location" class="textearea form-control mt-0 mx-auto" id="location" rows="2" placeholder="Etagère, armoire casier..."></textarea>
-                    </div>
-                </div>
-                            
-                <div class="d-flex justify-content-center gap-3 mt-3 mb-5">
-                   <div class="bg_darkdarkRed d-flex justify-content-center">
-						<button type="button" id="btnadd" class=" btn_dark btn mb-3 mt-3">Ajouter</button>
+			<div
+				class="container text-center ss-block1 ">
+				<!--ms-3 container-fluid row -->
+				<div
+					class="img_input">
+					{# <!-- ----------------------illustration -----------------------------> #}
+					<div class="div_illustration input-group-sm" id="div_illustration">
+						<div class="img_bouteille m-auto">
+							<img src="/assets/images/bouteille.svg" class="mt-5 mb-2 w-1 h-auto">
+						</div>
+						<input
+						type="file" name="illustration" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="illustration">
+					{# <label for="illustration" class="form-label text-start p-1 mb-0 form-label text-start p-1 mb-0"></label> #}
 					</div>
-                   <div class="bg_darkdarkRed d-flex justify-content-center">
-						<button type="button" id="btnadd" class=" btn_light btn mb-3 mt-3">Annuler</button>
+					{# <!-- ----------------------block input à côté image -----------------------------> #}
+					<div
+						class=" gpe_right_img">
+						{# <!-- ----------gpe checkbox ----------------> #}
+						<div class=" mt-4 mb-3 d-flex">
+							<div class="form-check d-flex">
+								<input class="form-check-input" type="radio" name="couleur" id="rouge">
+								<label class="form-check-label" for="rouge">
+									Rouge
+								</label>
+							</div>
+							<div class="form-check ms-3 ">
+								<input class="form-check-input" type="radio" name="couleur" id="rose" checked>
+								<label class="form-check-label" for="rose">
+									Rosé
+								</label>
+							</div>
+							<div class="form-check ms-3">
+								<input class="form-check-input" type="radio" name="couleur" id="blanc" checked>
+								<label class="form-check-label" for="blanc">
+									Blanc
+								</label>
+							</div>
+						</div>
+						{# <!-- ----------FIN gpe checkbox ----------------> #}
+						<div class="d-flex flex-column" id="div_domaine">
+							<label for="domaine" class="form-label text-start p-1 mb-0 text-start"></label>
+							<input type="text" name="domaine" class="form-control w-100" id="domaine" placeholder="Domaine :">
+						</div>
+						<div class="type d-flex flex-column ">
+							<!--row -->
+							{# <label for="type" name="type"class="form-label text-start p-1 mb-0">Type :</label> #}
+								<select class="form-select form-select-sm mt-4" aria-label="Default select example"> <option selected desabled>Choisir le type</option>
+								<option></option>
+							</select>
+							{# <select class="select-type" name="type[]" multiple id="type">
+																																																																																																																																																																																																																																																																										                            <?php foreach ($types as $type) : ?>
+																																																																																																																																																																																																																																																																										                                    <option value="<?= $type['id'] ?>"><?= $type['libelle'] ?> </option>
+																																																																																																																																																																																																																																																																										                                <?php endforeach ?>
+																																																																																																																																																																																																																																																																										                        </select> #}
+						</div>
+						<div
+							class="d-flex flex-column">
+							{# <label for="annee" class="form-label text-start p-1 mb-0">Année :</label> #}
+							<select class="form-select form-select-sm mt-4" name="annee[]">
+								<option selected>Choisir l'année</option>
+								<option value="2000">2000</option>
+								<option value="2001">2001</option>
+							</select>
+						</div>
+
+						<div
+							class="select_app_block d-flex flex-column" id="div_appelation">
+							{# <label for="appelation" name="appelation"class="form-label text-start p-1 mb-0">Appelation :</label> #}
+							<select class="form-select form-select-sm mt-4" aria-label="Default select example">
+								<option selected>Choisir l'appelation</option>
+							</select>
+						</select>
 					</div>
-                   
-                </div>
-        
-    </form>
-</div>
-          
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-         
-</body>
-{% endblock %}
+					<div
+						class="select_region_block d-flex flex-column" id="div_region">
+						{# <label for="region" name="region"class="form-label text-start p-1 mb-0">Région :</label> #}
+						<select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
+							<option selected>Choisir la région</option>
+							<option selected>Choisir la région</option>
+							<option selected>Choisir la région</option>
+						</select>
+					</div>
+					<div
+						class="d-flex flex-column" id="div_pays">
+						{# <label for="pays" name="pays"class="form-label text-start p-1 mb-0 mt-4 ">Pays :</label> #}
+						<select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
+							<option selected>Choisir le pays</option>
+							<option selected>Choisir le pays</option>
+							<option selected>Choisir le pays</option>
+						</select>
+					</div>
+				</div>
+				<!-- FIN div gpe_right_img  -->
+			</div>
+			<!-- FIN div img_+_input  -->
+			{# <!-- ----------------------input vintage en long -----------------------------> #}
+			<div
+				class="sous_image d-flex flex-column" id="div_vintage">
+				{# <label for="cepage" name="cepage"class="form-label text-start p-1 mb-0">Cépage :</label> #}
+				<select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
+					<option selected>Choisir le cépage</option>
+					<option selected>Choisir le cépage</option>
+					<option selected>Choisir le cépage</option>
+				</select>
+			</div>
+		</div>
+
+
+		<div class="mb-3 ss-block2">
+			<div class="ss-ss-block2-1">
+				<div class="mb-3 mx-auto">
+					<textarea type="text" name="description" class=" textearea form-control mt-4 mx-auto" id="description" rows="4" placeholder="Description commerciale..."></textarea>
+				</div>
+				<div class="d-flex row justify-content-around block_checkBox m-auto">
+					<p class="ms-3 mb-1 ">SE BOIT AVEC</p>
+					<hr>
+					<div class=" ms-2 col checkBoxLeft">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+							<label class="form-check-label" for="flexCheckDefault">Charcuterie</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+							<label class="form-check-label" for="flexCheckDefault1">Viande blanche</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+							<label class="form-check-label" for="flexCheckDefault1">Viande rouge</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+							<label class="form-check-label" for="flexCheckDefault1">Gibier</label>
+						</div>
+					</div>
+					<div class="col ms-5 checkBoxRight">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+							<label class="form-check-label" for="flexCheckDefault1">Poisson</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+							<label class="form-check-label" for="flexCheckDefault1">Fromage</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+							<label class="form-check-label" for="flexCheckDefault1">Chocolat</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+							<label class="form-check-label" for="flexCheckDefault1">Dessert fruités</label>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row justify-content-around ss-ss-block2-2">
+				<div class="col-5">
+					<div class="my-3">
+						<label for="date_achat" class="form-label text-start p-1 mb-0">Date d'achat :</label>
+						<input type="date" name="date_achat" class="form-control" id="date_achat"></textarea>
+				</div>
+				<div class="mb-3">
+					<label for="price" class="form-label text-start p-1 mb-0">Prix d'achat :</label>
+					<input type="number" name="price" class="form-control" id="price" placeholder="€">
+				</div>
+			</div>
+			<div class="col-5 ">
+				<div class="my-3">
+					<label for="aging" name="aging" class="form-label text-start p-1 mb-0">Boire avant :</label>
+					<input type="number" name="aging" class="form-control" id="aging" placeholder="Année">
+				</div>
+				<div class="mb-3">
+					<label for="value" class="form-label text-start p-1 mb-0">Valeur :</label>
+					<input type="number" name="value" class="form-control" id="value" placeholder="€">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="row ss-block3 mx-auto w-100 px-2">
+		<div class="row ss-ss-block2 p-0">
+			<div class="mb-3">
+				<label for="rank" class="form-label text-start p-1 mb-0">Ranking :</label>
+				<div class="etoile">
+					<div class="input_etoile mb-1 ps-3" id="input_etoile1">
+						<input type="radio" name="note">
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+					</div>
+					<div class=" input_etoile mb-1 ps-3" id="input_etoile2">
+						<input type="radio" name="note">
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+					</div>
+					<div class=" input_etoile mb-1 ps-3" id="input_etoile3">
+						<input type="radio" name="note">
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+					</div>
+					<div class=" input_etoile mb-1 ps-3" id="input_etoile4">
+						<input type="radio" name="note">
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+					</div>
+					<div class=" input_etoile mb-1 ps-3" id="input_etoile5">
+						<input type="radio" name="note">
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+						<span class="etoile ms-1">
+							<i class="bi bi-star text-warning"></i>
+						</span>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="mb-3">
+				<textarea type="text" name="commentaire" class=" textearea form-control mt-4 mx-1" id="commentaire" rows="4" placeholder="Commentaires..."></textarea>
+			</div>
+		</div>
+	</div>
+	<div class="row ss-block4">
+		<div class="stock_block mt-4 d-inline-flex">
+			<label for="stock" class="stock_label form-label text-start ps-3 pt-2 mb-0  w-25">STOCK :</label>
+			<input type="number" name="stock" class="form-control w-25" id="stock">
+		</div>
+		<div class="my-4">
+			<label for="location" class="textearea form-label text-start ps-3 pb-1 mb-0">Emplacement :</label>
+			<textarea type="text" name="location" class="textearea form-control mt-0 mx-auto" id="location" rows="2" placeholder="Etagère, armoire casier..."></textarea>
+		</div>
+	</div>
+
+	<div class="d-flex justify-content-center gap-3 mt-3 mb-5">
+		<div class="bg_prune d-flex justify-content-center">
+			<button type="button" id="btnadd" class=" btn_dark btn mb-3 mt-3">Ajouter</button>
+		</div>
+		<div class="bg_prune d-flex justify-content-center">
+			<button type="button" id="btnadd" class=" btn_light btn mb-3 mt-3">Annuler</button>
+		</div>
+
+	</div>
+
+</form></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script></body>{% endblock %}

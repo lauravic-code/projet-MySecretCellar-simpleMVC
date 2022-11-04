@@ -1,22 +1,23 @@
 {% extends 'layout.html.twig' %}
 {% block stylesheet %}
-    {{parent()}}
-    <link rel="stylesheet" href="/assets/css/forms.css">
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/css/forms.css">
 {% endblock %}
 {# 
 ['wine' => $wine, 'appellation'=>$appellationLabel, 'color'=>$colorLabel, 'country' =>$countryLabel, 'region'=> $regionLabel, 'type'=> $typeLabel]); #}
 {% block content %}
-   <div id="wrapper" class="">
-       <div class= "pt-4 w-100" style="height: 180px; background-color:#FFF8F3">    
-            <div style="border-bottom:solid; border-bottom-color:#750B15">
-                <h1 class= "pt-2 ps-2 mt-5" style="color:#750B15; letter-spacing:5px">
-                Modification {{wine.domaine|upper}}
-                </h1>
-            </div>
-        </div>
+	<div id="wrapper" class="bg-lightPrimary">
+		<div class="bg-lightSecondary pt-4 w-100" style="height: 180px">
+			<div style="border-bottom:solid; border-bottom-color:var(--prune)">
+				<h1 class="pt-2 ps-2 mt-5 mx-5 text-prune" style="letter-spacing:5px">
+					Modification {{wine.domaine|upper}}
+				</h1>
+			</div>
+		</div>
 
-        <form action="" method="POST"  class=" block2" enctype="multipart/form-data">
-<!-- ********************************** sous-block1 ********************************* -->
+		<form
+			action="" method="POST" class="my-5 p-3 border-start border-end shadow-lg text-prune block2" enctype="multipart/form-data">
+			<!-- ********************************** sous-block1 ********************************* -->
 
             <div class="container text-center ss-block1 "><!--ms-3 container-fluid row -->
             <div class="img_input">
