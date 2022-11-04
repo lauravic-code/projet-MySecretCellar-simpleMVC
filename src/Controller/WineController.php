@@ -18,7 +18,23 @@ class WineController extends AbstractController
      */
     public function viewAddForm(): string
     {
-        return $this->twig->render('Form/AddForm.html.twig');
+        // get table country
+        $countryManager = new CountryManager();
+        $countries = $countryManager->selectAll('label');
+        // get table region
+        $regionManager = new RegionManager();
+        $regions = $regionManager->selectAll('label');
+        // get table type
+        $typeManager = new TypeManager();
+        $types = $typeManager->selectAll('label');
+        return $this->twig->render(
+            'Form/AddForm.html.twig',
+            [
+                'countries' => $countries,
+                'regions' => $regions,
+                'types' => $types
+            ]
+        );
     }
 
     /**
