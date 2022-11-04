@@ -8,13 +8,11 @@ class WineManager extends AbstractManager
 {
     public const TABLE = 'wine';
 
-    public function searchDomaine(string $orderBy = '', string $direction = 'ASC')
+    public function searchDomaine()
     {
 
-        $query = "SELECT * FROM " . static::TABLE . " WHERE domaine LIKE '%:value%' ";
-        if ($orderBy) {
-            $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
-        }
+        $query = "SELECT * FROM " . static::TABLE . " WHERE domaine LIKE '%:searchValue%' ";
+
 
         return $this->pdo->query($query)->fetchAll();
     }
