@@ -1,11 +1,11 @@
 {% block card %}
 	<div class="d-flex flex-column gap-4 justify-content-around pb-5 ">
 		{% for wine in wines %}
-			<a class="w-100 d-flex justify-content-center" href="show?id={{wine.id}}">
+			<a class="w-100 d-flex justify-content-center" href="showWine?id={{wine.id}}">
 				<div class="bg-light border rounded w-75 d-flex flex-row justify-content-around border  border-secondary">
 					<div class="d-flex gap-5">
 						<div class="rounded-circle border border-4 border-redWine my-3">
-							<img class="rounded-circle" style=" object-fit:cover" src="assets/images/BouteilleSeule.jpg" height="100" width="100"/>
+							<img class="rounded-circle" style=" object-fit:cover" src="/assets/images/BouteilleSeule.jpg" height="100" width="100"/>
 						</div>
 
 
