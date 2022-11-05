@@ -52,7 +52,7 @@ INSERT INTO `winePairing` (`id`,`label`) VALUES (4,'gibier');
 INSERT INTO `winePairing` (`id`,`label`) VALUES (5,'poisson');
 INSERT INTO `winePairing` (`id`,`label`) VALUES (6,'fromage');
 INSERT INTO `winePairing` (`id`,`label`) VALUES (7,'chocolat');
-INSERT INTO `wineParing` (`id`,`label`) VALUES (8,'dessert fruité');
+INSERT INTO `winePairing` (`id`,`label`) VALUES (8,'dessert fruité');
 
 -- -----------------------------------------------------
 -- Table `secretCellarNew`.`country`
