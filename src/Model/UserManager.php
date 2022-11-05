@@ -14,7 +14,7 @@ class UserManager extends AbstractManager
         $_POST['lastname'] = trim($_POST['lastname']);
         $_POST['email'] = trim($_POST['email']);
         $_POST['password'] = trim($_POST['password']);
-       // $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
        //$avatar = trim($_POST['avatar']);
         $_POST['dateOfBirth'] = trim($_POST['dateOfBirth']);
 
