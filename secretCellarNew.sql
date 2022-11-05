@@ -635,7 +635,7 @@ CREATE TABLE IF NOT EXISTS `secretCellarNew`.`user` (
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `avatar` BLOB NULL,
   `dateOfBirth` DATE NOT NULL,
   `role_id` INT NOT NULL,
