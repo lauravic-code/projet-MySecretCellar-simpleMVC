@@ -14,7 +14,6 @@ class UserController extends AbstractController
     public function createUser()
     {
         $userManager = new UserManager();
-        var_dump($_POST);
         $userManager->insertUser();
 
         return $this->twig->render('Login/index.html.twig');

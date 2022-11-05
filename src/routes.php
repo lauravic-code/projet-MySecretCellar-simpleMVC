@@ -30,4 +30,6 @@ return [
     "profil" => ['ProfilController', 'viewProfil'],
     // signup
     "signup" => ["UserController", "createUser"],
+    //upadate User
+    "updateUser" => ["UserController", "updateUser"],
 ];
