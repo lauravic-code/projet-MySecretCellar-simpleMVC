@@ -44,4 +44,14 @@ class WineManager extends AbstractManager
 
             $statement->execute();
     }
+
+    public function searchDomaine(string $search)
+    {
+
+        $query = "SELECT * FROM " . static::TABLE . " WHERE domaine LIKE '%" . $search . "%'";
+
+
+        return $this->pdo->query($query)->fetchAll();
+    }
 }
+

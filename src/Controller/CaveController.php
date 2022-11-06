@@ -11,41 +11,92 @@ use App\Model\WineManager;
 
 class CaveController extends AbstractController
 {
+    public array $wines;
+    public array $appellations;
+    public array $countries;
+    public array $regions;
+    public array $colors;
+    public array $types;
+
     /**
-     * Display miniatures page
+     * Get the value of wines
      */
-    public function index(): string
+    public function getWines()
     {
-        // get table wine
         $wineManager = new WineManager();
-        $wines = $wineManager->selectAll('domaine');
-        // get table appellation
+        $this->wines = $wineManager->selectAll();
+        return $this->wines;
+    }
+
+
+    public function getAppellation()
+    {
         $appellationsManager = new AppellationManager();
-        $appellations = $appellationsManager->selectAll('label');
+        $this->appellations = $appellationsManager->selectAll('label');
+        return $this->appellations;
+    }
+
+    /**
+     * Get the value of countries
+     */
+    public function getCountries()
+    {
+
         // get table country
         $countryManager = new CountryManager();
-        $countries = $countryManager->selectAll('label');
+        $this->countries = $countryManager->selectAll('label');
+        return $this->countries;
+    }
+
+    /**
+     * Get the value of regions
+     */
+    public function getRegions()
+    {
+
         // get table region
         $regionManager = new RegionManager();
-        $regions = $regionManager->selectAll('label');
+        $this->regions = $regionManager->selectAll('label');
+        return $this->regions;
+    }
+
+    /**
+     * Get the value of colors
+     */
+    public function getColors()
+    {
         // get table color
         $colorManager = new ColorManager();
-        $colors = $colorManager->selectAll('label');
+        $this->colors = $colorManager->selectAll('label');
+        return $this->colors;
+    }
+
+    /**
+     * Get the value of types
+     */
+    public function getTypes()
+    {
         // get table type
         $typeManager = new TypeManager();
-        $types = $typeManager->selectAll('label');
+        $this->types = $typeManager->selectAll('label');
+        return $this->types;
+    }
 
 
-        if (empty($wines)) {
+    public function index(): string
+    {
+
+
+        if (empty($this->getWines())) {
             return $this->twig->render('MaCave/emptyCave.html.twig');
         } else {
             return $this->twig->render('MaCave/cave.html.twig', [
-            'wines' => $wines,
-            'appellations' => $appellations,
-            'countries' => $countries,
-            'regions' => $regions,
-            'colors' => $colors,
-            'types' => $types
+                'wines' => $this->getWines(),
+                'appellations' => $this->getAppellation(),
+                'countries' => $this->getCountries(),
+                'regions' => $this->getRegions(),
+                'colors' => $this->getColors(),
+                'types' => $this->getTypes(),
             ]);
         }
     }
@@ -53,5 +104,22 @@ class CaveController extends AbstractController
     public function showFilteredCellar()
     {
         return $this->twig->render('MaCave/filteredCellar.html.twig');
+    }
+
+    public function showCellarByDomain()
+    {
+        $wineManager = new WineManager();
+        $wines = $wineManager->searchDomaine($_POST['wine']);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            return $this->twig->render('MaCave/cellarByDomain.html.twig', [
+                'wines' => $wines,
+                'appellations' => $this->getAppellation(),
+                'countries' => $this->getCountries(),
+                'regions' => $this->getRegions(),
+                'colors' => $this->getColors(),
+                'types' => $this->getTypes(),
+            ]);
+        }
     }
 }
