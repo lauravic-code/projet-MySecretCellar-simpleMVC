@@ -6,7 +6,7 @@ use PDO;
 
 class WinePairingManager extends AbstractManager
 {
-    public const TABLE = 'winePairing';
+    public const TABLE = 'wine_has_winePairing';
 
     public function selectInnerJoin(int $id): array|false
     {
@@ -22,5 +22,29 @@ class WinePairingManager extends AbstractManager
         $statement->execute();
 
         return $statement->fetchAll();
+    }
+
+    public function update($wineDatas)
+    {
+
+        // deleting lines on wine_has_pairing where wine_id
+        $query = 'DELETE FROM wine_has_winePairing WHERE wine_id = :id ';
+        $statement = $this->pdo->prepare($query);
+
+        $data = [':id' => $wineDatas['wine_id']];
+        $statement->execute($data);
+
+        // inserting lines on wine_has_pairing where wine_id
+        $winePairings = $wineDatas['winePairings'];
+
+        foreach ($winePairings as $winePairing) {
+            $query = 'INSERT INTO wine_has_winePairing VALUES(:wine_id, :winePairing_id)';
+            $statement = $this->pdo->prepare($query);
+            $data = [
+                ':wine_id' => $wineDatas['wine_id'],
+                ':winePairing_id' => $winePairing
+            ];
+            $statement->execute($data);
+        }
     }
 }

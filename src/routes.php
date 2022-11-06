@@ -15,8 +15,11 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     //form add new bottle
     'add' => ['WineController', 'viewAddForm'],
-    //form update bottle
-    'updateWine' => ['WineController', 'viewUpdateForm', ['id']],
+    //show form update bottle
+    'showUpdateForm' => ['WineController', 'viewWineInfo', ['id']],
+    //traitment of $_post from update wine
+    'updateWine' => ['WineController', 'updateWine'],
+    'addWine' => ['WineController', 'createWine', ['id']],
     //register
     'register' => ['RegisterController', 'viewRegister',],
     // MaCave
