@@ -6,7 +6,6 @@ use App\Model\UserManager;
 
 class UserController extends AbstractController
 {
-  
     public function viewProfil()
     {
         return $this->twig->render('Profil/profil.html.twig');

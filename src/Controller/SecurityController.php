@@ -9,29 +9,28 @@ class SecurityController extends AbstractController
     public function login()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $errors = [];
-        if($_POST['email'] ===''){
-            $errors['email'] ='Veuillez saisir un email';
-        }
-        if($_POST['password'] ===''){
-            $errors['password'] ='Veuillez saisir un mot de passe';
-        }
-        if(!$errors){
-            $securityManager = new SecurityManager();
-            $results = $securityManager->login($_POST);
-            if($results){
-
-            header('Location:/accueil');
-            $_SESSION['email'] = $results['email'];
-            $_SESSION['firstname'] = $results['firstname'];
-            $_SESSION['lastname'] = $results['lastname'];
-            return null;
+            $errors = [];
+            if ($_POST['email'] === '') {
+                $errors['email'] = 'Veuillez saisir un email';
             }
-         header('Location:/');
-         return null;
+            if ($_POST['password'] === '') {
+                $errors['password'] = 'Veuillez saisir un mot de passe';
+            }
+            if (!$errors) {
+                $securityManager = new SecurityManager();
+                $results = $securityManager->login($_POST);
+                if ($results) {
+                    header('Location:/accueil');
+                    $_SESSION['email'] = $results['email'];
+                    $_SESSION['firstname'] = $results['firstname'];
+                    $_SESSION['lastname'] = $results['lastname'];
+                    return null;
+                }
+                header('Location:/');
+                return null;
+            }
         }
-    }
-    
+
         return $this->twig->render('Login/index.html.twig');
     }
 
@@ -41,5 +40,4 @@ class SecurityController extends AbstractController
         header('Location:/');
         return null;
     }
-
-    }
+}

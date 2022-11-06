@@ -25,7 +25,8 @@ abstract class AbstractController
             ]
         );
         $this->twig->addExtension(new DebugExtension());
-        if(isset($_SESSION)) $this->twig->addGlobal('user', $_SESSION);
-
+        if (isset($_SESSION)) {
+            $this->twig->addGlobal('user', $_SESSION);
+        }
     }
 }

@@ -15,6 +15,6 @@ class SecurityManager extends AbstractManager
         $statement->bindValue('password', $user['password'], PDO::PARAM_STR);
 
         $statement->execute();
-        return $statement->fetch();     
+        return $statement->fetch();
     }
 }
