@@ -15,17 +15,24 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     //form add new bottle
     'add' => ['WineController', 'viewAddForm'],
-    //form update bottle
-    'updateWine' => ['WineController', 'viewUpdateForm', ['id']],
+    //show form update bottle
+    'showUpdateForm' => ['WineController', 'viewWineInfo', ['id']],
+    //traitment of $_post from update wine
+    'updateWine' => ['WineController', 'updateWine'],
     //register
     'register' => ['RegisterController', 'viewRegister',],
     // MaCave
     'maCave' => ['CaveController', 'index',],
     // fiche Vin
     'showWine' => ['WineController', 'showWineById', ['id']],
-    'showFilteredCellar' => ['CaveController', 'showFilteredCellar'],
+    'filteredCellar' => ['CaveController', 'showFilteredCellar'],
+    'cellarByDomain' => ['CaveController', 'showCellarByDomain'],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
     //profil
     "profil" => ['ProfilController', 'viewProfil'],
+    // signup
+    "signup" => ["UserController", "createUser"],
+    //upadate User
+    "updateUser" => ["UserController", "updateUser"],
 ];

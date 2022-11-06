@@ -1,43 +1,54 @@
 {% extends 'layout.html.twig' %}
-
+{% block stylesheet %}
+	{{parent()}}
+	<link rel="stylesheet" href="/assets/css/show.css">
+{% endblock %}
 {% block content %}
 
-	<div style=" background-color: var(--lightPrimary); padding-top:3vh ">
+	<div class=" show_wine my-5 border-start border-end shadow-lg text-prune" style=" background-color: var(--lightPrimary); padding-top:3vh ">
 
 		{# first section #}
 		{# <div class="d-flex justify-content-between px-5"> #}
 			<div
 			class="d-flex flex-column flex-sm-row px-3"> {# info #}
-			<div class="d-flex flex-column w-100 px-5 gap-4">
-				<div class="d-flex flex-column justify-content-center">
+			<div class="d-flex flex-column w-100 ps-2 justify-content-around">
+				<div class="w-100 d-flex flex-column justify-content-center">
 
-					<div class="d-flex justify-content-between" style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);">
-						<div>
-							<h1 style="color: var(--prune);">CHATEAU LATOUR<h1>
-									<div class="pb-2">
-										{% block stars %}
-											{% include "Component/_stars.html.twig" %}
-										{% endblock %}
-									</div>
+					<div class="d-flex flex-column justify-content-between" style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);">
+							<h1 style="w-100 flex-shrink-0	 color: var(--prune);">{{wine.domaine}}</h1>
+						<div class="titre_stars w-100 d-flex flex-row">
+							<div class="star_buttton d-flex flex-column w-100 ">
+								<div class=" pb-2 ps-2 d-flex flex-row w-50">
+									{% block stars %}
+										{% include "Component/_stars.html.twig" %}
+									{% endblock %}
 								</div>
-								<div>
-									<a href="updateWine/?id={{wine.id}}">
-										<button type="button" class="btn my-3 p-2 border-0 rounded h-2" style="background-color: var(--prune);">
-											<p class="mb-0 text-center">Modifier la fiche</p>
-										</button>
+								<div class="btn_modifier w-50">
+									<a href="showUpdateForm?id={{wine.id}}">
+									<button type="button" class="btn my-3 p-2 border-0 rounded h-2" style="background-color: var(--prune);">
+										<p class="mb-0 text-center">Modifier la fiche</p>
+									</button>
 									</a>
 								</div>
 							</div>
+							<div class="border">
+								<img src="/assets/images/BouteilleSeule.jpg" alt="Wine Picture" height="200" width="100"/>
+							</div>
+						</div>
+							<hr class="border-3">
+								
+						
+					</div>
 
-							<div class="d-flex justify-content-between">
+							<div class="d-flex justify-content-between ">
 								<div class="d-flex gap-4">
-									<p style="color: var(--prune);">VIN ROUGE</p>
+									<p style="color: var(--prune);">Vin {{colorLabel.label|upper}}</p>
 									<p style="color: var(--prune);">|</p>
 
-									<p style="color: var(--prune);">TYPE</p>
+									<p style="color: var(--prune);">{{typeLabel.label|upper}}</p>
 								</div>
 								<div>
-									<p style="color: var(--prune);">2016</p>
+									<p class="pe-4 "style="color: var(--prune);">{{wine.vintage|upper}}</p>
 								</div>
 							</div>
 
@@ -46,16 +57,16 @@
 						<div class="d-flex">
 							<div class=" d-flex flex-column gap-5 pb-5  ">
 								<div class="d-flex flex-column">
-									<p style="color: var(--prune);">Pays :</p>
-									<p style="color: var(--prune);">Région :</p>
-									<p style="color: var(--prune);">Appelation :</p>
-									<p style="color: var(--prune);">Cépage :</p>
+									<p style="color: var(--prune);" ><strong>Pays : </strong>{{countryLabel.label|upper}}</p>
+									<p style="color: var(--prune);" ><strong>Région : </strong>{{regionLabel.label|upper}}</p>
+									<p style="color: var(--prune);" ><strong>Appelation : </strong>{{appellationLabel.label|upper}}</p>
+									{# <p style="color: var(--prune);">Cépage :</p> #}
 								</div>
 								<div>
-									<p style="color: var(--prune);">Ce vin accompagne :</p>
+									<p style="color: var(--prune);"><strong>Ce vin accompagne :</strong><br> {% for tabwinePairing in tabwinePairings  %}- {{tabwinePairing|upper}} <br> {% endfor %}</p>
 								</div>
 								<div>
-									<p style="color: var(--prune);">Limite de conservation :</p>
+									<p style="color: var(--prune);"><strong>Limite de conservation : </strong>{{wine.drinkBefore}}</p>
 								</div>
 							</div>
 						</div>
@@ -66,13 +77,11 @@
 					{# <div class ="d-flex flex-column align-items-center gap-1"> #}
 
 					<div class="d-flex justify-content-center gap-4 flex-sm-column pb-3">
-						<div class="border">
-							<img src="/assets/images/BouteilleSeule.jpg" alt="Wine Picture" height="200" width="100"/>
-						</div>
+						
 						<div class="d-flex flex-column align-items-center justify-content-center">
 							<div class="d-flex flex-column align-items-center " style="width:3rem;">
-								<p style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);">Stock</p>
-								<p style="color: var(--prune);">9</p>
+								<p style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);"><strong>Stock</strong></p>
+								<p style="color: var(--prune);">{{wine.stock}}</p>
 							</div>
 							<div>
 								<button type="button" class="my-3 p-2 border-0 rounded h-2" style="background-color: var(--prune)" type="button" data-bs-toggle="modal" data-bs-target="#modal">
@@ -89,28 +98,24 @@
 				<div class=" border-top border-bottom border-dark px-5" style="background-color:#FFFC9C9">
 					<div class="px-5 py-4 ">
 						<h3 class="w-50" style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);">Description</h3>
-						<p style="color: var(--prune);">Le vignoble de Chatillon-en-Diois s’étend sur les coteaux du Parc Régional Naturel du Vercors, entre les Préalpes drômoises et la Provence. 
-																																																																																																																																																																																																																																																																																																																																																																																																																																																									            Il fait partie des plus petites appellations de France (40 ha au total).
-						</p>
+						<p style="color: var(--prune);">{{wine.description}}</p>
 					</div>
 				</div>
 				{# third section #}
 				<div class="px-5 py-4 d-flex justify-content-around">
 					<div>
-						<p style="color: var(--prune);">Prix d'achat</p>
-						<p style="color: var(--prune);">Date d'achat</p>
+						<p style="color: var(--prune);">Prix d'achat : {{wine.price}}€</p>
+						<p style="color: var(--prune);">Date d'achat : {{wine.purchaseDate}}</p>
 					</div>
 					<div>
-						<p style="color: var(--prune);">Valeur</p>
+						<p style="color: var(--prune);">Valeur : {{wine.value}}€</p>
 					</div>
 				</div>
 				{# fourth section #}
 				<div class=" border-top border-bottom border-dark px-5" style="background-color:#FFFC9C9">
 					<div class="px-5 py-4">
 						<h3 class="w-50" style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);">Commentaire</h3>
-						<p style="color: var(--prune);">Il fait partie des plus petites appellations de 
-																																																																																																																																																																																																																																																																																																																																																																																																																																																									            florales délicates. Sur ces petites parcelles, les vignerons portent un soin tout
-																																																																																																																																																																																																																																																																																																																																																																																																																																																									            particulier au travail.</p>
+						<p style="color: var(--prune);">{{wine.comment}}</p>
 					</div>
 				</div>
 				{# fifth section #}

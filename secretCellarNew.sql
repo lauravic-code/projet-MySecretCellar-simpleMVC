@@ -19,20 +19,6 @@ CREATE SCHEMA IF NOT EXISTS `secretCellarNew` DEFAULT CHARACTER SET utf8 ;
 USE `secretCellarNew` ;
 
 -- -----------------------------------------------------
--- Table `secretCellarNew`.`role`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `secretCellarNew`.`role` ;
-
-CREATE TABLE IF NOT EXISTS `secretCellarNew`.`role` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `label` VARCHAR(45) NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-INSERT INTO `role` (`id`,`label`) VALUES (1,'admin');
-INSERT INTO `role` (`id`,`label`) VALUES (2,'user');
-
--- -----------------------------------------------------
 -- Table `secretCellarNew`.`color`
 -- -----------------------------------------------------
 DROP TABLE IF EXISTS `secretCellarNew`.`color` ;
@@ -66,7 +52,7 @@ INSERT INTO `winePairing` (`id`,`label`) VALUES (4,'gibier');
 INSERT INTO `winePairing` (`id`,`label`) VALUES (5,'poisson');
 INSERT INTO `winePairing` (`id`,`label`) VALUES (6,'fromage');
 INSERT INTO `winePairing` (`id`,`label`) VALUES (7,'chocolat');
-INSERT INTO `wineParing` (`id`,`label`) VALUES (8,'dessert fruité');
+INSERT INTO `winePairing` (`id`,`label`) VALUES (8,'dessert fruité');
 
 -- -----------------------------------------------------
 -- Table `secretCellarNew`.`country`
@@ -457,8 +443,6 @@ INSERT INTO `type` (`id`,`label`) VALUES (4,'pétillant');
 
 
 
-
-
 -- -----------------------------------------------------
 -- Table `secretCellarNew`.`grapeVariety`
 -- -----------------------------------------------------
@@ -550,7 +534,7 @@ INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock
 INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (3,'clos saint apolline','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',5,15,3,20,'B-10',NULL,2030,2015,'2018-01-28',2,75,4,18,1);
 INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (5,'château giscours','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',5,13,12,30,'C-10',NULL,2026,2006,'2018-01-28',1,75,12,3,1);
 INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (12,'château cantenac brown','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',3,4.3,1,10,'D-01',NULL,2030,2010,'2018-01-28',1,75,12,3,1);
-INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (13,'château la lagune','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',4,7.1,2,12,'D-02',NULL,2025,2012,'2018-01-28',1,75,12,4,1);
+INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (13,'château la lagune','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',4,7.1,2,12,'D-02',NULL,2025,2012,'2018-01-28',3,75,12,4,1);
 INSERT INTO `wine` (`id`,`domaine`,`description`,`comment`,`rank`,`price`,`stock`,`value`,`cellarLocation`,`picture`,`drinkBefore`,`vintage`,`purchaseDate`,`color_id`,`country_id`,`region_id`,`appellation_id`,`type_id`) VALUES (14,'château duhars milon','There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don\'t look even slightly believable. ','Lorem Ipsum is therefore always free ',5,9,20,15,'D-03',NULL,2035,2019,'2018-01-28',1,75,12,8,1);
 
 
@@ -635,20 +619,16 @@ CREATE TABLE IF NOT EXISTS `secretCellarNew`.`user` (
   `firstname` VARCHAR(45) NOT NULL,
   `lastname` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   `avatar` BLOB NULL,
   `dateOfBirth` DATE NOT NULL,
-  `role_id` INT NOT NULL,
-  PRIMARY KEY (`id`, `role_id`),
-  INDEX `fk_user_role1_idx` (`role_id` ASC) VISIBLE,
-  CONSTRAINT `fk_user_role1`
-    FOREIGN KEY (`role_id`)
-    REFERENCES `secretCellarNew`.`role` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `role` VARCHAR(45) NULL,
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-INSERT INTO `user` (`id`,`firstname`,`lastname`,`email`,`password`,`avatar`,`dateOfBirth`,`role_id`) VALUES (1,'admin','admin','admin@admin.fr','admin',NULL,'1989-10-09',1);
+INSERT INTO `user` (`id`,`firstname`,`lastname`,`email`,`password`,`avatar`,`dateOfBirth`,`role`) 
+VALUES (1,'admin','admin','admin@admin.fr','admin',NULL,'1989-10-09','admin'),
+(2,'user','user','user@user.fr','user',NULL,'1989-10-09','user');
 
 -- -----------------------------------------------------
 -- Table `secretCellarNew`.`user_has_wine`
