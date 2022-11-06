@@ -24,7 +24,7 @@ class CaveController extends AbstractController
     public function getWines()
     {
         $wineManager = new WineManager();
-        $this->wines = $wineManager->selectAll();
+        $this->wines = $wineManager->selectAll('domaine');
         return $this->wines;
     }
 
