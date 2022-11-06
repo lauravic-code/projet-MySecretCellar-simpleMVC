@@ -36,7 +36,30 @@ class WineController extends AbstractController
             ]
         );
     }
+    public function createWine()
+    {
 
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            // $wine = array_map('trim', $_POST);
+             var_dump($_POST);
+
+
+            $wineDatas  = $_POST;
+            // TODO validations (length, format...)
+
+            // if validation is ok, insert and redirection
+            $wineManager = new WineManager();
+            $id = $wineManager->insertWine($wineDatas);
+
+
+            header('Location:/showWine?id=' . $id);
+            return null;
+        }
+
+            return $this->twig->render('add.html.twig');
+    }
     /**
      * Show update form for a specific wine
      */

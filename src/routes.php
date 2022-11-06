@@ -19,6 +19,7 @@ return [
     'showUpdateForm' => ['WineController', 'viewWineInfo', ['id']],
     //traitment of $_post from update wine
     'updateWine' => ['WineController', 'updateWine'],
+    'addWine' => ['WineController', 'createWine', ['id']],
     //register
     'register' => ['RegisterController', 'viewRegister',],
     // MaCave

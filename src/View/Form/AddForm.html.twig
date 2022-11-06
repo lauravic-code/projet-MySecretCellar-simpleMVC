@@ -5,6 +5,9 @@
 {% endblock %}
 
 {% block content %}
+
+
+
 	<div id="wrapper" class="bg-lightPrimary">
 		<div class="bg-lightSecondary pt-4 w-100" style="height: 180px">
 			<div style="border-bottom:solid; border-bottom-color:var(--prune)">
@@ -15,7 +18,7 @@
 		</div>
 
 		<form
-			action="" method="POST" class="my-5 p-3 border-start border-end shadow-lg text-prune block2" enctype="multipart/form-data">
+			action="addWine" method="POST" class="my-5 p-3 border-start border-end shadow-lg text-prune block2" enctype="multipart/form-data">
 			<!-- ********************************** sous-block1 ********************************* -->
 
 			<div
@@ -39,19 +42,19 @@
 						{# <!-- ----------gpe checkbox ----------------> #}
 						<div class=" mt-4 mb-3 d-flex">
 							<div class="form-check d-flex">
-								<input class="form-check-input" type="radio" name="couleur" id="rouge">
+								<input class="form-check-input" type="radio" name="color_id" id="rouge" value="1">
 								<label class="form-check-label" for="rouge">
 									Rouge
 								</label>
 							</div>
 							<div class="form-check ms-3 ">
-								<input class="form-check-input" type="radio" name="couleur" id="rose" checked>
+								<input class="form-check-input" type="radio" name="color_id" id="rose" value="3">
 								<label class="form-check-label" for="rose">
 									Rosé
 								</label>
 							</div>
 							<div class="form-check ms-3">
-								<input class="form-check-input" type="radio" name="couleur" id="blanc" checked>
+								<input class="form-check-input" type="radio" name="color_id" id="blanc" value="2">
 								<label class="form-check-label" for="blanc">
 									Blanc
 								</label>
@@ -65,9 +68,9 @@
 						<div class="type d-flex flex-column ">
 							<!--row -->
 							<label for="type" name="type"class="form-label text-start mb-0 mt-2">Type :</label>
-								<select class="form-select form-select-sm mt-3" aria-label="Default select example"> <option selected desabled>Choisir le type</option>
+								<select class="form-select form-select-sm mt-3" aria-label="Default select example" name="type_id"> <option selected desabled>Choisir le type</option>
 								{% for type in types %}
-									<option value="{{type.label}}">{{type.label}}</option>
+									<option value="{{type.id}}">{{type.label}}</option>
 								{% endfor %}
 							</select>
 							{# <select class="select-type" name="type[]" multiple id="type">
@@ -79,7 +82,7 @@
 						<div
 							class="d-flex flex-column">
 							<label for="annee" class="form-label text-start p-1 mb-0 mt-3">Année :</label>
-							<select class="form-select form-select-sm mt-3" name="annee[]">
+							<select class="form-select form-select-sm mt-3" name="vintage">
 								<option selected>Choisir l'année</option>
 								<option value="2000">2000</option>
 								<option value="2001">2001</option>
@@ -88,29 +91,30 @@
 
 						<div
 							class="select_app_block d-flex flex-column" id="div_appelation">
-							<label for="appelation" name="appelation"class="form-label text-start p-1 mb-0 mt-3">Appelation :</label>
-							<select class="form-select form-select-sm mt-3" aria-label="Default select example">
+							<label for="appellation" name="appellation"class="form-label text-start p-1 mb-0 mt-3">Appelation :</label>
+							<select class="form-select form-select-sm mt-3" aria-label="Default select example" name="appellation_id">
 								<option selected>Choisir l'appelation</option>
+								<option value="6" >margaux</option>
 							</select>
 						</select>
 					</div>
 					<div
 						class="select_region_block d-flex flex-column" id="div_region">
-						<label for="region" name="region"class="form-label text-start p-1 mb-0 mt-3">Région :</label>
-						<select class="form-select form-select-sm mt-3" aria-lasbel="Default select example">
+						<label for="region_id" class="form-label text-start p-1 mb-0 mt-3">Région :</label>
+						<select class="form-select form-select-sm mt-3" aria-lasbel="Default select example" name="region_id" id="region_id">
 							<option selected>Choisir la région</option>
 							{% for region in regions %}
-								<option value="{{region.label}}">{{region.label}}</option>
+								<option value="{{region.id}}">{{region.label}}</option>
 							{% endfor %}
 						</select>
 					</div>
 					<div
 						class="d-flex flex-column" id="div_pays">
-						<label for="pays" name="pays"class="form-label text-start p-1 mb-0 mt-3 ">Pays :</label>
-						<select class="form-select form-select-sm mt-3" aria-lasbel="Default select example">
+						<label for="country_id"class="form-label text-start p-1 mb-0 mt-3 ">Pays :</label>
+						<select class="form-select form-select-sm mt-3" aria-lasbel="Default select example" name="country_id" id="country_id">
 							<option selected>Choisir le pays</option>
 						{% for country in countries %}
-							<option value="{{country.label}}">{{country.label}}</option>
+							<option value="{{country.id}}">{{country.label}}</option>
 						{% endfor %}
 						</select>
 					</div>
@@ -119,7 +123,7 @@
 			</div>
 			<!-- FIN div img_+_input  -->
 			{# <!-- ----------------------input vintage en long -----------------------------> #}
-			<div
+			{# <div
 				class="sous_image d-flex flex-column" id="div_vintage">
 				<label for="cepage" name="cepage"class="form-label text-start p-1 mb-0 mt-3">Cépage :</label>
 				<select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
@@ -127,7 +131,7 @@
 					<option selected>Choisir le cépage</option>
 					<option selected>Choisir le cépage</option>
 				</select>
-			</div>
+			</div> #}
 		</div>
 
 
@@ -141,38 +145,38 @@
 					<hr>
 					<div class=" ms-2 col checkBoxLeft">
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-							<label class="form-check-label" for="flexCheckDefault">Charcuterie</label>
+							<input class="form-check-input" type="checkbox" value="" id="Charcuterie" name="winePairing[]">
+							<label class="form-check-label" for="Charcuterie">Charcuterie</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-							<label class="form-check-label" for="flexCheckDefault1">Viande blanche</label>
+							<input class="form-check-input" type="checkbox" value="" id="ViandeBlanche" name="winePairing[]">
+							<label class="form-check-label" for="ViandeBlanche">Viande blanche</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-							<label class="form-check-label" for="flexCheckDefault1">Viande rouge</label>
+							<input class="form-check-input" type="checkbox" value="" id="ViandeRouge" name="winePairing[]">
+							<label class="form-check-label" for="ViandeRouge">Viande rouge</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-							<label class="form-check-label" for="flexCheckDefault1">Gibier</label>
+							<input class="form-check-input" type="checkbox" value="" id="Gibier" name="winePairing[]">
+							<label class="form-check-label" for="Gibier">Gibier</label>
 						</div>
 					</div>
 					<div class="col ms-5 checkBoxRight">
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-							<label class="form-check-label" for="flexCheckDefault1">Poisson</label>
+							<input class="form-check-input" type="checkbox" value="" id="Poisson" name="winePairing[]">
+							<label class="form-check-label" for="Poisson">Poisson</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-							<label class="form-check-label" for="flexCheckDefault1">Fromage</label>
+							<input class="form-check-input" type="checkbox" value="" id="Fromage" name="winePairing[]">
+							<label class="form-check-label" for="Fromage">Fromage</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-							<label class="form-check-label" for="flexCheckDefault1">Chocolat</label>
+							<input class="form-check-input" type="checkbox" value="" id="Chocolat" name="winePairing[]">
+							<label class="form-check-label" for="Chocolat">Chocolat</label>
 						</div>
 						<div class="form-check">
-							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
-							<label class="form-check-label" for="flexCheckDefault1">Dessert fruités</label>
+							<input class="form-check-input" type="checkbox" value="" id="fruités" name="winePairing[]">
+							<label class="form-check-label" for="fruités">Dessert fruités</label>
 						</div>
 					</div>
 				</div>
@@ -182,7 +186,7 @@
 				<div class="col-5">
 					<div class="my-3">
 						<label for="date_achat" class="form-label text-start p-1 mb-0">Date d'achat :</label>
-						<input type="date" name="date_achat" class="form-control" id="date_achat"></textarea>
+						<input type="date" name="purchaseDate" class="form-control" id="date_achat"></textarea>
 				</div>
 				<div class="mb-3">
 					<label for="price" class="form-label text-start p-1 mb-0">Prix d'achat :</label>
@@ -192,7 +196,7 @@
 			<div class="col-5 ">
 				<div class="my-3">
 					<label for="aging" name="aging" class="form-label text-start p-1 mb-0">Boire avant :</label>
-					<input type="number" name="aging" class="form-control" id="aging" placeholder="Année">
+					<input type="number" name="drinkBefore" class="form-control" id="aging" placeholder="Année">
 				</div>
 				<div class="mb-3">
 					<label for="value" class="form-label text-start p-1 mb-0">Valeur :</label>
@@ -209,13 +213,13 @@
 				<label for="rank" class="form-label text-start p-1 mb-0">Ranking :</label>
 				<div class="etoile">
 					<div class="input_etoile mb-1 ps-3" id="input_etoile1">
-						<input type="radio" name="note">
+						<input type="radio" name="rank">
 						<span class="etoile ms-1">
 							<i class="bi bi-star text-warning"></i>
 						</span>
 					</div>
 					<div class=" input_etoile mb-1 ps-3" id="input_etoile2">
-						<input type="radio" name="note">
+						<input type="radio" name="rank">
 						<span class="etoile ms-1">
 							<i class="bi bi-star text-warning"></i>
 						</span>
@@ -224,7 +228,7 @@
 						</span>
 					</div>
 					<div class=" input_etoile mb-1 ps-3" id="input_etoile3">
-						<input type="radio" name="note">
+						<input type="radio" name="rank">
 						<span class="etoile ms-1">
 							<i class="bi bi-star text-warning"></i>
 						</span>
@@ -236,7 +240,7 @@
 						</span>
 					</div>
 					<div class=" input_etoile mb-1 ps-3" id="input_etoile4">
-						<input type="radio" name="note">
+						<input type="radio" name="rank">
 						<span class="etoile ms-1">
 							<i class="bi bi-star text-warning"></i>
 						</span>
@@ -251,7 +255,7 @@
 						</span>
 					</div>
 					<div class=" input_etoile mb-1 ps-3" id="input_etoile5">
-						<input type="radio" name="note">
+						<input type="radio" name="rank">
 						<span class="etoile ms-1">
 							<i class="bi bi-star text-warning"></i>
 						</span>
@@ -273,7 +277,7 @@
 			</div>
 
 			<div class="mb-3">
-				<textarea type="text" name="commentaire" class=" textearea form-control mt-4 mx-1" id="commentaire" rows="4" placeholder="Commentaires..."></textarea>
+				<textarea type="text" name="comment" class=" textearea form-control mt-4 mx-1" id="comment" rows="4" placeholder="Commentaires..."></textarea>
 			</div>
 		</div>
 	</div>
@@ -284,16 +288,17 @@
 		</div>
 		<div class="my-4">
 			<label for="location" class="textearea form-label text-start ps-3 pb-1 mb-0">Emplacement :</label>
-			<textarea type="text" name="location" class="textearea form-control mt-0 mx-auto" id="location" rows="2" placeholder="Etagère, armoire casier..."></textarea>
+			<textarea type="text" name="cellarLocation" class="textearea form-control mt-0 mx-auto" id="location" rows="2" placeholder="Etagère, armoire casier..."></textarea>
 		</div>
 	</div>
 
 	<div class="d-flex justify-content-center gap-3 mt-3 mb-5">
 		<div class="bg_prune d-flex justify-content-center">
-			<button type="button" id="btnadd" class=" btn_dark btn mb-3 mt-3">Ajouter</button>
+		<button type="submit" id="btnadd" class=" btn_dark btn mb-3 mt-3">Ajouter</button>
+
 		</div>
 		<div class="bg_prune d-flex justify-content-center">
-			<button type="button" id="btnadd" class=" btn_light btn mb-3 mt-3">Annuler</button>
+			<button type="submit" id="btnadd" class=" btn_light btn mb-3 mt-3">Annuler</button>
 		</div>
 
 	</div>
