@@ -40,12 +40,12 @@ class CaveController extends AbstractController
             return $this->twig->render('MaCave/emptyCave.html.twig');
         } else {
             return $this->twig->render('MaCave/cave.html.twig', [
-            'wines' => $wines,
-            'appellations' => $appellations,
-            'countries' => $countries,
-            'regions' => $regions,
-            'colors' => $colors,
-            'types' => $types
+                'wines' => $wines,
+                'appellations' => $appellations,
+                'countries' => $countries,
+                'regions' => $regions,
+                'colors' => $colors,
+                'types' => $types
             ]);
         }
     }
@@ -53,5 +53,15 @@ class CaveController extends AbstractController
     public function showFilteredCellar()
     {
         return $this->twig->render('MaCave/filteredCellar.html.twig');
+    }
+
+    public function showCellarByDomain()
+    {
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $wineManager = new WineManager();
+            $wines = $wineManager->searchDomaine($_POST['wine']);
+            return $this->twig->render('MaCave/cellarByDomain.html.twig', ['wines' => $wines]);
+        }
     }
 }
