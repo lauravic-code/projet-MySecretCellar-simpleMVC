@@ -1,10 +1,17 @@
 {% block card %}
 	<div class="d-flex flex-column gap-4 justify-content-around pb-5 ">
 		{% for wine in wines %}
+			{% if wine.color_id is same as 1 %}
+				{% set color = '#893a2c' %}
+			{% elseif wine.color_id is same as 2 %}
+				{% set color = '#ffe675' %}
+			{% elseif wine.color_id is same as 3 %}
+				{% set color = '#eabca9' %}
+			{% endif %}
 			<a class="w-100 d-flex justify-content-center" href="showWine?id={{wine.id}}">
 				<div class="bg-light border rounded w-75 d-flex flex-row justify-content-around border  border-secondary">
 					<div class="d-flex gap-5">
-						<div class="rounded-circle border border-4 border-redWine my-3">
+						<div class="rounded-circle my-3" style="border : solid 4px{{color}}">
 							<img class="rounded-circle" style=" object-fit:cover" src="/assets/images/BouteilleSeule.jpg" height="100" width="100"/>
 						</div>
 
