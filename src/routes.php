@@ -29,4 +29,8 @@ return [
     "accueil" => ['HomeController', 'accueil'],
     //profil
     "profil" => ['ProfilController', 'viewProfil'],
+    // signup
+    "signup" => ["UserController", "createUser"],
+    //upadate User
+    "updateUser" => ["UserController", "updateUser"],
 ];
