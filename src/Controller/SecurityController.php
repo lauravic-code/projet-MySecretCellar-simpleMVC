@@ -24,6 +24,9 @@ class SecurityController extends AbstractController
                     $_SESSION['email'] = $results['email'];
                     $_SESSION['firstname'] = $results['firstname'];
                     $_SESSION['lastname'] = $results['lastname'];
+                    $_SESSION['dateOfBirth'] = $results['dateOfBirth'];
+                    $_SESSION['password'] = $results['password'];
+
                     return null;
                 }
                 header('Location:/');
