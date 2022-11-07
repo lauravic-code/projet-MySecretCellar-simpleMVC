@@ -32,8 +32,7 @@
 							<img src="/assets/images/bouteille.svg" class="mt-5 mb-2 w-1 h-auto">
 						</div>
 						<input
-						type="file" name="illustration" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="illustrationUpload"/>
-						 <button name="send">Send</button>
+						type="file" name="avatar" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="illustrationUpload"/>
 					{# <label for="illustration" class="form-label text-start p-1 mb-0 form-label text-start p-1 mb-0"></label> #}
 					</div>
 					{# <!-- ----------------------block input à côté image -----------------------------> #}
@@ -90,14 +89,16 @@
 						</div>
 
 						<div
-							class="select_app_block d-flex flex-column" id="div_appelation">
-							<label for="appellation" name="appellation"class="form-label text-start p-1 mb-0 mt-3">Appelation :</label>
-							<select class="form-select form-select-sm mt-3" aria-label="Default select example" name="appellation_id">
-								<option selected>Choisir l'appelation</option>
-								<option value="6" >margaux</option>
+							class="select_app_block d-flex flex-column" id="div_appellation">
+							<label for="appellation_id" name="appellation"class="form-label text-start p-1 mb-0 mt-3">Appellation :</label>
+							<select class="form-select form-select-sm mt-3" aria-label="Default select example" name="appellation_id" id="appellation_id">
+								<option selected>Choisir l'appellation</option>
+								{# {% for appellation in appellations %}
+									<option value="{{appellation.id}}">{{appellation.label}}</option>
+								{% endfor %} #}
+								<option value="3">ça me saoule</option>
 							</select>
-						</select>
-					</div>
+						</div>
 					<div
 						class="select_region_block d-flex flex-column" id="div_region">
 						<label for="region_id" class="form-label text-start p-1 mb-0 mt-3">Région :</label>
@@ -113,9 +114,9 @@
 						<label for="country_id"class="form-label text-start p-1 mb-0 mt-3 ">Pays :</label>
 						<select class="form-select form-select-sm mt-3" aria-lasbel="Default select example" name="country_id" id="country_id">
 							<option selected>Choisir le pays</option>
-						{% for country in countries %}
-							<option value="{{country.id}}">{{country.label}}</option>
-						{% endfor %}
+								{% for country in countries %}
+									<option value="{{country.id}}">{{country.label}}</option>
+								{% endfor %}
 						</select>
 					</div>
 				</div>
