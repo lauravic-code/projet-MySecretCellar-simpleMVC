@@ -32,7 +32,7 @@ class FiltresManager extends AbstractManager
             $query .= ';';
         }
 
-              //********************************************* */
+        //******************VERSION REFUSée PAR LE LINTER : ************************** */
         // if (!empty($filters['country'])) {
         //     $queryParams .= ' country_id = ' .  $filters['country'];
         // }
