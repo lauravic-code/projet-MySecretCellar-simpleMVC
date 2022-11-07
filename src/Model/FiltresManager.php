@@ -17,18 +17,22 @@ class FiltresManager extends AbstractManager
 
         foreach ($filters as $filter => $value) {
             if (!empty($value)) {
-                $queryParams .= ' AND ' . $filter . '_id = ' . $value;
+                if (empty($queryParams)) {
+                    $queryParams .= $filter . '_id = ' . $value;
+                } else {
+                    $queryParams .= ' AND ' . $filter . '_id = ' . $value;
+                }
                 var_dump($queryParams);
             }
         }
 
-        // $query .= ';';
-        //var_dump($query);
-        // var_dump($queryParams);
+        if (!empty($queryParams)) {
+            $query .= " WHERE $queryParams;";
+        } else {
+            $query .= ';';
+        }
 
-
-
-        //********************************************* */
+              //********************************************* */
         // if (!empty($filters['country'])) {
         //     $queryParams .= ' country_id = ' .  $filters['country'];
         // }
