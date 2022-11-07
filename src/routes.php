@@ -31,9 +31,13 @@ return [
     //accueil
     "accueil" => ['HomeController', 'accueil'],
     //profil
-    "profil" => ['ProfilController', 'viewProfil'],
+    "profil" => ['UserController', 'viewProfil'],
     // signup
     "signup" => ["UserController", "createUser"],
     //upadate User
     "updateUser" => ["UserController", "updateUser"],
+    //Login
+    "login" => ["SecurityController", "login"],
+    //Logout
+    "logout" => ["SecurityController", "logout"],
 ];
