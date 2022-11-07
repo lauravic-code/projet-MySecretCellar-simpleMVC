@@ -83,4 +83,18 @@ class WineManager extends AbstractManager
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
+
+    public function sumValue()
+    {
+        $query = "SELECT sum(value) FROM " . self::TABLE ;
+
+        return $this->pdo->query($query)->fetch();
+    }
+
+    public function nbBottles()
+    {
+        $query = "SELECT sum(stock) FROM " . self::TABLE ;
+
+        return $this->pdo->query($query)->fetch();
+    }
 }
