@@ -34,31 +34,27 @@
 					</div>
 
 					{# intégrer component stars ci-dessous #}
-
-					<div class=" d-flex flex-column mt-5 mt-sm-0 p-sm-5">
-						<div class="d-flex flex-column">
-							<h3 class="text-prune">Chateau Martillac</h3>
-							{% block stars %}
-								{% include "Component/_stars.html.twig" %}
-							{% endblock %}
-							<p class="text-prune">2018</p>
-						</div>
-
-
-						<div class="flex text-prune">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet officia aspernatur, est, voluptate atque ipsum quis sequi suscipit optio doloremque minus officiis, saepe illum modi cumque dolores tempora pariatur beatae.</p>
-							{# intégrer component stock #}
-
-							<div class="d-flex justify-content-end mt-3">
-								<span class=" rounded p-2 text-bg-prune">Stock : 8</span>
+					<a href="showWine?id={{randWine['id']}}">
+						<div class=" d-flex flex-column mt-5 mt-sm-0 p-sm-5">
+							<div class="d-flex flex-column">
+								<h3 class="text-prune">{{randWine['domaine']}}</h3>
+								{% block stars %}
+									{% include "Component/_stars.html.twig" %}
+								{% endblock %}
+								<p class="text-prune">{{randWine['vintage']}}</p>
 							</div>
 
 
+							<div class="flex text-prune">
+								<p>{{randWine['description']}}</p>
+								{# intégrer component stock #}
+
+								<div class="d-flex justify-content-end mt-3">
+									<span class=" rounded p-2 text-bg-prune">Stock : {{randWine['stock']}}</span>
+								</div>
+							</div>
 						</div>
-
-
-					</div>
-
+					</a>
 				</div>
 			</div>
 
