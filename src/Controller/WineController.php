@@ -47,8 +47,6 @@ class WineController extends AbstractController
         // chemin vers un dossier sur le serveur qui va recevoir les fichiers uploadés
         //(attention ce dossier doit être accessible en écriture)
             $uploadDir = __DIR__ . '/../../public/uploads/';
-        //   var_dump($_FILES['avatar']);
-        //   die();
 
         // le nom de fichier sur le serveur est ici généré à partir du nom de fichier sur
         //le poste du client (mais d'autre stratégies de nommage sont possibles)
@@ -267,9 +265,7 @@ class WineController extends AbstractController
 
     public function updateWine()
     {
-        // var_dump($_FILES);
-        // var_dump($_FILES['avatar']);
-        // die;
+
         // defining $_POST
         $wineDatas = $_POST;
         // defineing $_FILES if picture exist
