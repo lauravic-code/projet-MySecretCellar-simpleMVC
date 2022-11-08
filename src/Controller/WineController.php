@@ -106,6 +106,7 @@ class WineController extends AbstractController
         }
             return null;
     }
+
     public function createWine()
     {
 
@@ -264,6 +265,7 @@ class WineController extends AbstractController
 
     public function updateWine()
     {
+
         // defining $_POST
         $wineDatas = $_POST;
         // defineing $_FILES if picture exist
@@ -275,11 +277,14 @@ class WineController extends AbstractController
 
         if (!empty($_FILES['avatar']['tmp_name'])) {
             $path = $this->uploadFile();
-            echo $path;
+
             // $this->deleteFile();
+        } else {
+            $path = null;
         }
         $wineManager = new WineManager();
-        $wineManager->update($wineDatas, $path = null);
+        $wineManager->update($wineDatas, $path);
+
 
         // creating new WinePairingManager and update the join where wine_id
         // remember => $wineDatas= $_POST
