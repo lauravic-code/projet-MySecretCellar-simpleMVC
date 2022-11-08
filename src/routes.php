@@ -24,17 +24,20 @@ return [
     'register' => ['RegisterController', 'viewRegister',],
     // MaCave
     'maCave' => ['CaveController', 'index',],
-    // fiche Vin
-    'showWine' => ['WineController', 'showWineById', ['id']],
+    // Ma Cave : filtres
     'filteredCellar' => ['CaveController', 'showFilteredCellar'],
     'cellarByDomain' => ['CaveController', 'showCellarByDomain'],
+    // fiche Vin
+    'showWine' => ['WineController', 'showWineById', ['id']],
     //accueil
     "accueil" => ['HomeController', 'accueil'],
     //profil
     "profil" => ['UserController', 'viewProfil'],
+    //go to UpdateUser Form
+    "updateUserForm" => ['UserController', 'viewUpdateForm'],
     // signup
     "signup" => ["UserController", "createUser"],
-    //upadate User
+    //update User
     "updateUser" => ["UserController", "updateUser"],
     //Login
     "login" => ["SecurityController", "login"],
