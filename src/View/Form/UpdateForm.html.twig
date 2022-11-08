@@ -8,8 +8,7 @@
 		<div class="bg-lightSecondary pt-4 w-100" style="height: 180px">
 			<div style="border-bottom:solid; border-bottom-color:var(--prune)">
 				<h1 class="pt-2 ps-2 mt-5 mx-5 text-prune" style="letter-spacing:5px">
-					Modification
-					{{wine.domaine|upper}}
+					Modification {{wine.domaine|upper}}
 				</h1>
 			</div>
 		</div>
@@ -24,9 +23,9 @@
                 <input hidden name="wine_id" value='{{wine.id}}' id="wine_id">
                 <div class="div_illustration input-group-sm" id="div_illustration">
                     <div class="img_bouteille m-auto">
-                        <img src="/assets/images/bouteille.svg" class="mt-5 mb-2 w-1 h-auto">
+                        <img src="{{ wine.picture ?? '/assets/images/bouteille.svg'}}" class="mt-5 mb-2 w-1 h-auto">
                     </div>
-                    <input type="file" name="picture" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="picture">
+                    <input type="file" name="avatar" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="picture">
                     {# <label for="illustration" class="form-label text-start p-1 mb-0 form-label text-start p-1 mb-0"></label> #}
                 </div>
                 {# <!-- ----------------------block input à côté image -----------------------------> #}
@@ -54,12 +53,12 @@
                     </div> {# <!-- ----------FIN gpe checkbox ----------------> #}
                     <div class="d-flex flex-column" id="div_domaine">
                         <label for="domaine" class="form-label text-start p-1 mt-3 mb-0 mb-0 text-start">Domaine:</label>
-                        <input type="text" name="domaine" class="form-control w-100" id="domaine" value='{{wine.domaine|title}}'>
+                        <input type="text" name="domaine" class="form-control w-100" id="domaine" value='{{wine.domaine}}'>
                     </div>
                     <div class="type d-flex flex-column "><!--row -->
                         <label for="type_id"  class="form-label text-start p-1 mt-3 mb-0" >Type :</label>
                         <select class="form-select form-select-sm mb-0" name="type_id" id="type_id"  aria-label="Default select example">
-                            <option value='{{wine.type_id}}' selected>{{type.label|title}}</option>
+                            <option value='{{wine.type_id}}' selected>{{type.label}}</option>
                             {% for type in types%}
                             <option  value={{type.id}}>{{type.label}}</option>
                             {% endfor %}
@@ -78,7 +77,7 @@
                     <div class="select_app_block d-flex flex-column" id="div_appellation">
                         <label for="appellation_id"  class="form-label text-start p-1 mt-3 mb-0">Appellation :</label>
                         <select class="form-select form-select-sm mb-0" aria-label="Default select example" name="appellation_id" id="appellation_id">
-                            <option value='{{wine.appellation_id}}' selected>{{appellation.label|title}}</option>
+                            <option value='{{wine.appellation_id}}' selected>{{appellation.label}}</option>
                              {% for appellation in appellations %}
                             <option  value={{appellation.id}}>{{appellation.label}}</option>
                             {% endfor %}
@@ -89,7 +88,7 @@
                     <div class="select_region_block d-flex flex-column" id="div_region">
                         <label for="region_id" class="form-label text-start p-1 mt-3 mb-0">Région :</label>
                         <select class="form-select form-select-sm mb-0" aria-lasbel="Default select example" name="region_id" id="region_id">
-                            <option value='{{wine.region_id}}' selected>{{region.label|title}}</option>
+                            <option value='{{wine.region_id}}' selected>{{region.label}}</option>
                              {% for region in regions %}
                             <option  value={{region.id}}>{{region.label}}</option>
                             {% endfor %}
