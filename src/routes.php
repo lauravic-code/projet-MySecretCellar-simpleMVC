@@ -32,9 +32,11 @@ return [
     "accueil" => ['HomeController', 'accueil'],
     //profil
     "profil" => ['UserController', 'viewProfil'],
+    //go to UpdateUser Form
+    "updateUserForm" => ['UserController', 'viewUpdateForm'],
     // signup
     "signup" => ["UserController", "createUser"],
-    //upadate User
+    //update User
     "updateUser" => ["UserController", "updateUser"],
     //Login
     "login" => ["SecurityController", "login"],
