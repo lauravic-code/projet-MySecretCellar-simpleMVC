@@ -24,7 +24,6 @@ class UserController extends AbstractController
         $userManager = new UserManager();
         $userManager->updateUser();
         return $this->twig->render('Profil/profil.html.twig');
-
     }
 
     public function viewUpdateForm()

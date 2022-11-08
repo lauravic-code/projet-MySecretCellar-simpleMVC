@@ -21,11 +21,7 @@ class SecurityController extends AbstractController
                 $results = $securityManager->login($_POST);
                 if ($results) {
                     header('Location:/accueil');
-                    $_SESSION['email'] = $results['email'];
-                    $_SESSION['firstname'] = $results['firstname'];
-                    $_SESSION['lastname'] = $results['lastname'];
-                    $_SESSION['dateOfBirth'] = $results['dateOfBirth'];
-                    $_SESSION['password'] = $results['password'];
+                     $_SESSION['user'] = $results;
 
                     return null;
                 }
@@ -39,7 +35,7 @@ class SecurityController extends AbstractController
 
     public function logout()
     {
-        $_SESSION = [];
+        session_destroy();
         header('Location:/');
         return null;
     }

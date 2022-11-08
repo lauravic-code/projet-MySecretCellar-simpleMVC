@@ -10,11 +10,17 @@ class SecurityManager extends AbstractManager
 
     public function login(array $user): array|false
     {
-        $statement = $this->pdo->prepare("SELECT * FROM " . self::TABLE . " WHERE email=:email and password=:password");
+        $statement = $this->pdo->prepare("SELECT * FROM " . self::TABLE . " WHERE email=:email ");
         $statement->bindValue('email', $user['email'], PDO::PARAM_STR);
-        $statement->bindValue('password', $user['password'], PDO::PARAM_STR);
 
         $statement->execute();
-        return $statement->fetch();
+        $dbuser = $statement->fetch();
+
+        if (!$dbuser) {
+            return false;
+        }
+        $isVerify = password_verify($user['password'], $dbuser['password']);
+
+        return $isVerify ? $dbuser : false;
     }
 }
