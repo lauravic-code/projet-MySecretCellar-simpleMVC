@@ -19,7 +19,7 @@ class WineManager extends AbstractManager
             $values5 = "`price`=:price,`drinkBefore`=:drinkBefore,`value`=:value,";
             $values6 = "`rank`=:rank,`comment`=:comment,`stock`=:stock,`cellarLocation`=:cellarLocation";
 
-            $values = $values1 . $values2 . $values3 . $values4 . $values5 . $values6;
+        $values = $values1 . $values2 . $values3 . $values4 . $values5 . $values6;
 
         if ($path !== null) {
             $values .= ',`picture`=:picture';
@@ -48,7 +48,7 @@ class WineManager extends AbstractManager
         }
 
 
-            $statement->execute();
+        $statement->execute();
     }
 
     public function searchDomaine(string $search)
@@ -61,7 +61,7 @@ class WineManager extends AbstractManager
 
     public function insertWine(array $wineDatas)
     {
-           $statement = $this->pdo->prepare("INSERT INTO wine (`color_id`, `domaine`,
+        $statement = $this->pdo->prepare("INSERT INTO wine (`color_id`, `domaine`,
         `type_id`,`vintage`,`appellation_id`,`region_id`,`country_id`,`picture`,`description`,
         `purchaseDate`,`price`,`drinkBefore`,`value`,`rank`,`comment`,`stock`,`cellarLocation`)
          VALUES (:color_id, :domaine, :type_id, :vintage, :appellation_id, :region_id,:country_id,
@@ -102,5 +102,15 @@ class WineManager extends AbstractManager
         $query = "SELECT sum(stock) FROM " . self::TABLE ;
 
         return $this->pdo->query($query)->fetch();
+    }
+
+    public function updateStock($wine, $newStock)
+    {
+        $statement = $this->pdo->prepare("UPDATE wine SET `stock`=:stock  WHERE `id`=:id");
+
+        $statement->bindValue('stock', $newStock['stock'], \PDO::PARAM_INT);
+        $statement->bindValue('id', $wine['id'], \PDO::PARAM_INT);
+
+        return $statement->execute();
     }
 }

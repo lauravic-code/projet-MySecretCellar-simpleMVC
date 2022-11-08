@@ -149,25 +149,30 @@
 			</button>
 		</a>
 	</div>
-	{# modal stock #}
+
+
+	{# *************** MODAL STOCK ******************* #}
 
 	<div class="modal blur" id="modal">
 		<div class=" modal-dialog modal-dialog-centered">
 			<div class="modal-content">
 				<div class="modal-header  text-center">
-					<h2 style="color: black">Stock</h2>
+					<h2 class="text-prune">Stock</h2>
 					<div class="btn-close" data-bs-dismiss="modal"></div>
 				</div>
-				<div class="modal-body">
-					<input type="number" id="quantity" name="quantity" min="1" max="1200" class="w-100 mb-3" style="text-align:center">
-					<div class="d-flex justify-content-center">
-						<div class=" btn bg-pinkWine  w-50  btn-sm" style="margin-right:1%">Valider</div>
-						<div class=" btn bg-lightPrimary w-50 btn-sm border border-dark">Annuler</div>
+				<form action="updateStock?id={{wine.id}}" method="POST" class="modal-body">
+					<input type="number" id="stock" name="stock" min="1" max="1200" class="w-100 mb-3" style="text-align:center">
+					<div class="d-flex gap-2 justify-content-center">
+						<button type="submit" class=" btn btn-pinkWine  w-50  btn-sm">Valider</button>
+						<button type="button" data-bs-dismiss="modal" class=" btn bg-lightprimary w-50 btn-sm border border-dark">Annuler</button>
 					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 
 	</div>
+
+
+	{# ***************  END MODAL STOCK ******************* #}
 
 </div></div>{# ****************** END modal STOCK ******************** #}{% endblock %}
