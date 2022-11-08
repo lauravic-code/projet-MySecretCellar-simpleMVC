@@ -27,9 +27,14 @@ class WineController extends AbstractController
         // get table type
         $typeManager = new TypeManager();
         $types = $typeManager->selectAll('label');
+//get appellation
+        $appellationsManager = new AppellationManager();
+        $appellations = $appellationsManager->selectAll('label');
+
         return $this->twig->render(
             'Form/AddForm.html.twig',
             [
+                'appellations' => $appellations,
                 'countries' => $countries,
                 'regions' => $regions,
                 'types' => $types
@@ -38,6 +43,7 @@ class WineController extends AbstractController
     }
     public function uploadFile()
     {
+
         // chemin vers un dossier sur le serveur qui va recevoir les fichiers uploadés
         //(attention ce dossier doit être accessible en écriture)
             $uploadDir = __DIR__ . '/../../public/uploads/';
@@ -104,7 +110,7 @@ class WineController extends AbstractController
     }
     public function createWine()
     {
-        var_dump($_POST);
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             // $wine = array_map('trim', $_POST);
@@ -115,9 +121,12 @@ class WineController extends AbstractController
             // if validation is ok, insert and redirection
                 $this->uploadFile();
                 $wineManager = new WineManager();
-                $wine = $wineManager->insertWine($wineDatas);
 
-                return $this->twig->render('Wine/show.html.twig', ['wine' => $wine]);
+                $id = $wineManager->insertWine($wineDatas);
+
+                header('Location:/showWine?id=' . $id);
+                return null;
+                // return $this->twig->render('MaCave/cave.html.twig');
             }
 
             // return $this->twig->render('add.html.twig');
