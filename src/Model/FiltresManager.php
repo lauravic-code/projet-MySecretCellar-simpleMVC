@@ -22,7 +22,6 @@ class FiltresManager extends AbstractManager
                 } else {
                     $queryParams .= ' AND ' . $filter . '_id = ' . $value;
                 }
-                var_dump($queryParams);
             }
         }
 
