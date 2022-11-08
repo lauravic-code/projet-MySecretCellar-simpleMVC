@@ -47,8 +47,6 @@ class WineController extends AbstractController
         // chemin vers un dossier sur le serveur qui va recevoir les fichiers uploadés
         //(attention ce dossier doit être accessible en écriture)
             $uploadDir = __DIR__ . '/../../public/uploads/';
-        //   var_dump($_FILES['avatar']);
-        //   die();
 
         // le nom de fichier sur le serveur est ici généré à partir du nom de fichier sur
         //le poste du client (mais d'autre stratégies de nommage sont possibles)
@@ -108,6 +106,7 @@ class WineController extends AbstractController
         }
             return null;
     }
+
     public function createWine()
     {
 
@@ -266,6 +265,7 @@ class WineController extends AbstractController
 
     public function updateWine()
     {
+
         // defining $_POST
         $wineDatas = $_POST;
         // defineing $_FILES if picture exist
@@ -277,11 +277,14 @@ class WineController extends AbstractController
 
         if (!empty($_FILES['avatar']['tmp_name'])) {
             $path = $this->uploadFile();
-            echo $path;
+
             // $this->deleteFile();
+        } else {
+            $path = null;
         }
         $wineManager = new WineManager();
-        $wineManager->update($wineDatas, $path = null);
+        $wineManager->update($wineDatas, $path);
+
 
         // creating new WinePairingManager and update the join where wine_id
         // remember => $wineDatas= $_POST
