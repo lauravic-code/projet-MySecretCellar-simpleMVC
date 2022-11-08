@@ -43,8 +43,6 @@ class WineController extends AbstractController
     }
     public function createWine()
     {
-
-        var_dump($_POST);
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             // $wine = array_map('trim', $_POST);
@@ -112,10 +110,11 @@ class WineController extends AbstractController
                 }
             // if validation is ok, insert and redirection
                 $wineManager = new WineManager();
-                $wine = $wineManager->insertWine($wineDatas);
+                $id = $wineManager->insertWine($wineDatas);
 
-
-                return $this->twig->render('Wine/show.html.twig', ['wine' => $wine]);
+                header('Location:/showWine?id=' . $id);
+                return null;
+                // return $this->twig->render('MaCave/cave.html.twig');
             }
 
             // return $this->twig->render('add.html.twig');
