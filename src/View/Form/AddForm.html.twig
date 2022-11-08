@@ -78,27 +78,25 @@
 																																																																																																																																																																																																																																																																										                                <?php endforeach ?>
 																																																																																																																																																																																																																																																																										                        </select> #}
 						</div>
-						<div
-							class="d-flex flex-column">
-							<label for="annee" class="form-label text-start p-1 mb-0 mt-3">Année :</label>
-							<select class="form-select form-select-sm mt-3" name="vintage">
-								<option selected>Choisir l'année</option>
-								<option value="2000">2000</option>
-								<option value="2001">2001</option>
-							</select>
-						</div>
 
-						<div
-							class="select_app_block d-flex flex-column" id="div_appellation">
-							<label for="appellation_id" name="appellation"class="form-label text-start p-1 mb-0 mt-3">Appellation :</label>
-							<select class="form-select form-select-sm mt-3" aria-label="Default select example" name="appellation_id" id="appellation_id">
-								<option selected>Choisir l'appellation</option>
-								{# {% for appellation in appellations %}
-									<option value="{{appellation.id}}">{{appellation.label}}</option>
-								{% endfor %} #}
-								<option value="3">ça me saoule</option>
-							</select>
-						</div>
+						<div class="d-flex flex-column" id="div_annee">
+                        	<label for="vintage" class="form-label text-start p-1 mt-3 mb-0 mb-0 text-start">Année:</label>
+                        	<input type="number" name="vintage" class="form-control w-100" id="vintage" value='{{wine.vintage}}'>
+                    	</div>
+						
+
+						
+                    <div class="select_app_block d-flex flex-column" id="div_appellation">
+                        <label for="appellation_id"  class="form-label text-start p-1 mt-3 mb-0">Appellation :</label>
+                        <select class="form-select form-select-sm mb-0" aria-label="Default select example" name="appellation_id" id="appellation_id">
+                            <option value='{{wine.appellation_id}}' selected>{{appellation.label|title}}</option>
+                             {% for appellation in appellations %}
+                            <option  value={{appellation.id}}>{{appellation.label}}</option>
+                            {% endfor %}
+                            
+                        </select>
+                            </select>
+                    </div>
 					<div
 						class="select_region_block d-flex flex-column" id="div_region">
 						<label for="region_id" class="form-label text-start p-1 mb-0 mt-3">Région :</label>

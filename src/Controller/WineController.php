@@ -27,9 +27,14 @@ class WineController extends AbstractController
         // get table type
         $typeManager = new TypeManager();
         $types = $typeManager->selectAll('label');
+//get appellation
+        $appellationsManager = new AppellationManager();
+        $appellations = $appellationsManager->selectAll('label');
+
         return $this->twig->render(
             'Form/AddForm.html.twig',
             [
+                'appellations' => $appellations,
                 'countries' => $countries,
                 'regions' => $regions,
                 'types' => $types
