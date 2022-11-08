@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Model\AppellationManager;
 use App\Model\ColorManager;
 use App\Model\CountryManager;
+use App\Model\FiltresManager;
 use App\Model\RegionManager;
 use App\Model\TypeManager;
 use App\Model\WineManager;
@@ -103,7 +104,16 @@ class CaveController extends AbstractController
 
     public function showFilteredCellar()
     {
-        return $this->twig->render('MaCave/filteredCellar.html.twig');
+        $filtresManager = new FiltresManager();
+        $wines = $filtresManager->filterWines($_POST);
+        return $this->twig->render('MaCave/filteredCellar.html.twig', [
+            'wines' => $wines,
+            'appellations' => $this->getAppellation(),
+            'countries' => $this->getCountries(),
+            'regions' => $this->getRegions(),
+            'colors' => $this->getColors(),
+            'types' => $this->getTypes(),
+        ]);
     }
 
     public function showCellarByDomain()
