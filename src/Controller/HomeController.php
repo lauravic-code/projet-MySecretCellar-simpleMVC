@@ -30,7 +30,6 @@ class HomeController extends AbstractController
         $sumValue = $wineManager->sumValue();
         $nbBottles = $wineManager->nbBottles();
 
-
         return $this->twig->render(
             'Accueil/accueil.html.twig',
             ['randWine' => $randWine,
