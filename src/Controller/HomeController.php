@@ -35,8 +35,8 @@ class HomeController extends AbstractController
         return $this->twig->render(
             'Accueil/accueil.html.twig',
             ['randWine' => $randWine,
-            'sumValue' => $sumValue,
-            'nbBottles' => $nbBottles]
+            'sumValue' => $sumValue['sum(value)'],
+            'nbBottles' => $nbBottles['sum(stock)']]
         );
     }
 }
