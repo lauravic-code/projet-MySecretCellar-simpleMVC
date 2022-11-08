@@ -20,6 +20,7 @@ class WineManager extends AbstractManager
             $values6 = "`rank`=:rank,`comment`=:comment,`stock`=:stock,`cellarLocation`=:cellarLocation";
 
             $values = $values1 . $values2 . $values3 . $values4 . $values5 . $values6;
+
         if ($path !== null) {
             $values .= ',`picture`=:picture';
         }
@@ -84,7 +85,6 @@ class WineManager extends AbstractManager
         $statement->bindValue('stock', $wineDatas['stock'], \PDO::PARAM_INT);
         $statement->bindValue('cellarLocation', $wineDatas['cellarLocation'], \PDO::PARAM_STR);
         $statement->bindValue('picture', $_FILES['avatar']['name'], \PDO::PARAM_STR);
-
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
