@@ -1,6 +1,6 @@
 {% block navbar %}
 
-	<nav class="navbar bg-prune navbar-expand-sm px-5 pt-3 shadow " style="letter-spacing:2px">
+	<nav class="navbar bg-prune navbar-expand-sm fixed-top px-5 pt-3 shadow " style="letter-spacing:2px">
 
 		<button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" class="navbar-toggler" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			<img class="d-inline-block align-top " src="/assets/images/icones/Hamburger.svg"/></button>
@@ -37,16 +37,18 @@
 					<p class="text-lightPrimary ml-4">Bienvenue
 						{{user.firstname}}</p>
 				</li>
-				<li class="nav-item active">
-					<a href="logout" class="nav-link">
+				<li class="nav-item active d-none d-md-block">
+					<a href="logout" class="nav-link ">
 						<p class="text-lightPrimary">LOGOUT</p>
 					</a>
 				</li>
 			</ul>
-			<div class="h-50 d-flex bg-primary justify-content-end align-items-end pb-5">
-				<button type="button" class="logout d-sm-none rounded h-2">
-					<p class="text-center p-2 mb-0 bg-lightPrimary text-prune ">LOG OUT</p>
-				</button>
+			<div class="h-50 d-flex flex-column-reverse justify-content-end align-items-end pb-5">
+				<a href="logout" class="nav-link ">
+					<button type="button" class="logout d-sm-none rounded h-2">
+						<p class="text-center p-2 mb-0 bg-lightPrimary text-prune ">LOG OUT</p>
+					</button>
+				</a>
 			</div>
 
 		</div>
