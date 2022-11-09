@@ -18,7 +18,7 @@
 		{# barre de recherche #}
 		<div class="py-5">
 			<div class="d-flex justify-content-around">
-				<form method="POST" action="cellarByDomain" class="d-flex w-75">
+				<form method="POST" action="cellarByDomain" class="d-flex w-75 gap-5">
 					<input
 					type="text" class="form-control" placeholder="Rechercher son vin" value="" name="wine"/>
 
@@ -30,10 +30,10 @@
 						<img src="/assets/images/icones/Loupe.svg"/></button>
 				</button>
 				{# bouton filtre #}
-				<button class="btn btn-prune d-none d-md-block ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modal">
+				<button class="btn btn-prune d-none d-md-block" type="button" data-bs-toggle="modal" data-bs-target="#modal">
 					FILTRES
 				</button>
-				<button class=" btn btn-prune d-block d-md-none rounded ms-2" type="button" data-bs-toggle="modal" data-bs-target="#modal">
+				<button class=" btn btn-prune d-block d-md-none rounded" type="button" data-bs-toggle="modal" data-bs-target="#modal">
 					<img src="/assets/images/icones/Filtres.svg"/></button>
 			</form>
 		</div>

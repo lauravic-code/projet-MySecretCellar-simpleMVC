@@ -5,154 +5,151 @@
 {% endblock %}
 {% block content %}
 
-	<div class=" show_wine my-5 border-start border-end shadow-lg text-prune" style=" background-color: var(--lightPrimary); padding-top:3vh ">
+	<div class="bg-lightSecondary pt-4 w-100" style="height: 180px">
+		<div style="border-bottom:solid; border-bottom-color:var(--prune)">
+			<h1 class="pt-2 ps-2 mt-5 mx-5 text-prune" style="letter-spacing:5px">
+				Mon vin
+			</h1>
+		</div>
+	</div>
 
-		{# first section #}
-		{# <div class="d-flex justify-content-between px-5"> #}
+	<div class="bg-lightPrimary ">
+		<div
+			class="bg-lightPrimary show_wine my-5 border-start border-end shadow-lg text-prune">
+
+			{# first section #}
 			<div
-			class="d-flex flex-column flex-sm-row px-3"> {# info #}
-			<div class="d-flex flex-column w-100 ps-2 justify-content-around">
-				<div class="w-100 d-flex flex-column justify-content-center">
+				class="d-flex  flex-column  p-4">
+				{# info #}
+				<div class="d-flex flex-column w-100 ps-2 justify-content-around">
+					<div class="w-100 d-flex flex-column justify-content-center">
 
-					<div class="d-flex flex-column justify-content-between" style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);">
-						<h1 style="w-100 flex-shrink-0	 color: var(--prune);">{{wine.domaine}}</h1>
-						<div class="titre_stars w-100 d-flex flex-row">
-							<div class="star_buttton d-flex flex-column w-100 ">
-								<div class=" pb-2 ps-2 d-flex flex-row w-50">
-									{% block stars %}
-										{% include "Component/_stars.html.twig" %}
-									{% endblock %}
+						<div class="d-flex flex-column justify-content-between ">
+							<div class="d-flex justify-content-between w-100">
+								<p class="text-prune text-shadow-lg lh-sm fs-1 p-0 m-0">{{wine.domaine|title}}</p>
+
+
+								{% include "Component/_stars.html.twig" %}
+
+
+							</div>
+
+							<p class="text-prune fs-3 fst-italic p-0 m-0">
+								{{appellationLabel.label|capitalize}}
+
+							</p>
+							<p class="text-prune fs-5 fw-semibold p-0 m-0">{{wine.vintage}}</p>
+
+							<div class="d-flex flex-row ">
+								<div class="d-flex flex-column justify-content-center w-100 ">
+									<p class="text-prune fs-5 m-0 p-0">
+										Vin
+										{{colorLabel.label}}
+										{{typeLabel.label}}</p>
+									<p>
+										Il accompagnera parfaitement :<br></p>
+									<p class="px-2">
+										{% for tabwinePairing in tabwinePairings  %}
+											-
+											{{tabwinePairing}}
+											<br>
+										{% endfor %}
+									</p>
 								</div>
-								<div class="btn_modifier w-50">
-									<a href="showUpdateForm?id={{wine.id}}">
-										<button type="button" class="btn btn-prune my-3 p-2 border-0 rounded h-2">
-											<p class="mb-0 text-center">Modifier la fiche</p>
-										</button>
-									</a>
+								<div>
+									<img src={{wine.picture}} alt="Wine Picture" style="max-height: 15Rem; object-fit:cover">
 								</div>
 							</div>
-							<div class="border">
-								<img src={{wine.picture}} alt="Wine Picture" height="200" width="100" style="object-fit:contain"/>
-							</div>
+							<hr class="border-3">
+
+
 						</div>
-						<hr class="border-3">
 
+						<div class="d-flex justify-content-between ">
+							<div class="d-flex gap-4"></div>
+
+						</div>
 
 					</div>
 
-					<div class="d-flex justify-content-between ">
-						<div class="d-flex gap-4">
-							<p class="text-prune">Vin
-								{{colorLabel.label|upper}}</p>
-							<p class="text-prune">|</p>
-
-							<p class="text-prune">{{typeLabel.label|upper}}</p>
-						</div>
-						<div>
-							<p class="pe-4 " class="text-prune">{{wine.vintage|upper}}</p>
-						</div>
-					</div>
-
-				</div>
-
-				<div class="d-flex">
-					<div class=" d-flex flex-column gap-5 pb-5  ">
+					<div class="d-flex justify-content-between gap-4">
 						<div class="d-flex flex-column">
-							<p class="text-prune">
-								<strong>Pays :
+							<p>
+								<strong>Provenance :
 								</strong>
-								{{countryLabel.label|upper}}</p>
-							<p class="text-prune">
+								{{countryLabel.label|capitalize}}
+							</p>
+
+							<p>
 								<strong>Région :
 								</strong>
-								{{regionLabel.label|upper}}</p>
-							<p class="text-prune">
-								<strong>Appelation :
-								</strong>
-								{{appellationLabel.label|upper}}</p>
-							{# <p class="text-prune">Cépage :</p> #}
-						</div>
-						<div>
-							<p class="text-prune">
-								<strong>Ce vin accompagne :</strong><br>
-								{% for tabwinePairing in tabwinePairings  %}
-									{{tabwinePairing}}
-									<br>
-								{% endfor %}
-							</p>
-						</div>
-						<div>
-							<p class="text-prune">
+								{{regionLabel.label|capitalize}}</p>
+							<p class="mb-0">
 								<strong>Limite de conservation :
 								</strong>
 								{{wine.drinkBefore}}</p>
 						</div>
+
+						<div class="d-flex text-end align-items-end gap-3 flex-column flex-lg-row">
+							<span class="text-prune fs-5 ">
+								Stock :
+								{{wine.stock}}
+							</span>
+
+							<button type="button" class="btn btn-prune rounded w-10" type="button" data-bs-toggle="modal" data-bs-target="#modal">
+								<i style="font-size:15px;" class="bi bi-plus-lg"></i>
+								/
+								<i style="font-size:15px;" class="bi bi-dash-lg"></i>
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
 
 
-			{# bouteill stock #}
-			{# <div class ="d-flex flex-column align-items-center gap-1"> #}
+			{# second section description #}
+			<div class=" border-top border-bottom border-prune p-4">
+				<h3>Description</h3>
+				<p>{{wine.description}}</p>
+			</div>
 
-			<div class="d-flex justify-content-center gap-4 flex-sm-column pb-3">
-
-				<div class="d-flex flex-column align-items-center justify-content-center">
-					<div class="d-flex flex-column align-items-center " style="width:3rem;">
-						<p style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);">
-							<strong>Stock</strong>
-						</p>
-						<p class="text-prune">{{wine.stock}}</p>
-					</div>
-					<div>
-						<button type="button" class="btn btn-prune my-3 p-2 border-0 rounded h-2" type="button" data-bs-toggle="modal" data-bs-target="#modal">
-							<p class="mb-0 text-center">Modifier le stock</p>
-						</button>
-					</div>
+			{# third section infos achat #}
+			<div class="p-4 d-flex justify-content-between">
+				<div>
+					<p class="text-prune">Prix d'achat :
+						{{wine.price}}€</p>
+					<p class="text-prune">Date d'achat :
+						{{wine.purchaseDate}}</p>
 				</div>
+				<div>
+					<p class="text-prune">Valeur :
+						{{wine.value}}€</p>
+				</div>
+			</div>
+
+			{# fourth section commentaire #}
+			<div class=" border-top border-bottom border-dark p-4">
+				<h3>Mon commentaire</h3>
+				<p>{{wine.comment}}</p>
+			</div>
+
+
+			{# fifth section buttons modify and return #}
+			<div class="d-flex justify-content-between px-4">
+				<a href="maCave" type="button" class="btn p-0 m-0">
+					<i style="font-size:42px;" class="bi bi-arrow-left"></i>
+				</a>
+				<a href="showUpdateForm?id={{wine.id}}" type="button" class="btn btn-pinkWine w-25 my-3 p-2 rounded h-2">
+					<p class="mb-0 text-center">Modifier</p>
+				</a>
 
 
 			</div>
-
 		</div>
-		{# second section #}
-		<div class=" border-top border-bottom border-dark px-5" style="background-color:#FFFC9C9">
-			<div class="px-5 py-4 ">
-				<h3 class="w-50" style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);">Description</h3>
-				<p class="text-prune">{{wine.description}}</p>
-			</div>
-		</div>
-		{# third section #}
-		<div class="px-5 py-4 d-flex justify-content-around">
-			<div>
-				<p class="text-prune">Prix d'achat :
-					{{wine.price}}€</p>
-				<p class="text-prune">Date d'achat :
-					{{wine.purchaseDate}}</p>
-			</div>
-			<div>
-				<p class="text-prune">Valeur :
-					{{wine.value}}€</p>
-			</div>
-		</div>
-		{# fourth section #}
-		<div class=" border-top border-bottom border-dark px-5" style="background-color:#FFFC9C9">
-			<div class="px-5 py-4">
-				<h3 class="w-50" style="border-bottom: solid; border-color:var(--lightPrimary); color: var(--prune);">Commentaire</h3>
-				<p class="text-prune">{{wine.comment}}</p>
-			</div>
-		</div>
-		{# fifth section #}
-		<a href="maCave" class="d-flex justify-content-center ">
-			<button type="button" class="btn btn-prune my-3 p-2 border-0 rounded h-2">
-				<p class="mb-0 text-center">Retour à mes vins</p>
-			</button>
-		</a>
 	</div>
 
 
 	{# *************** MODAL STOCK ******************* #}
-
 	<div class="modal blur" id="modal">
 		<div class=" modal-dialog modal-dialog-centered">
 			<div class="modal-content">
@@ -169,10 +166,6 @@
 				</form>
 			</div>
 		</div>
-
 	</div>
-
-
-	{# ***************  END MODAL STOCK ******************* #}
-
-</div></div>{# ****************** END modal STOCK ******************** #}{% endblock %}
+	{# ****************** END modal STOCK ******************** #}
+{% endblock %}
