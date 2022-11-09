@@ -7,7 +7,6 @@
 {% block content %}
 
 
-
 	<div id="wrapper" class="bg-lightPrimary">
 		<div class="bg-lightSecondary pt-4 w-100" style="height: 180px">
 			<div style="border-bottom:solid; border-bottom-color:var(--prune)">
@@ -64,41 +63,41 @@
 							<label for="domaine" class="form-label text-start p-1 mb-0 mt-2 text-start"></label>
 							<input type="text" name="domaine" class="form-control w-100" id="domaine" placeholder="Domaine :">
 						</div>
-						<div class="type d-flex flex-column ">
+						<div
+							class="type d-flex flex-column ">
 							<!--row -->
-							<label for="type" name="type"class="form-label text-start mb-0 mt-2">Type :</label>
-								<select class="form-select form-select-sm mt-3" aria-label="Default select example" name="type_id"> <option selected desabled>Choisir le type</option>
+							<label for="type" name="type" class="form-label text-start mb-0 mt-2">Type :</label>
+							<select class="form-select form-select-sm mt-3" aria-label="Default select example" name="type_id">
+								<option selected desabled>Choisir le type</option>
 								{% for type in types %}
 									<option value="{{type.id}}">{{type.label}}</option>
 								{% endfor %}
 							</select>
 							{# <select class="select-type" name="type[]" multiple id="type">
-																																																																																																																																																																																																																																																																										                            <?php foreach ($types as $type) : ?>
-																																																																																																																																																																																																																																																																										                                    <option value="<?= $type['id'] ?>"><?= $type['libelle'] ?> </option>
-																																																																																																																																																																																																																																																																										                                <?php endforeach ?>
-																																																																																																																																																																																																																																																																										                        </select> #}
+																																																																																																																																																																																																																																																																																																						                            <?php foreach ($types as $type) : ?>
+																																																																																																																																																																																																																																																																																																						                                    <option value="<?= $type['id'] ?>"><?= $type['libelle'] ?> </option>
+																																																																																																																																																																																																																																																																																																						                                <?php endforeach ?>
+																																																																																																																																																																																																																																																																																																						                        </select> #}
 						</div>
 
 						<div class="d-flex flex-column" id="div_annee">
-                        	<label for="vintage" class="form-label text-start p-1 mt-3 mb-0 mb-0 text-start">Année:</label>
-                        	<input type="number" name="vintage" class="form-control w-100" id="vintage" value='{{wine.vintage}}'>
-                    	</div>
-						
+							<label for="vintage" class="form-label text-start p-1 mt-3 mb-0 mb-0 text-start">Année:</label>
+							<input type="number" name="vintage" class="form-control w-100" id="vintage" value='{{wine.vintage}}'>
+						</div>
 
-						
-                    <div class="select_app_block d-flex flex-column" id="div_appellation">
-                        <label for="appellation_id"  class="form-label text-start p-1 mt-3 mb-0">Appellation :</label>
-                        <select class="form-select form-select-sm mb-0" aria-label="Default select example" name="appellation_id" id="appellation_id">
-                            <option value='{{wine.appellation_id}}' selected>{{appellation.label|title}}</option>
-                             {% for appellation in appellations %}
-                            <option  value={{appellation.id}}>{{appellation.label}}</option>
-                            {% endfor %}
-                            
-                        </select>
-                            </select>
-                    </div>
-					<div
-						class="select_region_block d-flex flex-column" id="div_region">
+
+						<div class="select_app_block d-flex flex-column" id="div_appellation">
+							<label for="appellation_id" class="form-label text-start p-1 mt-3 mb-0">Appellation :</label>
+							<select class="form-select form-select-sm mb-0" aria-label="Default select example" name="appellation_id" id="appellation_id">
+								<option value='{{wine.appellation_id}}' selected>{{appellation.label|title}}</option>
+								{% for appellation in appellations %}
+									<option value={{appellation.id}}>{{appellation.label}}</option>
+								{% endfor %}
+
+							</select>
+						</select>
+					</div>
+					<div class="select_region_block d-flex flex-column" id="div_region">
 						<label for="region_id" class="form-label text-start p-1 mb-0 mt-3">Région :</label>
 						<select class="form-select form-select-sm mt-3" aria-lasbel="Default select example" name="region_id" id="region_id">
 							<option selected>Choisir la région</option>
@@ -107,30 +106,29 @@
 							{% endfor %}
 						</select>
 					</div>
-					<div
-						class="d-flex flex-column" id="div_pays">
-						<label for="country_id"class="form-label text-start p-1 mb-0 mt-3 ">Pays :</label>
+					<div class="d-flex flex-column" id="div_pays">
+						<label for="country_id" class="form-label text-start p-1 mb-0 mt-3 ">Pays :</label>
 						<select class="form-select form-select-sm mt-3" aria-lasbel="Default select example" name="country_id" id="country_id">
 							<option selected>Choisir le pays</option>
-								{% for country in countries %}
-									<option value="{{country.id}}">{{country.label}}</option>
-								{% endfor %}
+							{% for country in countries %}
+								<option value="{{country.id}}">{{country.label}}</option>
+							{% endfor %}
 						</select>
 					</div>
 				</div>
 				<!-- FIN div gpe_right_img  -->
 			</div>
 			<!-- FIN div img_+_input  -->
-			{# <!-- ----------------------input vintage en long -----------------------------> #}
+		{# <!-- ----------------------input vintage en long -----------------------------> #}
 			{# <div
-				class="sous_image d-flex flex-column" id="div_vintage">
-				<label for="cepage" name="cepage"class="form-label text-start p-1 mb-0 mt-3">Cépage :</label>
-				<select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
-					<option selected>Choisir le cépage</option>
-					<option selected>Choisir le cépage</option>
-					<option selected>Choisir le cépage</option>
-				</select>
-			</div> #}
+																class="sous_image d-flex flex-column" id="div_vintage">
+																<label for="cepage" name="cepage"class="form-label text-start p-1 mb-0 mt-3">Cépage :</label>
+																<select class="form-select form-select-sm mt-4" aria-lasbel="Default select example">
+																	<option selected>Choisir le cépage</option>
+																	<option selected>Choisir le cépage</option>
+																	<option selected>Choisir le cépage</option>
+																</select>
+															</div> #}
 		</div>
 
 
@@ -293,11 +291,11 @@
 
 	<div class="d-flex justify-content-center gap-3 mt-3 mb-5">
 		<div class="bg_prune d-flex justify-content-center">
-		<button type="submit" id="btnadd" class=" btn_dark btn mb-3 mt-3">Ajouter</button>
+			<button type="submit" id="btnadd" class=" btn btn-prune mb-3 mt-3">Ajouter</button>
 
 		</div>
 		<div class="bg_prune d-flex justify-content-center">
-			<button type="submit" id="btnadd" class=" btn-pinkWine btn mb-3 mt-3">Annuler</button>
+			<a href="maCave" type="submit" id="btnadd" class=" btn btn-pinkWine  mb-3 mt-3">Annuler</a>
 		</div>
 
 	</div>
