@@ -27,7 +27,7 @@
 					<input hidden name="wine_id" value='{{wine.id}}' id="wine_id">
 					<div class="div_illustration input-group-sm" id="div_illustration">
 						<div class="img_bouteille m-auto">
-							<img src="{{ wine.picture ?? '/assets/images/bouteille.svg'}}" class="mt-5 mb-2 w-1 h-auto">
+							<img src="{{ wine.picture ?? '/assets/images/bouteille.svg'}}" style="max-height: 15Rem; object-fit:cover" class="mt-5 mb-2 w-1 h-auto">
 						</div>
 						<input
 						type="file" name="avatar" class="form-control" value={{wine.picture}} aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="picture">
@@ -73,10 +73,10 @@
 								{% endfor %}
 							</select>
 							{# <select class="select-type" name="type[]" multiple id="type">
-																																										                            <?php foreach ($types as $type) : ?>
-																																										                                    <option value="<?= $type['id'] ?>"><?= $type['libelle'] ?> </option>
-																																										                                <?php endforeach ?>
-																																										                        </select> #}
+																																																								                            <?php foreach ($types as $type) : ?>
+																																																								                                    <option value="<?= $type['id'] ?>"><?= $type['libelle'] ?> </option>
+																																																								                                <?php endforeach ?>
+																																																								                        </select> #}
 						</div>
 						<div class="d-flex flex-column" id="div_annee">
 							<label for="vintage" class="form-label text-start p-1 mt-3 mb-0 mb-0 text-start">Année:</label>
@@ -118,11 +118,11 @@
 			<!-- FIN div img_+_input  -->
 		{# <!-- ----------------------input vintage en long -----------------------------> #}
 			{# <div class="sous_image d-flex flex-column" id="div_vintage">
-																		                <label for="cepage" name="cepage"class="form-label text-start p-1 mt-3">Cépage :</label>
-																		                        <select class="form-select form-select-sm mb-0" aria-lasbel="Default select example">
-																		                            <option selected>Choisir le cépage</option>                           
-																		                        </select>
-																		            </div>    #}
+																								                <label for="cepage" name="cepage"class="form-label text-start p-1 mt-3">Cépage :</label>
+																								                        <select class="form-select form-select-sm mb-0" aria-lasbel="Default select example">
+																								                            <option selected>Choisir le cépage</option>                           
+																								                        </select>
+																								            </div>    #}
 		</div>
 
 
