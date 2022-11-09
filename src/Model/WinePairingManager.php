@@ -24,6 +24,22 @@ class WinePairingManager extends AbstractManager
         return $statement->fetchAll();
     }
 
+    public function insert($wineDatas)
+    {
+        // inserting lines on wine_has_pairing where wine_id
+        $winePairings = $wineDatas['winePairings'];
+
+        foreach ($winePairings as $winePairing) {
+            $query = 'INSERT INTO wine_has_winePairing VALUES(:wine_id, :winePairing_id)';
+            $statement = $this->pdo->prepare($query);
+            $data = [
+                ':wine_id' => $wineDatas['wine_id'],
+                ':winePairing_id' => $winePairing
+            ];
+            $statement->execute($data);
+        }
+    }
+
     public function update($wineDatas)
     {
 

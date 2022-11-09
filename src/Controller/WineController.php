@@ -121,6 +121,12 @@ class WineController extends AbstractController
                 $this->uploadFile();
                 $wineManager = new WineManager();
 
+            // creating new WinePairingManager and update the join where wine_id
+            // remember => $wineDatas= $_POST
+                $winePairing = new WinePairingManager();
+                $winePairing->update($wineDatas);
+
+
                 $id = $wineManager->insertWine($wineDatas);
 
                 header('Location:/showWine?id=' . $id);
