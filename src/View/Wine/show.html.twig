@@ -108,7 +108,7 @@
 
 
 			{# second section description #}
-			<div class=" border-top border-bottom border-prune p-4">
+			<div class=" border-top border-bottom border-prune  p-4" style="background-color: var(--kakiOpacity)">
 				<h3>Description</h3>
 				<p>{{wine.description}}</p>
 			</div>
@@ -130,18 +130,18 @@
 			</div>
 
 			{# fourth section commentaire #}
-			<div class=" border-top border-bottom border-prune p-4">
+			<div class=" border-top border-bottom border-prune p-4" style="background-color: var(--kakiOpacity)">
 				<h3>Mon commentaire</h3>
 				<p>{{wine.comment}}</p>
 			</div>
 
 
 			{# fifth section buttons modify and return #}
-			<div class="d-flex justify-content-between px-4">
+			<div class="d-flex justify-content-between p-4">
 				<a href="maCave" type="button" class="btn p-0 m-0">
 					<i style="font-size:42px;" class="bi bi-arrow-left"></i>
 				</a>
-				<a href="showUpdateForm?id={{wine.id}}" type="button" class="btn btn-pinkWine w-25 my-3 p-2 rounded h-2">
+				<a href="showUpdateForm?id={{wine.id}}" type="button" class="btn btn-prune w-25 my-3 p-2 rounded h-2">
 					<p class="mb-0 text-center">Modifier</p>
 				</a>
 
