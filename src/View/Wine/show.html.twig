@@ -26,7 +26,7 @@
 
 						<div class="d-flex flex-column justify-content-between ">
 							<div class="d-flex justify-content-between w-100">
-								<p class="text-prune text-shadow-lg lh-sm fs-1 p-0 m-0">{{wine.domaine|title}}</p>
+								<p style="font-family: var(--font-secondary);" class="text-prune text-shadow-lg lh-sm fs-1 p-0 m-0">{{wine.domaine|title}}</p>
 
 
 								{% include "Component/_stars.html.twig" %}
@@ -118,17 +118,19 @@
 				<div>
 					<p class="text-prune">Prix d'achat :
 						{{wine.price}}€</p>
-					<p class="text-prune">Date d'achat :
-						{{wine.purchaseDate}}</p>
-				</div>
-				<div>
 					<p class="text-prune">Valeur :
 						{{wine.value}}€</p>
+					<p class="text-prune">Date d'achat :
+						{{wine.purchaseDate}}</p>
+					<p>
+						<strong>Emplacement dans ma cave :
+						</strong>
+						{{wine.cellarLocation}}</p>
 				</div>
 			</div>
 
 			{# fourth section commentaire #}
-			<div class=" border-top border-bottom border-dark p-4">
+			<div class=" border-top border-bottom border-prune p-4">
 				<h3>Mon commentaire</h3>
 				<p>{{wine.comment}}</p>
 			</div>

@@ -5,6 +5,10 @@
     --yellowWine: #ffe675;
     --pinkWine: #eabca9;
     --redWine: #893a2c;
+    --font-primary: "Lato", sans-serif;
+    --font-secondary: "Playfair Display", serif;
+    --font-third: "Prata", serif;
+    --font-maj: "Playfair Display SC";
 }
 
 * {
@@ -12,8 +16,14 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
+    font-family: var(--font-primary);
 }
-
+h1 {
+    font-family: var(--font-maj);
+}
+h2 {
+    font-family: var(--font-secondary);
+}
 a {
     text-decoration: none;
 }
