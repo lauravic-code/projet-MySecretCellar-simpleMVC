@@ -36,18 +36,18 @@ class UserManager extends AbstractManager
         $_POST['firstname'] = trim($_POST['firstname']);
         $_POST['lastname'] = trim($_POST['lastname']);
         $_POST['email'] = trim($_POST['email']);
-        $_POST['password'] = trim($_POST['password']);
-        $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
+       // $_POST['password'] = trim($_POST['password']);
+        // $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
        //$avatar = trim($_POST['avatar']);
         $_POST['dateOfBirth'] = trim($_POST['dateOfBirth']);
 
         $statement = $this->pdo->prepare(" UPDATE " . self::TABLE . " SET `firstname` = :firstname,
-         `lastname` = :lastname, `password` = :password, `dateOfBirth` = :dateOfBirth, `email` =:email WHERE `id`=:id");
+         `lastname` = :lastname, `dateOfBirth` = :dateOfBirth, `email` =:email WHERE `id`=:id");
 
         $statement->bindValue('firstname', $_POST['firstname'], PDO::PARAM_STR);
         $statement->bindValue('lastname', $_POST['lastname'], PDO::PARAM_STR);
         $statement->bindValue('email', $_POST['email'], PDO::PARAM_STR);
-        $statement->bindValue('password', $_POST['password'], PDO::PARAM_STR);
+        // $statement->bindValue('password', $_POST['password'], PDO::PARAM_STR);
         $statement->bindValue('dateOfBirth', $_POST['dateOfBirth'], PDO::PARAM_STR);
         $statement->bindValue('id', $_POST['id'], PDO::PARAM_INT);
 
