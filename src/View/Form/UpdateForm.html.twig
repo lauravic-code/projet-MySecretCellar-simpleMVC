@@ -25,9 +25,9 @@
 					class="img_input">
 					{# <!-- ----------------------illustration -----------------------------> #}
 					<input hidden name="wine_id" value='{{wine.id}}' id="wine_id">
-					<div class="div_illustration input-group-sm" id="div_illustration">
-						<div class="img_bouteille m-auto">
-							<img src="{{ wine.picture ?? '/assets/images/bouteille.svg'}}" class="mt-5 mb-2 w-1 h-auto">
+					<div class="div_illustration  d-flex justify-content-center align-items-center input-group-sm" id="div_illustration">
+						<div class="img_bouteille d-flex justify-content-center align-items-center ">
+							<img src="{{ wine.picture ?? '/assets/images/bouteille.svg'}}"  style="max-height: 15Rem; object-fit:cover"/>
 						</div>
 						<input
 						type="file" name="avatar" class="form-control" value={{wine.picture}} aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="picture">
