@@ -26,6 +26,10 @@ a {
     .responsive-font-example {
         font-size: 15px;
     }
+
+    .fontfooter {
+        font-size: 13px;
+    }
 }
 
 @media (min-width: 576px) {
