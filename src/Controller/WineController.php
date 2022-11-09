@@ -111,32 +111,32 @@ class WineController extends AbstractController
     {
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // clean $_POST data
-            // $wine = array_map('trim', $_POST);
-
             $wineDatas  = $_POST;
 
-            if ($_FILES) {
-                // if validation is ok, insert and redirection
-                $this->uploadFile();
-                $wineManager = new WineManager();
+            if (!empty($_FILES['avatar']['tmp_name'])) {
+                $path = $this->uploadFile();
 
+                // $this->deleteFile();
+            } else {
+                $path = null;
+            }
+                $wineManager = new WineManager();
+                $id = $wineManager->insertWine($wineDatas, $path);
             // creating new WinePairingManager and update the join where wine_id
             // remember => $wineDatas= $_POST
                 $winePairing = new WinePairingManager();
-                $winePairing->update($wineDatas);
+                $winePairing->insert($wineDatas, $id);
 
 
-                $id = $wineManager->insertWine($wineDatas);
+
 
                 header('Location:/showWine?id=' . $id);
                 return null;
-                // return $this->twig->render('MaCave/cave.html.twig');
-            }
+        }
 
             // return $this->twig->render('add.html.twig');
-        }
     }
+
     /**
      * Show update form for a specific wine
      */
