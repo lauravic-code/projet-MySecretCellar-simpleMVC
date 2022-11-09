@@ -1,9 +1,11 @@
 :root {
     --lightPrimary: #f7f7f3;
     --prune: #4a2c3b;
+    --kakiOpacity: #877e605e;
     --lightSecondary: #e5e2d3;
     --yellowWine: #ffe675;
     --pinkWine: #eabca9;
+    --pinkWineOpacity: #eabda945;
     --redWine: #893a2c;
     --font-primary: "Lato", sans-serif;
     --font-secondary: "Playfair Display", serif;
