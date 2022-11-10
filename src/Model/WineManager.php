@@ -146,4 +146,27 @@ class WineManager extends AbstractManager
 
         return $statement->execute();
     }
+
+    public function getAddFormData()
+    {
+            // get table country
+        $countryManager = new CountryManager();
+        $countries = $countryManager->selectAll('label');
+            // get table region
+        $regionManager = new RegionManager();
+        $regions = $regionManager->selectAll('label');
+            // get table type
+        $typeManager = new TypeManager();
+        $types = $typeManager->selectAll('label');
+            //get appellation
+        $appellationsManager = new AppellationManager();
+        $appellations = $appellationsManager->selectAll('label');
+
+        return [
+            'appellations' => $appellations,
+            'countries' => $countries,
+            'regions' => $regions,
+            'types' => $types
+        ];
+    }
 }
