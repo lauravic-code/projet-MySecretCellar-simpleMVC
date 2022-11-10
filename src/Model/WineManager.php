@@ -147,7 +147,8 @@ class WineManager extends AbstractManager
         return $statement->execute();
     }
 
-    public function getAddFormData(){
+    public function getAddFormData()
+    {
             // get table country
         $countryManager = new CountryManager();
         $countries = $countryManager->selectAll('label');

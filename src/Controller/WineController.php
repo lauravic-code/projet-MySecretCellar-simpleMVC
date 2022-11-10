@@ -19,14 +19,14 @@ class WineController extends AbstractController
     public function viewAddForm(): string
     {
         $wineManager = new WineManager();
-        
+
         return $this->twig->render(
             'Form/AddForm.html.twig',
             $wineManager->getAddFormData()
             // ou  : (new WineManager())->getAddFormData()
         );
     }
-    
+
     public function uploadFile()
     {
 
