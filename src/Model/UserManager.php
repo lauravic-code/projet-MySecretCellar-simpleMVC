@@ -52,9 +52,8 @@ class UserManager extends AbstractManager
         $statement->bindValue('id', $_POST['id'], PDO::PARAM_INT);
         // $statement->bindValue('avatar', $user['avatar'], PDO::PARAM_STR);
         session_unset();
-        $_SESSION['user']= $_POST;
+        $_SESSION['user'] = $_POST;
 
         return $statement->execute();
-
     }
 }
