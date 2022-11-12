@@ -23,14 +23,11 @@ class UserController extends AbstractController
     {
         $userManager = new UserManager();
         $userManager->updateUser();
-        return $this->twig->render('Profil/profil.html.twig');
+        return $this->twig->render('Accueil/accueil.html.twig');
     }
 
     public function viewUpdateForm()
     {
-        //header('Location:/UpdateUser/updateUser.html.twig');
         return $this->twig->render('UpdateUser/updateUser.html.twig');
-
-        //return null;
     }
 }
